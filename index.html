@@ -463,7 +463,6 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
 
 <script>
 const venueImgs=[
-  "https://upload.wikimedia.org/wikipedia/commons/thumb/6/69/Morris_J._Wosk_Centre_for_Dialogue_02.JPG/1280px-Morris_J._Wosk_Centre_for_Dialogue_02.JPG",
   "./images/venue1.jpg",
   "./images/venue2.jpg",
   "./images/venue3.jpg",
@@ -483,6 +482,7 @@ function vNext(){vCur=(vCur+1)%venueImgs.length;renderVenue();}
 function vPrev(){vCur=(vCur-1+venueImgs.length)%venueImgs.length;renderVenue();}
 function vGo(i){vCur=i;renderVenue();}
 renderVenue();
+setInterval(vNext, 4000);
 
 const cases=[
   {tag:"Field Operations",title:"AI Site Inspection Tool",desc:"Capture photos and voice notes on-site — the app generates a structured inspection report automatically. From site to report in minutes.",img:"./images/inspection.jpg"},
