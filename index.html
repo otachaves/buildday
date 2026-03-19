@@ -4,225 +4,202 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width,initial-scale=1"/>
 <title>BuildDay — June 6 @ SFU Vancouver</title>
-<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%232E68FF'/><text y='.9em' font-size='72' x='12' fill='white' font-family='system-ui' font-weight='900'>B</text></svg>"/>
-<link rel="preconnect" href="https://fonts.googleapis.com"/>
-<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
-<link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Space+Grotesk:wght@400;500;600;700&display=swap" rel="stylesheet"/>
 
-<!-- Open Graph -->
-<meta property="og:type" content="website"/>
-<meta property="og:title" content="BuildDay — AEC Innovation Sprint · June 6 · Vancouver"/>
-<meta property="og:description" content="A full day hands-on sprint for architects, engineers & construction professionals. Come with a problem. Leave with a real working app."/>
-<meta property="og:image" content="./images/hero.jpg"/>
-<meta property="og:url" content="https://buildday.archipelagoaec.com"/>
-<meta name="twitter:card" content="summary_large_image"/>
-<meta name="twitter:title" content="BuildDay — AEC Innovation Sprint · June 6 · Vancouver"/>
-<meta name="twitter:description" content="A full day hands-on sprint for architects, engineers & construction professionals. Come with a problem. Leave with a real working app."/>
-<meta name="twitter:image" content="./images/hero.jpg"/>
+  <!-- Favicon -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230066FF'/><text y='.9em' font-size='72' x='12' fill='white' font-family='system-ui' font-weight='900'>B</text></svg>"/>
 
+  <!-- Open Graph / WhatsApp / LinkedIn -->
+  <meta property="og:type" content="website"/>
+  <meta property="og:title" content="BuildDay — AEC Innovation Sprint · June 6 · Vancouver"/>
+  <meta property="og:description" content="A full day hands-on sprint for architects, engineers & construction professionals. Come with a problem. Leave with a real working app."/>
+  <meta property="og:image" content="./images/hero.jpg"/>
+  <meta property="og:url" content="https://buildday.vercel.app"/>
+
+  <!-- Twitter / iMessage -->
+  <meta name="twitter:card" content="summary_large_image"/>
+  <meta name="twitter:title" content="BuildDay — AEC Innovation Sprint · June 6 · Vancouver"/>
+  <meta name="twitter:description" content="A full day hands-on sprint for architects, engineers & construction professionals. Come with a problem. Leave with a real working app."/>
+  <meta name="twitter:image" content="./images/hero.jpg"/>
 <style>
 :root{
-  --blue:#2E68FF;
-  --mint:#38F5A3;
-  --navy:#1B2D50;
-  --deep-navy:#103468;
-  --teal:#00BDA5;
-  --subtle-blue:#5B8AFF;
-  --slate:#475569;
-  --slate-light:#64748B;
-  --border:#E2E8F0;
-  --bg-light:#F1F5F9;
-  --bg-warm:#FAF9F6;
-  --white:#FFFFFF;
+  --accent:#0066FF;
+  --accent2:#00C2FF;
+  --accentw:#FF6B00;
+  --bg:#F7F8FC;
+  --bg2:#FFFFFF;
+  --bg3:#EEF1F8;
+  --text:#0A0E1A;
+  --muted:#5A6180;
+  --border:#DDE2F0;
+  --card:#FFFFFF;
 }
 *{box-sizing:border-box;margin:0;padding:0;}
 html{scroll-behavior:smooth;}
-body{background:var(--white);color:var(--navy);font-family:'Inter',-apple-system,sans-serif;line-height:1.6;overflow-x:hidden;-webkit-font-smoothing:antialiased;}
+body{background:var(--bg);color:var(--text);font-family:'Segoe UI',system-ui,sans-serif;line-height:1.6;overflow-x:hidden;}
 a{color:inherit;text-decoration:none;}
 
+/* AEC SVG BG PATTERNS */
+.aec-bg{position:relative;}
+.aec-bg::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='80' height='80'%3E%3Crect width='80' height='80' fill='none'/%3E%3Cpath d='M0 40 L40 0 L80 40 L40 80 Z' stroke='%230066FF' stroke-width='.4' fill='none' opacity='.07'/%3E%3Cline x1='40' y1='0' x2='40' y2='80' stroke='%230066FF' stroke-width='.3' opacity='.05'/%3E%3Cline x1='0' y1='40' x2='80' y2='40' stroke='%230066FF' stroke-width='.3' opacity='.05'/%3E%3C/svg%3E");
+  background-size:80px 80px;
+}
+.grid-bg{position:relative;}
+.grid-bg::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 0 L40 0 L40 40 L0 40 Z' fill='none' stroke='%230066FF' stroke-width='.35' opacity='.08'/%3E%3Ccircle cx='0' cy='0' r='1.5' fill='%230066FF' opacity='.1'/%3E%3Ccircle cx='40' cy='0' r='1.5' fill='%230066FF' opacity='.1'/%3E%3Ccircle cx='0' cy='40' r='1.5' fill='%230066FF' opacity='.1'/%3E%3Ccircle cx='40' cy='40' r='1.5' fill='%230066FF' opacity='.1'/%3E%3C/svg%3E");
+  background-size:40px 40px;
+}
+.blueprint-bg{position:relative;}
+.blueprint-bg::before{
+  content:'';position:absolute;inset:0;pointer-events:none;
+  background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect width='120' height='120' fill='none'/%3E%3Cpath d='M20 20 L60 5 L100 20 L100 80 L60 95 L20 80 Z' stroke='%230066FF' stroke-width='.5' fill='none' opacity='.06'/%3E%3Cline x1='60' y1='5' x2='60' y2='95' stroke='%230066FF' stroke-width='.4' stroke-dasharray='3,3' opacity='.05'/%3E%3Crect x='40' y='40' width='40' height='30' stroke='%230066FF' stroke-width='.4' fill='none' opacity='.06'/%3E%3Cline x1='0' y1='60' x2='120' y2='60' stroke='%230066FF' stroke-width='.3' opacity='.04'/%3E%3Cline x1='60' y1='0' x2='60' y2='120' stroke='%230066FF' stroke-width='.3' opacity='.04'/%3E%3C/svg%3E");
+  background-size:120px 120px;
+}
+
 /* NAV */
-nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem 3rem;background:rgba(27,45,80,0.97);backdrop-filter:blur(16px);border-bottom:1px solid rgba(255,255,255,.08);}
-.nav-logo{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.15rem;letter-spacing:-.5px;color:var(--white);}
-.nav-logo span{color:var(--mint);}
-.nav-cta{background:var(--blue);color:#fff;font-weight:600;padding:.5rem 1.4rem;border-radius:6px;font-size:.88rem;font-family:'Inter',sans-serif;transition:.2s;}
-.nav-cta:hover{background:#1a52e0;}
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem;background:rgba(247,248,252,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-logo{font-weight:900;font-size:1.15rem;letter-spacing:-0.5px;color:var(--text);}
+.nav-logo span{color:var(--accent);}
+.nav-cta{background:var(--accent);color:#fff;font-weight:800;padding:.5rem 1.3rem;border-radius:6px;font-size:.88rem;transition:.2s;}
+.nav-cta:hover{background:#0052cc;}
 
 /* HERO */
-.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 4rem 5rem;position:relative;overflow:hidden;
-  background:linear-gradient(135deg,var(--navy) 0%,var(--deep-navy) 60%,#1a4a8a 100%);}
-.hero::before{content:'';position:absolute;top:-50%;right:-20%;width:600px;height:600px;background:radial-gradient(circle,rgba(56,245,163,.15) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
-.hero::after{content:'';position:absolute;bottom:-30%;left:-10%;width:500px;height:500px;background:radial-gradient(circle,rgba(46,104,255,.12) 0%,transparent 70%);border-radius:50%;pointer-events:none;}
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 1.5rem 5rem;position:relative;overflow:hidden;}
 .hero-bg-img{position:absolute;inset:0;z-index:0;}
-.hero-bg-img img{width:100%;height:100%;object-fit:cover;opacity:.18;}
-.hero-bg-img::after{content:'';position:absolute;inset:0;background:linear-gradient(135deg,rgba(27,45,80,.92) 0%,rgba(16,52,104,.88) 100%);}
-.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:rgba(56,245,163,.12);border:1px solid rgba(56,245,163,.3);border-radius:999px;padding:.35rem 1rem;font-size:.72rem;color:var(--mint);font-weight:600;margin-bottom:1.5rem;letter-spacing:1.5px;text-transform:uppercase;position:relative;z-index:1;}
-.hero h1{font-family:'Space Grotesk',sans-serif;font-size:clamp(2.8rem,6vw,5.5rem);font-weight:700;line-height:1.05;letter-spacing:-.02em;max-width:900px;margin-bottom:1.25rem;position:relative;z-index:1;color:var(--white);}
-.hero h1 em{color:var(--mint);font-style:normal;}
-.hero-sub{font-size:clamp(1rem,2vw,1.2rem);color:rgba(255,255,255,.7);max-width:560px;margin-bottom:2rem;position:relative;z-index:1;font-weight:300;}
-.hero-sub strong{color:var(--white);font-weight:500;}
-.hero-meta{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;font-size:.88rem;font-weight:500;margin-bottom:2.5rem;position:relative;z-index:1;}
-.hero-meta-item{display:flex;align-items:center;gap:.4rem;color:rgba(255,255,255,.6);}
-.hero-meta-item strong{color:var(--white);}
+.hero-bg-img img{width:100%;height:100%;object-fit:cover;object-position:center center;}
+.hero-bg-img::after{content:'';position:absolute;inset:0;background:linear-gradient(160deg,rgba(238,244,255,.92) 0%,rgba(247,248,252,.88) 50%,rgba(238,249,255,.92) 100%);}
+.hero-badge{display:inline-flex;align-items:center;gap:.5rem;background:#fff;border:1px solid var(--border);border-radius:999px;padding:.35rem 1rem;font-size:.75rem;color:var(--accent);font-weight:700;margin-bottom:1.5rem;letter-spacing:1px;text-transform:uppercase;position:relative;z-index:1;box-shadow:0 2px 12px rgba(0,102,255,.08);}
+.hero h1{font-size:clamp(2.6rem,6.5vw,5rem);font-weight:900;line-height:1.05;letter-spacing:-2px;max-width:820px;margin-bottom:1.25rem;position:relative;z-index:1;color:var(--text);}
+.hero h1 em{color:var(--accent);font-style:normal;}
+.hero-sub{font-size:clamp(1rem,2.2vw,1.2rem);color:var(--muted);max-width:520px;margin-bottom:2rem;position:relative;z-index:1;}
+.hero-sub strong{color:var(--text);}
+.hero-meta{display:flex;align-items:center;justify-content:center;gap:1.5rem;flex-wrap:wrap;font-size:.9rem;font-weight:600;margin-bottom:2.5rem;position:relative;z-index:1;}
+.hero-meta-item{display:flex;align-items:center;gap:.4rem;color:var(--muted);}
+.hero-meta-item strong{color:var(--text);}
 .hero-cta{position:relative;z-index:1;display:flex;flex-direction:column;align-items:center;gap:.75rem;}
-.btn-hero{background:var(--blue);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;padding:1rem 2.8rem;border-radius:8px;font-size:1.05rem;transition:.2s;box-shadow:0 8px 32px rgba(46,104,255,.4);}
-.btn-hero:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(46,104,255,.5);background:#1a52e0;}
-.hero-cta-note{font-size:.8rem;color:rgba(255,255,255,.45);}
-.hero-collab{margin-top:2rem;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);display:flex;flex-direction:column;align-items:center;gap:.75rem;position:relative;z-index:1;}
-.hero-collab-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);font-weight:600;}
-.hero-collab-logos{display:flex;align-items:center;gap:2rem;flex-wrap:wrap;justify-content:center;}
-.hero-collab-logos img{height:26px;object-fit:contain;}
-.hero-collab-x{color:rgba(255,255,255,.3);font-size:1rem;font-weight:300;}
-
-/* SECTION BASE */
-section{padding:5.5rem 4rem;}
-.section-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.2em;color:var(--blue);font-weight:600;margin-bottom:.6rem;font-family:'Inter',sans-serif;}
-h2.st{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.8rem,3.5vw,2.6rem);font-weight:700;letter-spacing:-.01em;margin-bottom:.75rem;color:var(--navy);}
-.section-sub{color:var(--slate);font-size:1rem;max-width:680px;line-height:1.7;}
+.btn-hero{background:var(--accent);color:#fff;font-weight:900;padding:1rem 2.8rem;border-radius:10px;font-size:1.1rem;transition:.2s;box-shadow:0 8px 30px rgba(0,102,255,.25);}
+.btn-hero:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(0,102,255,.35);background:#0052cc;}
+.hero-cta-note{font-size:.8rem;color:var(--muted);}
 
 /* WHAT */
-.what{background:var(--bg-warm);}
-.what-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.5rem;margin-top:3rem;}
-.what-card{background:var(--white);border:1px solid var(--border);border-radius:12px;padding:1.75rem;transition:.2s;}
-.what-card:hover{box-shadow:0 8px 32px rgba(46,104,255,.08);border-color:#c0cef8;transform:translateY(-3px);}
-.what-icon{font-size:2rem;margin-bottom:1rem;}
-.what-card h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;margin-bottom:.5rem;color:var(--navy);}
-.what-card p{color:var(--slate);font-size:.88rem;line-height:1.6;}
-.collab-bar{margin-top:3rem;padding-top:2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;gap:2.5rem;flex-wrap:wrap;}
-.collab-bar-label{font-size:.7rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--slate-light);font-weight:600;font-family:'Inter',sans-serif;}
-.collab-bar img{height:30px;object-fit:contain;}
-.collab-x{color:var(--blue);font-weight:700;font-size:1.1rem;}
+.what{padding:5rem 1.5rem;background:#fff;}
+.what-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;}
+.what-top{max-width:900px;margin:0 auto 2.5rem;text-align:center;}
+.label{text-transform:uppercase;letter-spacing:2px;font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:.6rem;}
+.what-block{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:1.75rem;transition:.2s;}
+.what-block:hover{box-shadow:0 8px 30px rgba(0,102,255,.08);border-color:#c0cef8;transform:translateY(-2px);}
+.what-block .icon{font-size:2rem;margin-bottom:1rem;}
+.what-block h3{font-weight:800;font-size:1rem;margin-bottom:.5rem;}
+.what-block p{color:var(--muted);font-size:.88rem;line-height:1.5;}
 
 /* SCHEDULE */
-.schedule{background:var(--navy);position:relative;overflow:hidden;}
-.schedule::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 80% 50%,rgba(56,245,163,.08) 0%,transparent 70%);pointer-events:none;}
-.schedule .section-label{color:var(--mint);}
-.schedule h2.st{color:var(--white);}
-.sch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-top:2.5rem;}
-.sch-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.5rem;transition:.2s;}
-.sch-card:hover{background:rgba(255,255,255,.08);}
-.sch-card.wide{grid-column:span 4;background:linear-gradient(135deg,rgba(46,104,255,.15),rgba(56,245,163,.08));border-color:rgba(56,245,163,.2);}
-.sch-time{font-size:.7rem;font-weight:600;color:var(--mint);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.5rem;font-family:'Inter',sans-serif;}
-.sch-card h4{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.95rem;margin-bottom:.4rem;color:var(--white);}
-.sch-card p{color:rgba(255,255,255,.55);font-size:.82rem;line-height:1.5;}
+.schedule{padding:5rem 1.5rem;background:var(--bg);}
+.sch-inner{max-width:900px;margin:0 auto;}
+.sch-top{margin-bottom:2.5rem;}
+.sch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
+.sch-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;position:relative;overflow:hidden;transition:.2s;}
+.sch-card:hover{box-shadow:0 8px 24px rgba(0,102,255,.08);}
+.sch-card::after{content:attr(data-n);position:absolute;bottom:-14px;right:4px;font-size:5rem;font-weight:900;color:rgba(0,102,255,.04);line-height:1;}
+.sch-time{font-size:.72rem;font-weight:700;color:var(--accent);text-transform:uppercase;letter-spacing:.5px;margin-bottom:.4rem;}
+.sch-card h4{font-weight:800;font-size:.95rem;margin-bottom:.4rem;}
+.sch-card p{color:var(--muted);font-size:.82rem;line-height:1.45;}
 
 /* CASES */
-.cases{background:var(--bg-light);}
-.carousel-wrap{position:relative;margin-top:2.5rem;}
-#carousel{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
-.case-card{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;transition:.25s;}
-.case-card:hover{border-color:#c0cef8;transform:translateY(-4px);box-shadow:0 12px 36px rgba(46,104,255,.1);}
-.case-img{width:100%;height:140px;object-fit:cover;display:block;background:var(--bg-light);}
+.cases{padding:5rem 1.5rem;background:#fff;}
+.cases-inner{max-width:900px;margin:0 auto;}
+.cases-top{margin-bottom:2.5rem;}
+.cases-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
+.case-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.25s;}
+.case-card:hover{border-color:#c0cef8;transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,102,255,.1);}
+.case-img{width:100%;height:140px;object-fit:cover;display:block;background:var(--bg3);}
 .case-img img{width:100%;height:100%;object-fit:cover;}
 .case-body{padding:1.25rem;}
-.case-tag{display:inline-block;background:rgba(46,104,255,.08);color:var(--blue);font-size:.68rem;font-weight:600;text-transform:uppercase;letter-spacing:.5px;padding:.2rem .65rem;border-radius:999px;margin-bottom:.6rem;font-family:'Inter',sans-serif;}
-.case-body h4{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:.95rem;margin-bottom:.3rem;color:var(--navy);}
-.case-body p{color:var(--slate);font-size:.82rem;line-height:1.5;}
-.carousel-nav{display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;}
-.carousel-dots{display:flex;gap:.5rem;}
-.carousel-arrows{display:flex;gap:.75rem;}
-.c-arrow{background:var(--white);border:1px solid var(--border);border-radius:8px;width:40px;height:40px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:.2s;color:var(--navy);}
-.c-arrow:last-child{background:var(--blue);border-color:var(--blue);color:#fff;}
-.c-arrow:hover{border-color:var(--blue);color:var(--blue);}
-.c-arrow:last-child:hover{background:#1a52e0;}
+.case-tag{display:inline-block;background:rgba(0,102,255,.08);color:var(--accent);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:.2rem .65rem;border-radius:999px;margin-bottom:.6rem;}
+.case-body h4{font-weight:800;font-size:.95rem;margin-bottom:.3rem;}
+.case-body p{color:var(--muted);font-size:.82rem;line-height:1.45;}
 
 /* TEAM */
-.team{background:var(--white);}
-.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;margin-top:2.5rem;}
-.team-card{background:var(--bg-warm);border:1px solid var(--border);border-radius:14px;padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;}
-.team-avatar{width:88px;height:88px;border-radius:12px;background:var(--border);flex-shrink:0;overflow:hidden;border:2px solid var(--blue);}
-.team-avatar img{width:100%;height:100%;object-fit:cover;object-position:center 20%;}
-.team-info h4{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1rem;margin-bottom:.2rem;color:var(--navy);}
-.team-info .role{font-size:.78rem;color:var(--blue);font-weight:600;margin-bottom:.6rem;font-family:'Inter',sans-serif;}
-.team-info p{color:var(--slate);font-size:.85rem;line-height:1.6;}
+.team{padding:5rem 1.5rem;}
+.team-inner{max-width:900px;margin:0 auto;}
+.team-top{margin-bottom:2.5rem;}
+.team-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
+.team-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;box-shadow:0 2px 16px rgba(0,0,0,.04);}
+.team-avatar{width:72px;height:72px;border-radius:50%;background:var(--border);flex-shrink:0;overflow:hidden;border:3px solid var(--accent);}
+.team-avatar-placeholder{width:100%;height:100%;display:flex;align-items:center;justify-content:center;font-size:1.8rem;background:var(--bg3);}
+.team-info h4{font-weight:800;font-size:1rem;margin-bottom:.2rem;}
+.team-info .role{font-size:.8rem;color:var(--accent);font-weight:600;margin-bottom:.6rem;}
+.team-info p{color:var(--muted);font-size:.85rem;line-height:1.5;}
 
 /* VENUE */
-.venue{background:var(--bg-light);}
-.venue-carousel-wrap{position:relative;border-radius:16px;overflow:hidden;border:1px solid var(--border);box-shadow:0 12px 48px rgba(27,45,80,.1);margin-top:2rem;}
-#venueSlides{display:flex;transition:transform .5s ease;height:420px;}
-.venue-slide{min-width:100%;height:100%;flex-shrink:0;}
-.venue-slide img{width:100%;height:100%;object-fit:cover;display:block;}
-.venue-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(27,45,80,.8) 0%,transparent 50%);pointer-events:none;}
+.venue{padding:5rem 1.5rem;background:#fff;}
+.venue-inner{max-width:900px;margin:0 auto;}
+.venue-top{margin-bottom:2rem;}
+.venue-img-wrap{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 12px 48px rgba(0,102,255,.1);}
+.venue-img-wrap img{width:100%;height:420px;object-fit:cover;display:block;}
+.venue-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,14,26,.75) 0%,transparent 50%);}
 .venue-caption{position:absolute;bottom:0;left:0;right:0;padding:2rem;color:#fff;}
-.venue-caption h3{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1.2rem;margin-bottom:.25rem;}
-.venue-caption p{font-size:.85rem;opacity:.75;}
-.venue-btn{position:absolute;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1rem;box-shadow:0 2px 8px rgba(0,0,0,.15);transition:.2s;z-index:10;}
-.venue-btn:hover{background:var(--white);}
-.venue-btn-l{left:1rem;}
-.venue-btn-r{right:1rem;}
-.venue-dots{position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:10;}
+.venue-caption h3{font-weight:900;font-size:1.3rem;margin-bottom:.25rem;}
+.venue-caption p{font-size:.88rem;opacity:.8;}
 
 /* PRICING */
-.pricing{background:var(--deep-navy);position:relative;overflow:hidden;}
-.pricing::before{content:'';position:absolute;top:-40px;right:-40px;width:300px;height:300px;background:radial-gradient(circle,rgba(56,245,163,.12) 0%,transparent 70%);border-radius:50%;}
-.pricing .section-label{color:var(--mint);}
-.pricing h2.st{color:var(--white);}
-.pricing .section-sub{color:rgba(255,255,255,.6);}
-.pw-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;margin-top:2.5rem;align-items:start;}
-.price-cards{display:grid;grid-template-columns:1fr 1fr;gap:1rem;}
-.p-card{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.5rem;position:relative;transition:.2s;}
-.p-card.hot{border-color:var(--mint);background:rgba(56,245,163,.06);}
-.p-hot-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--mint);color:var(--navy);font-size:.62rem;font-weight:700;padding:.2rem .8rem;border-radius:999px;letter-spacing:.5px;white-space:nowrap;font-family:'Inter',sans-serif;}
-.p-card-label{font-size:.7rem;text-transform:uppercase;letter-spacing:.5px;color:rgba(255,255,255,.5);font-weight:600;margin-bottom:.35rem;font-family:'Inter',sans-serif;}
-.p-amount{font-family:'Space Grotesk',sans-serif;font-size:2.4rem;font-weight:700;line-height:1;margin-bottom:.2rem;color:var(--white);}
-.p-amount sup{font-size:.9rem;vertical-align:top;margin-top:.5rem;font-weight:500;}
-.p-note{font-size:.72rem;color:rgba(255,255,255,.4);}
-.p-card.hot .p-card-label{color:rgba(56,245,163,.7);}
-.p-card.hot .p-amount{color:var(--white);}
-.pricing-note{font-size:.75rem;color:rgba(255,255,255,.35);margin-top:1rem;font-family:'Inter',sans-serif;}
-
-/* WAITLIST FORM */
-.wl-form{background:rgba(255,255,255,.06);border:1px solid rgba(255,255,255,.12);border-radius:14px;padding:2rem;display:flex;flex-direction:column;gap:.85rem;}
-.wl-form h3{font-family:'Space Grotesk',sans-serif;font-weight:600;font-size:1.1rem;margin-bottom:.25rem;color:var(--white);}
+.pw{padding:5rem 1.5rem;}
+.pw-inner{max-width:900px;margin:0 auto;}
+.pw-top{margin-bottom:2.5rem;}
+.pw-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
+.price-cards{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
+.p-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;position:relative;transition:.2s;box-shadow:0 2px 12px rgba(0,0,0,.04);}
+.p-card.hot{border-color:var(--accent);box-shadow:0 4px 20px rgba(0,102,255,.12);}
+.p-hot-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:.65rem;font-weight:800;padding:.2rem .75rem;border-radius:999px;letter-spacing:.5px;white-space:nowrap;}
+.p-card-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:600;margin-bottom:.35rem;}
+.p-amount{font-size:2.2rem;font-weight:900;line-height:1;margin-bottom:.2rem;color:var(--text);}
+.p-amount sup{font-size:.9rem;vertical-align:top;margin-top:.4rem;font-weight:700;}
+.p-note{font-size:.75rem;color:var(--muted);}
+.wl-form{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2rem;display:flex;flex-direction:column;gap:.85rem;box-shadow:0 4px 24px rgba(0,102,255,.07);}
+.wl-form h3{font-weight:800;font-size:1.1rem;margin-bottom:.25rem;}
 .wl-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
-.wl-input{width:100%;background:rgba(255,255,255,.08);border:1px solid rgba(255,255,255,.15);border-radius:8px;padding:.75rem 1rem;color:var(--white);font-size:.9rem;outline:none;transition:.2s;font-family:'Inter',sans-serif;}
-.wl-input:focus{border-color:var(--blue);background:rgba(255,255,255,.1);}
-.wl-input::placeholder{color:rgba(255,255,255,.35);}
-.wl-input option{color:var(--navy);background:var(--white);}
-.wl-btn{background:var(--blue);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:600;padding:.9rem;border:none;border-radius:8px;font-size:1rem;cursor:pointer;transition:.2s;width:100%;box-shadow:0 4px 16px rgba(46,104,255,.3);}
-.wl-btn:hover{background:#1a52e0;transform:translateY(-1px);}
-.wl-success{display:none;background:rgba(56,245,163,.08);border:1px solid rgba(56,245,163,.25);border-radius:12px;padding:1.75rem;text-align:center;}
-.wl-success h4{font-family:'Space Grotesk',sans-serif;font-weight:600;margin-bottom:.4rem;color:var(--white);}
-.wl-success p{color:rgba(255,255,255,.6);font-size:.88rem;}
+.wl-input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;color:var(--text);font-size:.9rem;outline:none;transition:.2s;}
+.wl-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,102,255,.08);}
+.wl-input::placeholder{color:var(--muted);}
+.wl-btn{background:var(--accent);color:#fff;font-weight:900;padding:.9rem;border:none;border-radius:8px;font-size:1rem;cursor:pointer;transition:.2s;width:100%;box-shadow:0 4px 16px rgba(0,102,255,.2);}
+.wl-btn:hover{background:#0052cc;transform:translateY(-1px);}
+.wl-success{display:none;background:rgba(0,102,255,.05);border:1px solid rgba(0,102,255,.2);border-radius:12px;padding:1.75rem;text-align:center;}
+.wl-success h4{font-weight:800;margin-bottom:.4rem;}
+.wl-success p{color:var(--muted);font-size:.88rem;}
 
 /* FAQ */
-.faq{background:var(--bg-warm);}
-.faq-list{display:flex;flex-direction:column;gap:.75rem;max-width:800px;margin-top:2rem;}
-.faq-item{background:var(--white);border:1px solid var(--border);border-radius:12px;overflow:hidden;}
-.faq-q{padding:1.1rem 1.4rem;font-family:'Space Grotesk',sans-serif;font-weight:500;font-size:.92rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:.2s;color:var(--navy);}
-.faq-q:hover{color:var(--blue);}
-.faq-arrow{transition:.3s;font-size:.75rem;color:var(--slate-light);}
-.faq-a{max-height:0;overflow:hidden;transition:.35s;color:var(--slate);font-size:.88rem;line-height:1.7;}
+.faq{padding:4rem 1.5rem;background:var(--bg);}
+.faq-inner{max-width:700px;margin:0 auto;}
+.faq-top{margin-bottom:2rem;}
+.faq-list{display:flex;flex-direction:column;gap:.75rem;}
+.faq-item{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
+.faq-q{padding:1.1rem 1.4rem;font-weight:700;font-size:.92rem;cursor:pointer;display:flex;justify-content:space-between;align-items:center;user-select:none;transition:.2s;}
+.faq-q:hover{color:var(--accent);}
+.faq-arrow{transition:.3s;font-size:.75rem;color:var(--muted);}
+.faq-a{max-height:0;overflow:hidden;transition:.35s;color:var(--muted);font-size:.88rem;line-height:1.6;}
 .faq-a.open{max-height:200px;padding:0 1.4rem 1.1rem;}
 
 /* FOOTER */
-footer{background:var(--navy);padding:2.5rem 4rem;text-align:center;border-top:1px solid rgba(255,255,255,.08);}
-footer p{color:rgba(255,255,255,.45);font-size:.82rem;}
-footer strong{color:rgba(255,255,255,.8);}
-footer a{color:var(--mint);}
-.footer-logos{display:flex;align-items:center;justify-content:center;gap:2rem;margin-bottom:1.25rem;flex-wrap:wrap;}
-.footer-logos img{height:26px;object-fit:contain;}
-.footer-x{color:rgba(255,255,255,.3);font-size:.9rem;}
-.footer-sponsor{margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.08);font-size:.78rem;color:rgba(255,255,255,.3);}
-.footer-sponsor a{color:var(--white);font-weight:600;text-decoration:underline;text-underline-offset:3px;}
+footer{background:var(--text);padding:2.5rem 1.5rem;text-align:center;}
+footer p{color:rgba(255,255,255,.5);font-size:.82rem;}
+footer strong{color:#fff;}
+footer a{color:var(--accent2);}
 
-/* RESPONSIVE */
-@media(max-width:900px){
-  nav{padding:.9rem 1.5rem;}
-  section{padding:4rem 1.5rem;}
-  .hero{padding:6rem 1.5rem 4rem;}
-  .what-grid{grid-template-columns:1fr;}
+/* SECTION TITLES */
+h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;margin-bottom:.5rem;}
+
+@media(max-width:768px){
+  .what-inner{grid-template-columns:1fr;}
   .sch-grid{grid-template-columns:1fr 1fr;}
-  .sch-card.wide{grid-column:span 2;}
-  #carousel{grid-template-columns:1fr;}
+  .cases-grid{grid-template-columns:1fr;}
   .team-grid{grid-template-columns:1fr;}
-  .team-card{flex-direction:column;}
+  .team-card{flex-direction:column;gap:1rem;}
   .pw-grid{grid-template-columns:1fr;}
   .wl-row{grid-template-columns:1fr;}
-  footer{padding:2rem 1.5rem;}
 }
-@media(max-width:600px){
+@media(max-width:480px){
   .sch-grid{grid-template-columns:1fr;}
-  .sch-card.wide{grid-column:span 1;}
   .price-cards{grid-template-columns:1fr;}
 }
 </style>
@@ -236,131 +213,138 @@ footer a{color:var(--mint);}
 </nav>
 
 <!-- HERO -->
-<section class="hero" style="padding-left:4rem;padding-right:4rem;">
+<section class="hero">
   <div class="hero-bg-img">
     <img src="./images/hero.jpg" alt="Team collaborating"/>
   </div>
   <div class="hero-badge">🏗️ AEC Innovation Sprint · Vancouver · June 6</div>
   <h1>You have a problem<br>that wastes hours.<br><em>Let's turn it into an app.</em></h1>
-  <p class="hero-sub">A full day hands-on sprint for <strong>architects, engineers & construction professionals.</strong></p>
+  <p class="hero-sub">A hands-on sprint for <strong>architects, engineers & construction professionals.</strong></p>
   <div class="hero-meta">
     <div class="hero-meta-item"><span>📅</span><strong>June 6, 2026</strong></div>
     <div class="hero-meta-item"><span>📍</span><strong>SFU Vancouver</strong></div>
   </div>
-  <div class="hero-cta">
+      <div class="hero-cta">
     <a href="#register" class="btn-hero">Reserve My Spot →</a>
     <div class="hero-cta-note">Early bird from $49 · Tickets on sale soon</div>
-    <div class="hero-collab">
-      <div class="hero-collab-label">A collaboration between</div>
-      <div class="hero-collab-logos">
-        <img src="./images/logo-archipelago.png" alt="Archipelago"/>
-        <span class="hero-collab-x">×</span>
-        <img src="./images/logo-sfu.png" alt="Simon Fraser University"/>
+
+  </div>
+</section>
+
+<!-- WHAT -->
+<section class="what grid-bg">
+  <div class="what-top">
+    <div class="label">What is BuildDay?</div>
+    <h2 class="st">Not a conference. Not a workshop.<br>You actually build.</h2>
+    <p style="color:var(--muted);font-size:1rem;max-width:560px;margin:0 auto;">A structured one-day sprint where real AEC professionals tackle real problems — and leave with a working app, not just notes.</p>
+  </div>
+  <div class="what-inner">
+    <div class="what-block">
+      <div class="icon">🎯</div>
+      <h3>Bring any problem</h3>
+      <p>A workflow that eats hours. A gap in your team's process. An idea you've had for months. Just show up with the problem.</p>
+    </div>
+    <div class="what-block">
+      <div class="icon">🤝</div>
+      <h3>Build with a team</h3>
+      <p>Arrive solo and form a team on the day, or bring your crew. Groups of 6–8 work together with mentor support throughout.</p>
+    </div>
+    <div class="what-block">
+      <div class="icon">🚀</div>
+      <h3>Leave with something real</h3>
+      <p>Not a mockup. Not slides. A working application you can use on Monday — and keep developing beyond the event.</p>
+    </div>
+  </div>
+  <!-- Co-hosted by -->
+  <div style="max-width:900px;margin:2.5rem auto 0;padding-top:2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;">
+    <span style="font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-weight:600;">A collaboration between</span>
+    <img src="./images/logo-archipelago-light.png" alt="Archipelago" style="height:32px;object-fit:contain;"/>
+    <span style="color:var(--accent);font-weight:900;font-size:1.2rem;">×</span>
+    <img src="./images/logo-sfu-light.png" alt="Simon Fraser University" style="height:36px;object-fit:contain;"/>
+  </div>
+</section>
+<section class="schedule blueprint-bg">
+  <div class="sch-inner">
+    <div class="sch-top">
+      <div class="label">The Day · June 6</div>
+      <h2 class="st">A Full Day Sprint. From Problem to App.</h2>
+    </div>
+    <div class="sch-grid">
+      <div class="sch-card" data-n="1">
+        <div class="sch-time">8:00 – 9:45 AM</div>
+        <h4>☕ Pitch & Team Up</h4>
+        <p>Arrive, pitch your problem in 60 seconds, vote on the strongest ideas, and form your team.</p>
+      </div>
+      <div class="sch-card" data-n="2">
+        <div class="sch-time">10:00 AM – 1:00 PM</div>
+        <h4>🛠️ Build Sprint</h4>
+        <p>Heads down with mentor support. Define the workflow, pick the tools, and start building your app.</p>
+      </div>
+      <div class="sch-card" data-n="3">
+        <div class="sch-time">1:00 – 4:30 PM</div>
+        <h4>⚡ Lunch + Final Push</h4>
+        <p>Refuel, regroup with mentors, sharpen scope, and finish strong. Test your app before the final hour.</p>
+      </div>
+      <div class="sch-card" data-n="4">
+        <div class="sch-time">4:30 – 6:00 PM</div>
+        <h4>🏆 Final Pitches</h4>
+        <p>Selected teams present on stage. Show what you built, the problem it solves, and how far you got in one day.</p>
+      </div>
+      <div class="sch-card" style="grid-column:span 4;background:linear-gradient(135deg,#EEF4FF,#fff);" data-n="🎉">
+        <div class="sch-time">6:00 – 8:00 PM</div>
+        <h4>🎉 Celebration & Networking</h4>
+        <p>Awards, drinks, and conversations. Many teams leave ready to keep building — and with new collaborators to do it with.</p>
       </div>
     </div>
   </div>
 </section>
 
-<!-- WHAT IS BUILDDAY -->
-<section class="what">
-  <div class="section-label">What is BuildDay?</div>
-  <h2 class="st">Not a conference. Not a workshop.<br>You actually build.</h2>
-  <p class="section-sub">A structured full day sprint where real AEC professionals tackle real problems — and leave with a working app, not just notes.</p>
-  <div class="what-grid">
-    <div class="what-card">
-      <div class="what-icon">🎯</div>
-      <h3>Bring any problem</h3>
-      <p>A workflow that eats hours. A gap in your team's process. An idea you've had for months. Just show up with the problem.</p>
+<!-- CASES -->
+<section class="cases aec-bg">
+  <div class="cases-inner">
+    <div class="cases-top">
+      <div class="label">What You'll Build</div>
+      <h2 class="st">Real AEC apps. Built in a day.</h2>
+      <p style="color:var(--muted);font-size:.95rem;">Tools AEC professionals have built in similar sprints — solving problems from their own practice.</p>
     </div>
-    <div class="what-card">
-      <div class="what-icon">🤝</div>
-      <h3>Build with a team</h3>
-      <p>Arrive solo and form a team on the day, or bring your crew. Groups of 6–8 work together with mentor support throughout.</p>
-    </div>
-    <div class="what-card">
-      <div class="what-icon">🚀</div>
-      <h3>Leave with something real</h3>
-      <p>Not a mockup. Not slides. A working application you can use on Monday — and keep developing beyond the event.</p>
-    </div>
-  </div>
-  <!-- Logo bar -->
-  <div class="collab-bar">
-    <span class="collab-bar-label">A collaboration between</span>
-    <img src="./images/logo-archipelago-light.png" alt="Archipelago"/>
-    <span class="collab-x">×</span>
-    <img src="./images/logo-sfu-light.png" alt="Simon Fraser University"/>
-  </div>
-</section>
-
-<!-- SCHEDULE -->
-<section class="schedule">
-  <div class="section-label">The Day · June 6</div>
-  <h2 class="st">A Full Day Sprint. From Problem to App.</h2>
-  <div class="sch-grid">
-    <div class="sch-card">
-      <div class="sch-time">8:00 – 9:45 AM</div>
-      <h4>☕ Pitch & Team Up</h4>
-      <p>Arrive, pitch your problem in 60 seconds, vote on the strongest ideas, and form your team.</p>
-    </div>
-    <div class="sch-card">
-      <div class="sch-time">10:00 AM – 1:00 PM</div>
-      <h4>🛠️ Build Sprint</h4>
-      <p>Heads down with mentor support. Define the workflow, pick the tools, and start building your app.</p>
-    </div>
-    <div class="sch-card">
-      <div class="sch-time">1:00 – 4:30 PM</div>
-      <h4>⚡ Lunch + Final Push</h4>
-      <p>Refuel, regroup with mentors, sharpen scope, and finish strong. Test your app before the final hour.</p>
-    </div>
-    <div class="sch-card">
-      <div class="sch-time">4:30 – 6:00 PM</div>
-      <h4>🏆 Final Pitches</h4>
-      <p>Selected teams present on stage. Show what you built, the problem it solves, and how far you got.</p>
-    </div>
-    <div class="sch-card wide">
-      <div class="sch-time">6:00 – 8:00 PM</div>
-      <h4>🎉 Celebration & Networking</h4>
-      <p>Awards, drinks, and conversations. Many teams leave ready to keep building — and with new collaborators to do it with.</p>
-    </div>
-  </div>
-</section>
-
-<!-- WHAT YOU'LL BUILD -->
-<section class="cases">
-  <div class="section-label">What You'll Build</div>
-  <h2 class="st">Real AEC apps. Built in a day.</h2>
-  <p class="section-sub">Tools AEC professionals have built in similar sprints — solving problems from their own practice.</p>
-  <div class="carousel-wrap">
-    <div id="carousel"></div>
-    <div class="carousel-nav">
-      <div class="carousel-dots" id="dots"></div>
-      <div class="carousel-arrows">
-        <button class="c-arrow" onclick="prevSlide()">←</button>
-        <button class="c-arrow" onclick="nextSlide()">→</button>
+    <!-- CAROUSEL -->
+    <div style="position:relative;">
+      <div id="carousel" style="display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;overflow:hidden;transition:.4s;">
+      </div>
+      <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;">
+        <div style="display:flex;gap:.5rem;" id="dots"></div>
+        <div style="display:flex;gap:.75rem;">
+          <button onclick="prevSlide()" style="background:#fff;border:1px solid var(--border);border-radius:8px;width:40px;height:40px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:.2s;" onmouseover="this.style.borderColor='var(--accent)'" onmouseout="this.style.borderColor='var(--border)'">←</button>
+          <button onclick="nextSlide()" style="background:var(--accent);border:none;border-radius:8px;width:40px;height:40px;cursor:pointer;font-size:1rem;color:#fff;display:flex;align-items:center;justify-content:center;transition:.2s;">→</button>
+        </div>
       </div>
     </div>
   </div>
 </section>
 
 <!-- TEAM -->
-<section class="team">
-  <div class="section-label">Who's Behind This</div>
-  <h2 class="st">Delivered by AEC pros<br>who actually build.</h2>
-  <div class="team-grid">
-    <div class="team-card">
-      <div class="team-avatar"><img src="./images/brian.jpg" alt="Brian Liu"/></div>
-      <div class="team-info">
-        <h4>Brian Liu, P.Eng</h4>
-        <div class="role">Civil Engineer · Fractional CTO · Archipelago</div>
-        <p>Civil engineer and fractional CTO specializing in technology implementation within AEC companies. As a serial creator of vibecoded internal applications, he builds workflow-specific tools rapidly to solve real operational problems. As founder and P.Eng at Archipelago, Brian bridges technical capability with real-world AEC workflows.</p>
-      </div>
+<section class="team grid-bg">
+  <div class="team-inner">
+    <div class="team-top">
+      <div class="label">Who's Behind This</div>
+      <h2 class="st">Delivered by AEC pros<br>who actually build.</h2>
     </div>
-    <div class="team-card">
-      <div class="team-avatar"><img src="./images/otavio.jpg" alt="Otavio Chaves"/></div>
-      <div class="team-info">
-        <h4>Otavio Chaves</h4>
-        <div class="role">Architect · Community Builder · Archipelago</div>
-        <p>Organized, facilitated, and mentored at 10+ startup weekends and hackathon-style events. With a background in architecture and deep community program experience, he designs structured, high-impact experiences that help professionals move from ideas to execution. At Archipelago, he leads community strategy and hands-on innovation initiatives.</p>
+    <div class="team-grid">
+      <div class="team-card">
+        <div style="width:100px;height:100px;border-radius:14px;background:var(--border);flex-shrink:0;overflow:hidden;border:2px solid var(--accent);"><img src="./images/brian.jpg" alt="Brian Liu" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;"/></div>
+        <div class="team-info">
+          <h4>Brian Liu, P.Eng</h4>
+          <div class="role">Civil Engineer · Fractional CTO · Archipelago</div>
+          <p>Civil engineer and fractional CTO specializing in technology implementation within AEC companies. As a serial creator of vibecoded internal applications, he builds workflow-specific tools rapidly to solve real operational problems. As founder and P.Eng at Archipelago, Brian bridges technical capability with real-world AEC workflows.</p>
+        </div>
+      </div>
+      <div class="team-card">
+        <div style="width:100px;height:100px;border-radius:14px;background:var(--border);flex-shrink:0;overflow:hidden;border:2px solid var(--accent);"><img src="./images/otavio.jpg" alt="Otavio Chaves" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;"/></div>
+        <div class="team-info">
+          <h4>Otavio Chaves</h4>
+          <div class="role">Architect · Community Builder · Archipelago</div>
+          <p>Organized, facilitated, and mentored at 10+ startup weekends and hackathon-style events. With a background in architecture and deep community program experience, he designs structured, high-impact experiences that help professionals move from ideas to execution. At Archipelago, he leads community strategy and hands-on innovation initiatives.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -368,74 +352,86 @@ footer a{color:var(--mint);}
 
 <!-- VENUE -->
 <section class="venue">
-  <div class="section-label">Venue</div>
-  <h2 class="st">A space built for big ideas.</h2>
-  <div class="venue-carousel-wrap">
-    <div id="venueSlides"></div>
-    <button class="venue-btn venue-btn-l" onclick="vPrev()">←</button>
-    <button class="venue-btn venue-btn-r" onclick="vNext()">→</button>
-    <div class="venue-dots" id="venueDots"></div>
-    <div class="venue-overlay"></div>
-    <div class="venue-caption">
-      <h3>Morris J. Wosk Centre for Dialogue</h3>
-      <p>Simon Fraser University · 515 W Hastings St, Vancouver, BC</p>
+  <div class="venue-inner">
+    <div class="venue-top">
+      <div class="label">Venue</div>
+      <h2 class="st">A space built for big ideas.</h2>
+    </div>
+    <div class="venue-img-wrap" style="position:relative;">
+      <!-- Venue Carousel -->
+      <div id="venueCarousel" style="position:relative;overflow:hidden;border-radius:20px;height:420px;">
+        <div id="venueSlides" style="display:flex;transition:transform .5s ease;height:100%;">
+        </div>
+      </div>
+      <button onclick="vPrev()" style="position:absolute;left:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1rem;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.15);">←</button>
+      <button onclick="vNext()" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1rem;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.15);">→</button>
+      <div id="venueDots" style="position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:10;"></div>
+      <div class="venue-overlay"></div>
+      <div class="venue-caption">
+        <h3>Morris J. Wosk Centre for Dialogue</h3>
+        <p>Simon Fraser University · 515 W Hastings St, Vancouver, BC</p>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- PRICING + WAITLIST -->
-<section class="pricing" id="register">
-  <div class="section-label">Tickets · June 6, 2026</div>
-  <h2 class="st">Reserve your spot.</h2>
-  <p class="section-sub">All tickets include meals, mentorship, workspace, and the full day's program.</p>
-  <div class="pw-grid">
-    <div>
-      <div class="price-cards">
-        <div class="p-card hot">
-          <div class="p-hot-badge">⚡ EARLY BIRD</div>
-          <div class="p-card-label" style="margin-top:.6rem;">General</div>
-          <div class="p-amount"><sup>$</sup>49</div>
-          <div class="p-note">Limited spots</div>
-        </div>
-        <div class="p-card">
-          <div class="p-card-label">Standard</div>
-          <div class="p-amount"><sup>$</sup>79</div>
-          <div class="p-note">General admission</div>
-        </div>
-        <div class="p-card hot">
-          <div class="p-hot-badge">⚡ EARLY BIRD</div>
-          <div class="p-card-label" style="margin-top:.6rem;">Student</div>
-          <div class="p-amount"><sup>$</sup>29</div>
-          <div class="p-note">Valid ID required</div>
-        </div>
-        <div class="p-card">
-          <div class="p-card-label">Student Standard</div>
-          <div class="p-amount"><sup>$</sup>39</div>
-          <div class="p-note">Valid ID required</div>
-        </div>
-      </div>
-      <p class="pricing-note">🔒 Secure checkout via Stripe — coming soon.</p>
+<section class="pw blueprint-bg" id="register">
+  <div class="pw-inner">
+    <div class="pw-top">
+      <div class="label">Tickets · June 6, 2026</div>
+      <h2 class="st">Reserve your spot.</h2>
+      <p style="color:var(--muted);font-size:.95rem;">All tickets include meals, mentorship, workspace, and the full day's program.</p>
     </div>
-    <div>
-      <div class="wl-form" id="wlForm">
-        <h3>Join the Waitlist →</h3>
-        <div class="wl-row">
-          <input class="wl-input" type="text" id="wlFirst" placeholder="First name"/>
-          <input class="wl-input" type="text" id="wlLast" placeholder="Last name"/>
+    <div class="pw-grid">
+      <div>
+        <div class="price-cards">
+          <div class="p-card hot">
+            <div class="p-hot-badge">⚡ EARLY BIRD</div>
+            <div class="p-card-label" style="margin-top:.6rem;">General</div>
+            <div class="p-amount"><sup>$</sup>49</div>
+            <div class="p-note">Limited spots</div>
+          </div>
+          <div class="p-card">
+            <div class="p-card-label">Standard</div>
+            <div class="p-amount"><sup>$</sup>79</div>
+            <div class="p-note">General admission</div>
+          </div>
+          <div class="p-card hot">
+            <div class="p-hot-badge">⚡ EARLY BIRD</div>
+            <div class="p-card-label" style="margin-top:.6rem;">Student</div>
+            <div class="p-amount"><sup>$</sup>29</div>
+            <div class="p-note">Valid ID required</div>
+          </div>
+          <div class="p-card">
+            <div class="p-card-label">Student Standard</div>
+            <div class="p-amount"><sup>$</sup>39</div>
+            <div class="p-note">Valid ID required</div>
+          </div>
         </div>
-        <input class="wl-input" type="email" id="wlEmail" placeholder="Work email"/>
-        <input class="wl-input" type="text" id="wlRole" placeholder="Your role (e.g. Architect, PM, Engineer)"/>
-        <select class="wl-input" id="wlType">
-          <option value="" disabled selected>I'm joining as...</option>
-          <option>Solo — I'll find a team</option>
-          <option>Solo — I have an idea to pitch</option>
-          <option>With my own team</option>
-        </select>
-        <button class="wl-btn" onclick="submitWaitlist()">Notify Me When Tickets Drop →</button>
+        <p style="font-size:.78rem;color:var(--muted);margin-top:1rem;">🔒 Secure checkout via Stripe — coming soon.</p>
       </div>
-      <div class="wl-success" id="wlSuccess">
-        <h4>🎉 You're on the list!</h4>
-        <p>We'll reach out as soon as tickets go live. Early bird spots are very limited — you'll be first to know.</p>
+      <div>
+        <div class="wl-form" id="wlForm">
+          <h3>Join the Waitlist →</h3>
+          <div class="wl-row">
+            <input class="wl-input" type="text" id="wlFirst" placeholder="First name"/>
+            <input class="wl-input" type="text" id="wlLast" placeholder="Last name"/>
+          </div>
+          <input class="wl-input" type="email" id="wlEmail" placeholder="Work email"/>
+          <input class="wl-input" type="text" id="wlRole" placeholder="Your role (e.g. Architect, PM, Engineer)"/>
+          <select class="wl-input wl-select" id="wlType">
+            <option value="" disabled selected>I'm joining as...</option>
+            <option>Solo — I'll find a team</option>
+            <option>Solo — I have an idea to pitch</option>
+            <option>With my own team</option>
+          </select>
+          <button class="wl-btn" onclick="submitWaitlist()">Notify Me When Tickets Drop →</button>
+        </div>
+        <div class="wl-success" id="wlSuccess">
+          <h4>🎉 You're on the list!</h4>
+          <p>We'll reach out as soon as tickets go live. Early bird spots are very limited — you'll be first to know.</p>
+        </div>
       </div>
     </div>
   </div>
@@ -443,66 +439,67 @@ footer a{color:var(--mint);}
 
 <!-- FAQ -->
 <section class="faq">
-  <div class="section-label">FAQ</div>
-  <h2 class="st">Quick answers.</h2>
-  <div class="faq-list">
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Can I come alone? <span class="faq-arrow">▼</span></div>
-      <div class="faq-a">Absolutely. Most participants arrive solo. We create dedicated opportunities during the morning for you to meet other participants, join a team, and find a challenge that excites you. You won't be building alone.</div>
+  <div class="faq-inner">
+    <div class="faq-top">
+      <div class="label">FAQ</div>
+      <h2 class="st">Quick answers.</h2>
     </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Do I need to know how to code? <span class="faq-arrow">▼</span></div>
-      <div class="faq-a">No. The tools we use are designed for non-developers. Your AEC expertise — knowing the problem deeply — is worth more than coding skills. Technical participants are welcome too, but they're not required.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">What if I don't have a team or idea? <span class="faq-arrow">▼</span></div>
-      <div class="faq-a">Most people arrive solo. Teams form in the morning based on which problems resonate. If you have an idea, people will rally around it. If you don't, you'll find a challenge that clicks.</div>
-    </div>
-    <div class="faq-item">
-      <div class="faq-q" onclick="toggleFaq(this)">Can I come with my own team? <span class="faq-arrow">▼</span></div>
-      <div class="faq-a">Absolutely. Arrive with a pre-formed group of up to 8 people and work on a shared challenge. Register individually and note your team at sign-up.</div>
+    <div class="faq-list">
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I come alone? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">Absolutely. Most participants arrive solo. We create dedicated opportunities during the morning for you to meet other participants, join a team, and find a challenge that excites you. You won't be building alone.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Do I need to know how to code? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">No. The tools we use are designed for non-developers. Your AEC expertise — knowing the problem deeply — is worth more than coding skills. Technical participants are welcome too, but they're not required.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">What if I don't have a team or idea? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">Most people arrive solo. Teams form in the morning based on which problems resonate. If you have an idea, people will rally around it. If you don't, you'll find a challenge that clicks.</div>
+      </div>
+      <div class="faq-item">
+        <div class="faq-q" onclick="toggleFaq(this)">Can I come with my own team? <span class="faq-arrow">▼</span></div>
+        <div class="faq-a">Absolutely. Arrive with a pre-formed group of up to 8 people and work on a shared challenge. Register individually and note your team at sign-up.</div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <div class="footer-logos">
-    <img src="./images/logo-archipelago.png" alt="Archipelago"/>
-    <span class="footer-x">×</span>
-    <img src="./images/logo-sfu.png" alt="Simon Fraser University"/>
+  <p style="font-size:.95rem;font-weight:800;color:#fff;margin-bottom:.75rem;">BuildDay · June 6, 2026 · SFU Vancouver</p>
+  <div style="display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1rem;">
+    <img src="./images/logo-archipelago.png" alt="Archipelago" style="height:28px;object-fit:contain;"/>
+    <span style="color:rgba(255,255,255,.4);font-size:1rem;">×</span>
+    <img src="./images/logo-sfu.png" alt="Simon Fraser University" style="height:32px;object-fit:contain;"/>
   </div>
-  <p style="font-size:.9rem;font-weight:600;color:rgba(255,255,255,.8);margin-bottom:.4rem;">BuildDay · June 6, 2026 · SFU Vancouver</p>
-  <p>A collaboration between <strong>Archipelago</strong> and <strong>Simon Fraser University</strong></p>
-  <div class="footer-sponsor">Interested in supporting this event? <a href="http://bit.ly/buildday-sponsorship" target="_blank">Get in touch →</a></div>
+  <p style="color:rgba(255,255,255,.45);font-size:.8rem;">A collaboration between Archipelago and Simon Fraser University</p>
+  <p style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.08);font-size:.8rem;">Interested in supporting this event? <a href="http://bit.ly/buildday-sponsorship" target="_blank" style="color:#fff;font-weight:700;text-decoration:underline;text-underline-offset:3px;">Get in touch →</a></p>
 </footer>
 
 <script>
-// FAQ
-function toggleFaq(el){
-  const a=el.nextElementSibling,arrow=el.querySelector('.faq-arrow');
-  const open=a.classList.toggle('open');
-  arrow.style.transform=open?'rotate(180deg)':'';
+const venueImgs=[
+  "./images/venue1.jpg",
+  "./images/venue2.jpg",
+  "./images/venue3.jpg",
+];
+let vCur=0;
+function renderVenue(){
+  const slides=document.getElementById('venueSlides');
+  const dots=document.getElementById('venueDots');
+  slides.innerHTML=venueImgs.map(src=>`
+    <div style="min-width:100%;height:100%;flex-shrink:0;">
+      <img src="${src}" style="width:100%;height:100%;object-fit:cover;display:block;"/>
+    </div>`).join('');
+  slides.style.transform=`translateX(-${vCur*100}%)`;
+  dots.innerHTML=venueImgs.map((_,i)=>`<div onclick="vGo(${i})" style="width:8px;height:8px;border-radius:50%;background:${i===vCur?'#fff':'rgba(255,255,255,.4)'};cursor:pointer;transition:.2s;"></div>`).join('');
 }
+function vNext(){vCur=(vCur+1)%venueImgs.length;renderVenue();}
+function vPrev(){vCur=(vCur-1+venueImgs.length)%venueImgs.length;renderVenue();}
+function vGo(i){vCur=i;renderVenue();}
+renderVenue();
+setInterval(vNext, 4000);
 
-// Waitlist
-async function submitWaitlist(){
-  const first=document.getElementById('wlFirst').value.trim();
-  const last=document.getElementById('wlLast').value.trim();
-  const email=document.getElementById('wlEmail').value.trim();
-  const role=document.getElementById('wlRole').value.trim();
-  const type=document.getElementById('wlType').value;
-  const btn=document.querySelector('.wl-btn');
-  if(!first||!email){alert('Please enter your name and email.');return;}
-  btn.textContent='Sending...';btn.disabled=true;
-  try{
-    const res=await fetch('/api/waitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first,last,email,role,type})});
-    if(res.ok){document.getElementById('wlForm').style.display='none';document.getElementById('wlSuccess').style.display='block';}
-    else{alert('Something went wrong. Please try again.');btn.textContent='Notify Me When Tickets Drop →';btn.disabled=false;}
-  }catch(e){alert('Connection error. Please try again.');btn.textContent='Notify Me When Tickets Drop →';btn.disabled=false;}
-}
-
-// Cases carousel
 const cases=[
   {tag:"Field Operations",title:"AI Site Inspection Tool",desc:"Capture photos and voice notes on-site — the app generates a structured inspection report automatically. From site to report in minutes.",img:"./images/inspection.jpg"},
   {tag:"Estimating",title:"Building Cost Estimator",desc:"Input project specs, get instant preliminary estimates. Answer client questions before the meeting ends.",img:"./images/estimator.jpg"},
@@ -511,32 +508,69 @@ const cases=[
   {tag:"Visualization",title:"AI Render Tool",desc:"Turn sketches or basic models into photorealistic renders in seconds — helping teams communicate design intent to clients without waiting days for renders.",img:"./images/render.jpg"},
   {tag:"Project Management",title:"Project Information Hub",desc:"A single source of truth that pulls data from drawings, emails, RFIs, and documents — so the whole team works from the same up-to-date information.",img:"./images/hub.jpg"},
 ];
-let cur=0;const perPage=3,total=Math.ceil(cases.length/perPage);
+let cur=0;
+const perPage=3;
+const total=Math.ceil(cases.length/perPage);
+
 function renderCarousel(){
-  const c=document.getElementById('carousel'),d=document.getElementById('dots');
-  const slice=cases.slice(cur*perPage,cur*perPage+perPage);
-  c.innerHTML=slice.map(x=>`<div class="case-card"><div class="case-img"><img src="${x.img}" alt="${x.title}" loading="lazy"/></div><div class="case-body"><div class="case-tag">${x.tag}</div><h4>${x.title}</h4><p>${x.desc}</p></div></div>`).join('');
-  d.innerHTML=Array.from({length:total},(_,i)=>`<div onclick="goSlide(${i})" style="width:8px;height:8px;border-radius:50%;background:${i===cur?'var(--blue)':'var(--border)'};cursor:pointer;transition:.2s;"></div>`).join('');
+  const c=document.getElementById('carousel');
+  const d=document.getElementById('dots');
+  const start=cur*perPage;
+  const slice=cases.slice(start,start+perPage);
+  c.innerHTML=slice.map(x=>`
+    <div class="case-card">
+      <div class="case-img"><img src="${x.img}" alt="${x.title}" loading="lazy"/></div>
+      <div class="case-body">
+        <div class="case-tag">${x.tag}</div>
+        <h4>${x.title}</h4>
+        <p>${x.desc}</p>
+      </div>
+    </div>`).join('');
+  d.innerHTML=Array.from({length:total},(_,i)=>`<div onclick="goSlide(${i})" style="width:8px;height:8px;border-radius:50%;background:${i===cur?'var(--accent)':'var(--border)'};cursor:pointer;transition:.2s;"></div>`).join('');
 }
 function nextSlide(){cur=(cur+1)%total;renderCarousel();}
 function prevSlide(){cur=(cur-1+total)%total;renderCarousel();}
 function goSlide(i){cur=i;renderCarousel();}
 renderCarousel();
 
-// Venue carousel
-const venueImgs=["./images/venue1.jpg","./images/venue2.jpg","./images/venue3.jpg"];
-let vCur=0;
-function renderVenue(){
-  const s=document.getElementById('venueSlides'),d=document.getElementById('venueDots');
-  s.innerHTML=venueImgs.map(src=>`<div class="venue-slide"><img src="${src}" alt="Venue"/></div>`).join('');
-  s.style.transform=`translateX(-${vCur*100}%)`;
-  d.innerHTML=venueImgs.map((_,i)=>`<div onclick="vGo(${i})" style="width:8px;height:8px;border-radius:50%;background:${i===vCur?'#fff':'rgba(255,255,255,.4)'};cursor:pointer;transition:.2s;"></div>`).join('');
+function toggleFaq(el){
+  const a=el.nextElementSibling,arrow=el.querySelector('.faq-arrow');
+  const open=a.classList.toggle('open');
+  arrow.style.transform=open?'rotate(180deg)':'';
 }
-function vNext(){vCur=(vCur+1)%venueImgs.length;renderVenue();}
-function vPrev(){vCur=(vCur-1+venueImgs.length)%venueImgs.length;renderVenue();}
-function vGo(i){vCur=i;renderVenue();}
-renderVenue();
-setInterval(vNext,4000);
+async function submitWaitlist(){
+  const first=document.getElementById('wlFirst').value.trim();
+  const last=document.getElementById('wlLast').value.trim();
+  const email=document.getElementById('wlEmail').value.trim();
+  const role=document.getElementById('wlRole').value.trim();
+  const type=document.getElementById('wlType').value;
+  const btn=document.querySelector('.wl-btn');
+
+  if(!first||!email){alert('Please enter your name and email.');return;}
+
+  btn.textContent='Sending...';
+  btn.disabled=true;
+
+  try{
+    const res=await fetch('/api/waitlist',{
+      method:'POST',
+      headers:{'Content-Type':'application/json'},
+      body:JSON.stringify({first,last,email,role,type})
+    });
+    if(res.ok){
+      document.getElementById('wlForm').style.display='none';
+      document.getElementById('wlSuccess').style.display='block';
+    } else {
+      alert('Something went wrong. Please try again or email us directly.');
+      btn.textContent='Notify Me When Tickets Drop →';
+      btn.disabled=false;
+    }
+  } catch(e){
+    alert('Connection error. Please try again.');
+    btn.textContent='Notify Me When Tickets Drop →';
+    btn.disabled=false;
+  }
+}
 </script>
 </body>
 </html>
