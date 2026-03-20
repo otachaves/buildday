@@ -96,10 +96,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 /* Carousel desktop */
 .carousel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
 
-/* Carousel mobile: single card swipeable */
-.carousel-track-wrap{overflow:hidden;position:relative;}
-.carousel-track{display:flex;transition:transform .4s ease;}
-.carousel-track .case-card{min-width:100%;flex-shrink:0;}
+/* Carousel mobile snap */
+#mobileSnap::-webkit-scrollbar{display:none;}
+#mobileSnap .case-card{scroll-snap-align:start;flex:0 0 100%;min-width:0;}
 
 /* TEAM */
 .team{padding:5rem 1.5rem;}
@@ -182,7 +181,7 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
   .carousel-mobile{display:block;}
 }
 @media(min-width:769px){
-  .carousel-mobile{display:none;}
+  .carousel-mobile{display:none !important;}
   .carousel-grid{display:grid;}
 }
 @media(max-width:480px){
@@ -293,8 +292,7 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
 
     <!-- MOBILE: single card swipe -->
     <div class="carousel-mobile">
-      <div class="carousel-track-wrap">
-        <div id="carouselMobile" class="carousel-track"></div>
+      <div id="mobileSnap" style="display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:1.25rem;scrollbar-width:none;padding-bottom:4px;">
       </div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.25rem;">
         <div style="display:flex;gap:.5rem;" id="dotsMobile"></div>
@@ -494,6 +492,7 @@ function renderDesktop(){
   const d=document.getElementById('dotsDesktop');
   const slice=cases.slice(cur*perPage,cur*perPage+perPage);
   c.innerHTML=slice.map(cardHTML).join('');
+  c.style.cssText='display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;';
   d.innerHTML=Array.from({length:totalPages},(_,i)=>`<div onclick="goSlide(${i})" style="width:8px;height:8px;border-radius:50%;background:${i===cur?'var(--accent)':'var(--border)'};cursor:pointer;transition:.2s;"></div>`).join('');
 }
 function nextSlide(){cur=(cur+1)%totalPages;renderDesktop();}
@@ -504,26 +503,28 @@ renderDesktop();
 /* ── MOBILE carousel (1 per page) ── */
 let mCur=0;
 function renderMobile(){
-  const track=document.getElementById('carouselMobile');
+  const snap=document.getElementById('mobileSnap');
   const dots=document.getElementById('dotsMobile');
-  track.innerHTML=cases.map(cardHTML).join('');
-  track.style.transform=`translateX(-${mCur*100}%)`;
+  snap.innerHTML=cases.map(cardHTML).join('');
   dots.innerHTML=cases.map((_,i)=>`<div onclick="mGo(${i})" style="width:8px;height:8px;border-radius:50%;background:${i===mCur?'var(--accent)':'var(--border)'};cursor:pointer;transition:.2s;"></div>`).join('');
+  scrollToMobile();
 }
-function nextMobile(){mCur=(mCur+1)%cases.length;renderMobile();}
-function prevMobile(){mCur=(mCur-1+cases.length)%cases.length;renderMobile();}
-function mGo(i){mCur=i;renderMobile();}
+function scrollToMobile(){
+  const snap=document.getElementById('mobileSnap');
+  const card=snap.children[mCur];
+  if(card) card.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
+  // update dots
+  const dots=document.getElementById('dotsMobile');
+  [...dots.children].forEach((d,i)=>d.style.background=i===mCur?'var(--accent)':'var(--border)');
+}
+function nextMobile(){mCur=(mCur+1)%cases.length;scrollToMobile();}
+function prevMobile(){mCur=(mCur-1+cases.length)%cases.length;scrollToMobile();}
+function mGo(i){mCur=i;scrollToMobile();}
 renderMobile();
 
-/* ── SWIPE support for mobile carousel ── */
+/* ── SWIPE support handled natively by scroll-snap ── */
 (function(){
-  let sx=0;
-  const el=document.getElementById('carouselMobile');
-  el.addEventListener('touchstart',e=>sx=e.touches[0].clientX,{passive:true});
-  el.addEventListener('touchend',e=>{
-    const dx=e.changedTouches[0].clientX-sx;
-    if(Math.abs(dx)>40){dx<0?nextMobile():prevMobile();}
-  },{passive:true});
+  window.addEventListener('resize',()=>renderMobile());
 })();
 
 /* ── FAQ ── */
