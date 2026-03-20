@@ -180,6 +180,9 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
   .carousel-grid{display:none;}
   .carousel-mobile{display:block;}
 }
+@media(max-width:768px){
+  .carousel-desktop-wrap{display:none !important;}
+}
 @media(min-width:769px){
   .carousel-mobile{display:none !important;}
   .carousel-grid{display:grid;}
@@ -279,7 +282,7 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
     </div>
 
     <!-- DESKTOP: 3-col grid paginated -->
-    <div style="position:relative;">
+    <div class="carousel-desktop-wrap" style="position:relative;">
       <div id="carouselDesktop" class="carousel-grid"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;">
         <div style="display:flex;gap:.5rem;" id="dotsDesktop"></div>
