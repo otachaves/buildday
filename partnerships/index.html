@@ -1,0 +1,511 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width,initial-scale=1"/>
+<title>Sponsor BuildDay — June 6 @ SFU Vancouver</title>
+<link rel="icon" type="image/svg+xml" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><rect width='100' height='100' rx='18' fill='%230066FF'/><text y='.9em' font-size='72' x='12' fill='white' font-family='system-ui' font-weight='900'>B</text></svg>"/>
+<meta property="og:type" content="website"/>
+<meta property="og:title" content="Sponsor BuildDay — AEC Innovation Sprint · June 6 · Vancouver"/>
+<meta property="og:description" content="Reach 100 AEC professionals at Vancouver's first hands-on innovation sprint. Sponsorship opportunities now open."/>
+<meta property="og:image" content="https://raw.githubusercontent.com/otachaves/buildday/main/images/hero.jpg"/>
+<meta property="og:url" content="https://buildday.archipelagoaec.com/partnerships"/>
+<meta name="twitter:card" content="summary_large_image"/>
+<meta name="twitter:title" content="Sponsor BuildDay — AEC Innovation Sprint · June 6 · Vancouver"/>
+<meta name="twitter:description" content="Reach 100 AEC professionals at Vancouver's first hands-on innovation sprint. Sponsorship opportunities now open."/>
+<meta name="twitter:image" content="https://raw.githubusercontent.com/otachaves/buildday/main/images/hero.jpg"/>
+<link rel="preconnect" href="https://fonts.googleapis.com"/>
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin/>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500;600&display=swap" rel="stylesheet"/>
+<style>
+*{box-sizing:border-box;margin:0;padding:0;}
+html{scroll-behavior:smooth;}
+body{background:#F8F9FC;color:#0A0E1A;font-family:'Inter',system-ui,sans-serif;line-height:1.6;overflow-x:hidden;}
+a{text-decoration:none;color:inherit;}
+h1,h2,h3,h4,.nav-logo{font-family:'Space Grotesk',system-ui,sans-serif;}
+
+/* TOKENS */
+:root{
+  --blue:#0066FF;
+  --blue-light:#EEF4FF;
+  --blue-mid:#C7DBFF;
+  --text:#0A0E1A;
+  --muted:#5A6180;
+  --border:#E2E8F0;
+  --bg:#F8F9FC;
+  --card:#FFFFFF;
+  --navy:#0A1628;
+}
+
+/* NAV */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2.5rem;background:rgba(248,249,252,.95);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
+.nav-logo{font-weight:700;font-size:1.1rem;letter-spacing:-.5px;}
+.nav-logo span{color:var(--blue);}
+.nav-pill{font-size:.7rem;font-weight:600;color:var(--blue);background:var(--blue-light);border:1px solid var(--blue-mid);padding:.3rem .85rem;border-radius:999px;letter-spacing:.5px;text-transform:uppercase;}
+.nav-cta{background:var(--blue);color:#fff;font-weight:700;padding:.55rem 1.4rem;border-radius:7px;font-size:.875rem;transition:.15s;}
+.nav-cta:hover{background:#0052cc;}
+
+/* HERO */
+.hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:8rem 1.5rem 5rem;position:relative;overflow:hidden;background:#fff;}
+
+/* layered background */
+.hero::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 80% 60% at 50% -10%,rgba(0,102,255,.1) 0%,transparent 70%);}
+.hero::after{content:'';position:absolute;inset:0;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='40' height='40'%3E%3Cpath d='M0 0 L40 0 L40 40 L0 40 Z' fill='none' stroke='%230066FF' stroke-width='.3' opacity='.06'/%3E%3Ccircle cx='0' cy='0' r='1' fill='%230066FF' opacity='.08'/%3E%3Ccircle cx='40' cy='0' r='1' fill='%230066FF' opacity='.08'/%3E%3Ccircle cx='0' cy='40' r='1' fill='%230066FF' opacity='.08'/%3E%3Ccircle cx='40' cy='40' r='1' fill='%230066FF' opacity='.08'/%3E%3C/svg%3E");background-size:40px 40px;pointer-events:none;}
+
+.hero-badge{position:relative;z-index:1;display:inline-flex;align-items:center;gap:.5rem;background:var(--blue-light);border:1px solid var(--blue-mid);border-radius:999px;padding:.35rem 1.1rem;font-size:.72rem;color:var(--blue);font-weight:700;margin-bottom:2rem;letter-spacing:1px;text-transform:uppercase;}
+.hero h1{position:relative;z-index:1;font-size:clamp(2.8rem,6.5vw,5.2rem);font-weight:700;line-height:1.05;letter-spacing:-2.5px;max-width:820px;margin-bottom:1.25rem;color:var(--text);}
+.hero h1 em{color:var(--blue);font-style:normal;}
+.hero-sub{position:relative;z-index:1;font-size:clamp(.95rem,1.8vw,1.1rem);color:var(--muted);max-width:500px;margin-bottom:2.5rem;line-height:1.7;}
+.hero-sub strong{color:var(--text);}
+.hero-meta{position:relative;z-index:1;display:flex;align-items:center;justify-content:center;gap:.5rem;flex-wrap:wrap;font-size:.875rem;font-weight:600;margin-bottom:3rem;background:var(--bg);border:1px solid var(--border);border-radius:999px;padding:.6rem 1.5rem;width:fit-content;}
+.hero-meta-sep{color:var(--border);}
+.hero-meta span{color:var(--muted);}
+.hero-meta strong{color:var(--text);}
+.hero-btns{position:relative;z-index:1;display:flex;gap:.75rem;flex-wrap:wrap;justify-content:center;}
+.btn-primary{background:var(--blue);color:#fff;font-weight:700;padding:.95rem 2.4rem;border-radius:9px;font-size:1rem;transition:.15s;font-family:'Space Grotesk',sans-serif;box-shadow:0 4px 20px rgba(0,102,255,.25);}
+.btn-primary:hover{background:#0052cc;transform:translateY(-1px);}
+.btn-secondary{background:#fff;color:var(--blue);font-weight:700;padding:.95rem 2rem;border-radius:9px;font-size:1rem;border:1.5px solid var(--blue-mid);transition:.15s;font-family:'Space Grotesk',sans-serif;}
+.btn-secondary:hover{background:var(--blue-light);}
+
+/* SHARED */
+.section{padding:5rem 1.5rem;}
+.section-inner{max-width:940px;margin:0 auto;}
+.label{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:var(--blue);margin-bottom:.6rem;}
+h2.st{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:700;letter-spacing:-1px;line-height:1.15;margin-bottom:.6rem;color:var(--text);}
+.section-intro{color:var(--muted);font-size:.95rem;max-width:520px;line-height:1.7;}
+.card{background:var(--card);border:1px solid var(--border);border-radius:14px;transition:.2s;}
+.card:hover{box-shadow:0 6px 24px rgba(0,102,255,.08);border-color:var(--blue-mid);}
+
+/* WHAT */
+.what-strip{background:var(--navy);padding:4rem 1.5rem;}
+.what-strip-inner{max-width:940px;margin:0 auto;}
+.what-title{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.4rem,2.5vw,2rem);font-weight:700;color:#fff;letter-spacing:-.5px;margin-bottom:2rem;text-align:center;}
+.what-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.25rem;margin-bottom:2.5rem;}
+.what-card{background:rgba(255,255,255,.05);border:1px solid rgba(255,255,255,.1);border-radius:12px;padding:1.5rem;}
+.what-card .ic{font-size:1.5rem;margin-bottom:.75rem;}
+.what-card h4{font-family:'Space Grotesk',sans-serif;font-size:.92rem;font-weight:700;color:#fff;margin-bottom:.3rem;}
+.what-card p{font-size:.82rem;color:rgba(255,255,255,.55);line-height:1.5;}
+.partner-bar{display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;padding-top:2rem;border-top:1px solid rgba(255,255,255,.1);}
+.partner-label{font-size:.68rem;text-transform:uppercase;letter-spacing:1.5px;color:rgba(255,255,255,.4);font-weight:600;}
+
+/* WHY */
+.why-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;}
+.why-card{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;transition:.2s;}
+.why-card:hover{box-shadow:0 6px 24px rgba(0,102,255,.07);border-color:var(--blue-mid);}
+.why-card .ic{font-size:1.6rem;margin-bottom:.75rem;}
+.why-card h4{font-family:'Space Grotesk',sans-serif;font-size:.92rem;font-weight:700;color:var(--text);margin-bottom:.25rem;}
+.why-card p{font-size:.8rem;color:var(--muted);line-height:1.5;}
+
+/* EMOTIONAL */
+.emotional{background:var(--blue-light);border-top:1px solid var(--blue-mid);border-bottom:1px solid var(--blue-mid);padding:3.5rem 1.5rem;text-align:center;}
+.emotional-inner{max-width:640px;margin:0 auto;}
+.emotional p.big{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:700;color:var(--text);line-height:1.3;letter-spacing:-.5px;margin-bottom:.6rem;}
+.emotional p.small{font-size:.9rem;color:var(--muted);}
+
+/* AUDIENCE */
+.aud-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.1rem;}
+.aud-seg{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;display:flex;gap:1.1rem;align-items:flex-start;transition:.2s;}
+.aud-seg:hover{border-color:var(--blue-mid);}
+.aud-pct{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:700;color:var(--blue);line-height:1;flex-shrink:0;letter-spacing:-1px;}
+.aud-label{font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:.9rem;margin-bottom:.2rem;color:var(--text);}
+.aud-desc{font-size:.8rem;color:var(--muted);line-height:1.5;}
+
+/* HOW */
+.how{background:var(--navy);padding:5rem 1.5rem;}
+.how-inner{max-width:860px;margin:0 auto;text-align:center;}
+.how-label{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:rgba(0,194,255,.8);margin-bottom:.6rem;}
+.how h2{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.6rem,3vw,2.3rem);font-weight:700;color:#fff;letter-spacing:-1px;margin-bottom:3rem;}
+.how-steps{display:grid;grid-template-columns:repeat(4,1fr);gap:0;position:relative;}
+.how-steps::before{content:'';position:absolute;top:24px;left:12.5%;right:12.5%;height:1px;background:linear-gradient(to right,var(--blue),#00C2FF);opacity:.4;}
+.how-step{position:relative;z-index:1;padding:0 .5rem;text-align:center;}
+.how-num{width:48px;height:48px;border-radius:50%;background:var(--blue);color:#fff;font-family:'Space Grotesk',sans-serif;font-weight:700;font-size:1rem;display:flex;align-items:center;justify-content:center;margin:0 auto 1rem;box-shadow:0 0 0 4px rgba(0,102,255,.2);}
+.how-step:last-child .how-num{background:linear-gradient(135deg,var(--blue),#00C2FF);}
+.how-step h4{font-family:'Space Grotesk',sans-serif;font-size:.85rem;font-weight:700;color:#fff;margin-bottom:.3rem;line-height:1.3;}
+.how-step p{font-size:.75rem;color:rgba(255,255,255,.5);line-height:1.4;}
+
+/* CREDIBILITY */
+.cred-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;margin-bottom:2rem;}
+.cred-stat{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.5rem;text-align:center;}
+.cred-num{font-family:'Space Grotesk',sans-serif;font-size:2.2rem;font-weight:700;line-height:1;margin-bottom:.25rem;color:var(--text);}
+.cred-num em{color:var(--blue);font-style:normal;}
+.cred-lbl{font-size:.78rem;color:var(--muted);font-weight:500;line-height:1.4;}
+.cred-logos{background:var(--card);border:1px solid var(--border);border-radius:12px;padding:1.75rem;display:flex;flex-wrap:wrap;gap:.65rem;align-items:center;justify-content:center;}
+.cred-logos-lbl{font-size:.68rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-weight:600;width:100%;text-align:center;margin-bottom:.25rem;}
+.logo-pill{background:var(--bg);border:1px solid var(--border);border-radius:7px;padding:.35rem .9rem;font-size:.8rem;font-weight:600;color:var(--muted);}
+
+/* MOMENTS CAROUSEL */
+.moments{background:var(--bg);padding:5rem 1.5rem;}
+.mom-track-wrap{overflow:hidden;border-radius:18px;box-shadow:0 12px 48px rgba(0,102,255,.1);}
+.mom-track{display:flex;transition:transform .5s ease;}
+.mom-slide{flex:0 0 100%;position:relative;height:460px;}
+.mom-slide img{width:100%;height:100%;object-fit:cover;display:block;}
+.mom-slide::after{content:'';position:absolute;inset:0;background:linear-gradient(to top,rgba(10,14,26,.85) 0%,rgba(10,14,26,.1) 60%,transparent 100%);}
+.mom-caption{position:absolute;bottom:0;left:0;right:0;padding:2.5rem;z-index:1;}
+.mom-tag{display:inline-block;background:var(--blue);color:#fff;font-size:.65rem;font-weight:700;text-transform:uppercase;letter-spacing:1px;padding:.25rem .75rem;border-radius:999px;margin-bottom:.65rem;}
+.mom-caption h3{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.2rem,2.5vw,1.7rem);font-weight:700;color:#fff;letter-spacing:-.5px;margin-bottom:.4rem;line-height:1.2;}
+.mom-caption p{font-size:.85rem;color:rgba(255,255,255,.65);max-width:480px;line-height:1.5;}
+.mom-nav{display:flex;align-items:center;justify-content:space-between;margin-top:1.25rem;}
+.mom-dots{display:flex;gap:.4rem;}
+.mom-dot{width:8px;height:8px;border-radius:50%;background:var(--border);cursor:pointer;transition:.2s;}
+.mom-dot.active{background:var(--blue);width:24px;border-radius:4px;}
+.mom-arrows{display:flex;gap:.6rem;}
+.mom-arrow{background:#fff;border:1px solid var(--border);border-radius:8px;width:40px;height:40px;cursor:pointer;font-size:1rem;display:flex;align-items:center;justify-content:center;transition:.2s;}
+.mom-arrow:hover{border-color:var(--blue);}
+.mom-arrow.next{background:var(--blue);color:#fff;border-color:var(--blue);}
+
+/* PACKAGES */
+.packages{background:#fff;padding:5rem 1.5rem;}
+.pkg-grid{display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;align-items:start;}
+.pkg-card{background:var(--card);border:1px solid var(--border);border-radius:16px;padding:2rem;position:relative;transition:.2s;}
+.pkg-card:hover{box-shadow:0 8px 32px rgba(0,102,255,.1);}
+.pkg-card.featured{border-color:var(--blue);box-shadow:0 4px 24px rgba(0,102,255,.15);}
+.pkg-rec{position:absolute;top:-11px;left:50%;transform:translateX(-50%);background:var(--blue);color:#fff;font-size:.63rem;font-weight:700;padding:.22rem .85rem;border-radius:999px;letter-spacing:.5px;white-space:nowrap;font-family:'Space Grotesk',sans-serif;}
+.pkg-name{font-size:.68rem;text-transform:uppercase;letter-spacing:1.5px;font-weight:700;color:var(--muted);margin-bottom:.4rem;}
+.pkg-price{font-family:'Space Grotesk',sans-serif;font-size:2.6rem;font-weight:700;letter-spacing:-1.5px;line-height:1;margin-bottom:.3rem;color:var(--text);}
+.pkg-price sup{font-size:.95rem;vertical-align:top;margin-top:.5rem;}
+.pkg-desc{font-size:.82rem;color:var(--muted);margin-bottom:1.25rem;line-height:1.5;}
+.pkg-div{border:none;border-top:1px solid var(--border);margin:1.25rem 0;}
+.pkg-list{list-style:none;display:flex;flex-direction:column;gap:.55rem;margin-bottom:1.75rem;}
+.pkg-list li{font-size:.82rem;color:var(--muted);display:flex;gap:.55rem;align-items:flex-start;line-height:1.4;}
+.pkg-list li::before{content:'✓';color:var(--blue);font-weight:700;flex-shrink:0;}
+.pkg-btn{display:block;text-align:center;background:var(--bg);color:var(--blue);font-weight:700;padding:.85rem;border-radius:8px;font-size:.88rem;border:1.5px solid var(--border);transition:.15s;font-family:'Space Grotesk',sans-serif;}
+.pkg-btn:hover{border-color:var(--blue);background:var(--blue-light);}
+.pkg-card.featured .pkg-btn{background:var(--blue);color:#fff;border-color:var(--blue);}
+.pkg-card.featured .pkg-btn:hover{background:#0052cc;}
+
+/* COMPARISON */
+.comparison{background:var(--bg);padding:3rem 1.5rem 5rem;}
+.cmp-table{width:100%;border-collapse:collapse;border-radius:12px;overflow:hidden;border:1px solid var(--border);}
+.cmp-table th{padding:.9rem 1.1rem;font-size:.72rem;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--muted);background:#fff;border-bottom:1px solid var(--border);text-align:center;font-family:'Space Grotesk',sans-serif;}
+.cmp-table th:first-child{text-align:left;}
+.cmp-table th.feat{color:var(--blue);background:var(--blue-light);}
+.cmp-table td{padding:.8rem 1.1rem;font-size:.83rem;border-bottom:1px solid var(--border);text-align:center;color:var(--muted);background:#fff;}
+.cmp-table td:first-child{text-align:left;font-weight:600;color:var(--text);}
+.cmp-table tr:last-child td{border-bottom:none;}
+.cmp-table tr:hover td{background:var(--bg);}
+.cmp-yes{color:var(--blue);font-weight:700;}
+.cmp-no{color:#CBD5E1;}
+.cmp-val{font-weight:700;color:var(--text);}
+
+/* CTA */
+.cta-section{background:var(--navy);padding:6rem 1.5rem;text-align:center;position:relative;overflow:hidden;}
+.cta-section::before{content:'';position:absolute;inset:0;background:radial-gradient(ellipse 60% 50% at 50% 100%,rgba(0,102,255,.25) 0%,transparent 70%);}
+.cta-inner{max-width:600px;margin:0 auto;position:relative;z-index:1;}
+.cta-label{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:rgba(0,194,255,.8);margin-bottom:.75rem;}
+.cta-inner h2{font-family:'Space Grotesk',sans-serif;color:#fff;font-size:clamp(1.8rem,4vw,2.8rem);font-weight:700;letter-spacing:-1.5px;margin-bottom:.75rem;}
+.cta-inner p{color:rgba(255,255,255,.55);font-size:.95rem;margin-bottom:2.25rem;line-height:1.7;}
+.cta-btns{display:flex;flex-wrap:wrap;gap:.75rem;justify-content:center;margin-bottom:1.25rem;}
+.btn-cta-p{background:#fff;color:var(--navy);font-weight:700;padding:1rem 2.4rem;border-radius:9px;font-size:.975rem;transition:.15s;font-family:'Space Grotesk',sans-serif;}
+.btn-cta-p:hover{background:#e2e8f0;}
+.btn-cta-g{background:transparent;color:#fff;font-weight:600;padding:1rem 2rem;border-radius:9px;font-size:.975rem;border:1.5px solid rgba(255,255,255,.25);transition:.15s;font-family:'Space Grotesk',sans-serif;}
+.btn-cta-g:hover{border-color:rgba(255,255,255,.6);}
+.cta-deck{font-size:.8rem;color:rgba(255,255,255,.35);}
+.cta-deck a{color:rgba(255,255,255,.6);text-decoration:underline;text-underline-offset:3px;}
+
+footer{background:#060C18;padding:2.5rem 1.5rem;text-align:center;border-top:1px solid rgba(255,255,255,.06);}
+footer p{color:rgba(255,255,255,.4);font-size:.8rem;}
+footer a{color:rgba(0,194,255,.7);}
+
+@media(max-width:768px){
+  .what-grid,.why-grid,.pkg-grid,.aud-grid{grid-template-columns:1fr;}
+  .cred-stats{grid-template-columns:1fr 1fr;}
+  .how-steps{grid-template-columns:1fr 1fr;gap:1.5rem;}
+  .how-steps::before{display:none;}
+  nav .nav-pill{display:none;}
+}
+@media(max-width:480px){
+  .cred-stats{grid-template-columns:1fr 1fr;}
+  .how-steps{grid-template-columns:1fr;}
+}
+</style>
+</head>
+<body>
+
+<!-- NAV -->
+<nav>
+  <div class="nav-logo">Build<span>Day</span></div>
+  <div class="nav-pill">Sponsor Opportunities</div>
+  <a href="#contact" class="nav-cta">Become a Sponsor →</a>
+</nav>
+
+<!-- HERO -->
+<section class="hero">
+  <div class="hero-badge">🏗️ June 6 · SFU Vancouver · ~100 AEC Professionals</div>
+  <h1>Reach the people<br><em>building the future of AEC.</em></h1>
+  <p class="hero-sub">A hands-on innovation sprint — <strong>not a conference.</strong><br>Real professionals, real conversations, real connections.</p>
+  <div class="hero-meta">
+    <span>📅 <strong>June 6, 2026</strong></span>
+    <span class="hero-meta-sep">·</span>
+    <span>📍 <strong>SFU Vancouver</strong></span>
+    <span class="hero-meta-sep">·</span>
+    <span>👥 <strong>~100 Attendees</strong></span>
+  </div>
+  <div class="hero-btns">
+    <a href="#contact" class="btn-primary">Book a Sponsorship Call →</a>
+    <a href="#packages" class="btn-secondary">View Packages</a>
+  </div>
+</section>
+
+<!-- WHAT IS BUILDDAY -->
+<section class="what-strip">
+  <div class="what-strip-inner">
+    <div class="what-title">A hands-on AEC innovation sprint. Not a conference.</div>
+    <div class="what-grid">
+      <div class="what-card"><div class="ic">🎯</div><h4>Real problems, real output</h4><p>Professionals arrive with workflow problems and leave with working apps — not just notes.</p></div>
+      <div class="what-card"><div class="ic">🧠</div><h4>Active, self-selected crowd</h4><p>These are the AEC professionals who chose to spend their day building — a different kind of audience.</p></div>
+      <div class="what-card"><div class="ic">🤝</div><h4>Archipelago × SFU</h4><p>Backed by a 200+ member AEC community and co-hosted at Simon Fraser University.</p></div>
+    </div>
+    <div class="partner-bar">
+      <span class="partner-label">A collaboration between</span>
+      <img src="https://raw.githubusercontent.com/otachaves/buildday/main/images/logo-archipelago.png" alt="Archipelago" style="height:30px;object-fit:contain;"/>
+      <span style="color:rgba(255,255,255,.3);font-size:1.1rem;">×</span>
+      <img src="https://raw.githubusercontent.com/otachaves/buildday/main/images/logo-sfu.png" alt="SFU" style="height:34px;object-fit:contain;"/>
+    </div>
+  </div>
+</section>
+
+<!-- WHY SPONSOR -->
+<section class="section" style="background:#fff;">
+  <div class="section-inner">
+    <div style="margin-bottom:2.5rem;">
+      <div class="label">Why Sponsor</div>
+      <h2 class="st">This isn't logo placement.<br>It's targeted access.</h2>
+    </div>
+    <div class="why-grid">
+      <div class="why-card"><div class="ic">🎯</div><h4>Direct access to 100 AEC professionals</h4><p>Every person in the room is an active practitioner — not a general audience.</p></div>
+      <div class="why-card"><div class="ic">🌟</div><h4>Find your next hire</h4><p>Meet top talent actively building skills — before anyone else does.</p></div>
+      <div class="why-card"><div class="ic">🤝</div><h4>Build real partnerships</h4><p>Connect with other sponsors and firms from the audience in a high-trust setting.</p></div>
+      <div class="why-card"><div class="ic">🤖</div><h4>Bring your team to build</h4><p>Use BuildDay to develop an AI solution for your own company alongside the community.</p></div>
+      <div class="why-card"><div class="ic">🚀</div><h4>Position your brand with AEC innovation</h4><p>Be seen where the industry is heading — not where it's been.</p></div>
+      <div class="why-card"><div class="ic">💬</div><h4>Curated connections within attendees</h4><p>Facilitated introductions and structured interactions — not random networking.</p></div>
+    </div>
+  </div>
+</section>
+
+<!-- EMOTIONAL -->
+<section class="emotional">
+  <div class="emotional-inner">
+    <p class="big">"Panels are forgotten by Monday.<br>BuildDay is still being talked about months later."</p>
+    <p class="small">Because when people build something together, your brand becomes part of that story — not just a logo they scrolled past.</p>
+  </div>
+</section>
+
+<!-- AUDIENCE -->
+<section class="section" style="background:var(--bg);">
+  <div class="section-inner">
+    <div style="margin-bottom:2.5rem;">
+      <div class="label">The Audience</div>
+      <h2 class="st">The AEC professionals<br>who actually move the needle.</h2>
+      <p class="section-intro" style="margin-top:.4rem;">A focused, self-selected group of innovation-oriented practitioners — across the full AEC stack.</p>
+    </div>
+    <div class="aud-grid">
+      <div class="aud-seg"><div class="aud-pct">40%</div><div><div class="aud-label">Industry Professionals</div><div class="aud-desc">Architects, engineers, contractors, developers, and property managers with purchasing power and influence.</div></div></div>
+      <div class="aud-seg"><div class="aud-pct">25%</div><div><div class="aud-label">Business Leaders</div><div class="aud-desc">Marketing, BD, and operations professionals driving innovation decisions in their organizations.</div></div></div>
+      <div class="aud-seg"><div class="aud-pct">20%</div><div><div class="aud-label">Tech Innovators</div><div class="aud-desc">Developers and designers building the future of construction technology.</div></div></div>
+      <div class="aud-seg"><div class="aud-pct">15%</div><div><div class="aud-label">Emerging Talent</div><div class="aud-desc">Top students and job seekers — your future employees and customers.</div></div></div>
+    </div>
+  </div>
+</section>
+
+
+
+<!-- MOMENTS CAROUSEL -->
+<section class="moments">
+  <div class="section-inner">
+    <div style="margin-bottom:2rem;">
+      <div class="label">Your Brand at BuildDay</div>
+      <h2 class="st">See what it looks like<br>to be part of this.</h2>
+      <p class="section-intro" style="margin-top:.4rem;">Five ways your brand shows up — and gets remembered.</p>
+    </div>
+    <div class="mom-track-wrap">
+      <div class="mom-track" id="momTrack">
+        <div class="mom-slide"><img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/moment-challenge2.jpg" alt="Challenge"/><div class="mom-caption"><div class="mom-tag">Challenge Sponsor</div><h3>Your real problem. Solved by AEC professionals.</h3><p>Bring a workflow challenge your team hasn't cracked yet. A full team spends the entire day building a solution — for you.</p></div></div>
+        <div class="mom-slide"><img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/moment-stage.jpg" alt="Stage"/><div class="mom-caption"><div class="mom-tag">Stage Time</div><h3>A room that's actually listening.</h3><p>100 professionals who chose to be here. No side conversations — just your message landing with full attention.</p></div></div>
+        <div class="mom-slide"><img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/moment-interview.jpg" alt="Interview"/><div class="mom-caption"><div class="mom-tag">Post-event Interview</div><h3>Your story, told after the energy peaks.</h3><p>A produced video interview with your team — content that lives well beyond event day.</p></div></div>
+        <div class="mom-slide"><img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/moment-prizedraw.jpg" alt="Prize draw"/><div class="mom-caption"><div class="mom-tag">Prize Draw Activation</div><h3>Your brand behind the winning team.</h3><p>The main award of the event — sponsored by you. Your name on the trophy, your banner in the photo, your brand in every memory of that moment.</p></div></div>
+        <div class="mom-slide"><img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/moment-celebration.jpg" alt="Celebration"/><div class="mom-caption"><div class="mom-tag">Networking Drinks</div><h3>The best conversations happen after.</h3><p>When the building is done and the energy is high — that's when real relationships start.</p></div></div>
+      </div>
+    </div>
+    <div class="mom-nav">
+      <div class="mom-dots" id="momDots"></div>
+      <div class="mom-arrows">
+        <button class="mom-arrow" onclick="momPrev()">←</button>
+        <button class="mom-arrow next" onclick="momNext()">→</button>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CREDIBILITY -->
+<section class="section" style="background:#fff;">
+  <div class="section-inner">
+    <div style="margin-bottom:2.5rem;">
+      <div class="label">Track Record</div>
+      <h2 class="st">A new format. A proven team.</h2>
+      <p class="section-intro" style="margin-top:.4rem;">BuildDay is a new format — delivered by a team that has been running AEC community events for years.</p>
+    </div>
+    <div class="cred-stats">
+      <div class="cred-stat"><div class="cred-num">7<em>+</em></div><div class="cred-lbl">Similar events delivered</div></div>
+      <div class="cred-stat"><div class="cred-num">1.5k<em>+</em></div><div class="cred-lbl">Total attendees across events</div></div>
+      <div class="cred-stat"><div class="cred-num" style="font-size:1.6rem;padding-top:.3rem;">SFU</div><div class="cred-lbl">University collaboration & venue</div></div>
+      <div class="cred-stat"><div class="cred-num">1<em style="font-size:1.3rem;">st</em></div><div class="cred-lbl">AEC innovation sprint in Vancouver</div></div>
+    </div>
+    <div class="cred-logos">
+      <div class="cred-logos-lbl">Past & current partners and sponsors</div>
+      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner1.jpg" style="height:32px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
+      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner2.jpg" style="height:32px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
+      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner3.jpg" style="height:32px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
+      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner4.jpg" style="height:32px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
+      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner5.jpg" style="height:32px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
+      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner6.jpg" style="height:32px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
+      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner7.jpg" style="height:32px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
+      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner8.jpg" style="height:32px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
+    </div>
+  </div>
+</section>
+
+<!-- PACKAGES -->
+<section class="packages" id="packages">
+  <div class="section-inner">
+    <div style="margin-bottom:2.5rem;">
+      <div class="label">Sponsorship Packages</div>
+      <h2 class="st">Three ways to partner<br>with BuildDay.</h2>
+      <p class="section-intro" style="margin-top:.4rem;">All packages include real access — not just a logo.</p>
+    </div>
+    <div class="pkg-grid">
+      <div class="pkg-card">
+        <div class="pkg-name">Community Sponsor</div>
+        <div class="pkg-price"><sup>$</sup>1,000</div>
+        <p class="pkg-desc">Build brand awareness with the AEC professional community.</p>
+        <hr class="pkg-div"/>
+        <ul class="pkg-list">
+          <li>Logo on website & digital materials</li>
+          <li>Brand featured in event social media posts</li>
+          <li>1 physical banner at the event</li>
+          <li>Mention during opening remarks</li>
+          <li>3 complimentary tickets</li>
+        </ul>
+        <a href="#contact" class="pkg-btn">Get in Touch →</a>
+      </div>
+      <div class="pkg-card featured">
+        <div class="pkg-rec">⭐ Most Popular</div>
+        <div class="pkg-name">Ecosystem Sponsor</div>
+        <div class="pkg-price"><sup>$</sup>2,500</div>
+        <p class="pkg-desc">Active presence and genuine engagement throughout the day.</p>
+        <hr class="pkg-div"/>
+        <ul class="pkg-list">
+          <li>Everything in Community</li>
+          <li>2 physical banners at the event</li>
+          <li>Mention at opening & closing</li>
+          <li>Logo on event swag</li>
+          <li>Sponsor a challenge during the sprint</li>
+          <li>Prize draw activation with the audience</li>
+          <li>Personalized post-event video + interview</li>
+          <li>Opt-in attendee contact list</li>
+          <li>6 complimentary tickets</li>
+        </ul>
+        <a href="#contact" class="pkg-btn">Become an Ecosystem Sponsor →</a>
+      </div>
+      <div class="pkg-card">
+        <div class="pkg-name">Title Sponsor</div>
+        <div class="pkg-price"><sup>$</sup>5,000</div>
+        <p class="pkg-desc">Maximum authority. Your brand at every touchpoint of the event.</p>
+        <hr class="pkg-div"/>
+        <ul class="pkg-list">
+          <li>Everything in Ecosystem</li>
+          <li>"BuildDay presented by [Brand]"</li>
+          <li>"Networking drinks powered by [Brand]"</li>
+          <li>Repeated mentions throughout the day</li>
+          <li>10-minute speaking slot</li>
+          <li>Logo in all official event photos</li>
+          <li>2+ large banners — premium placement</li>
+          <li>Nominate 1 judge for final pitches</li>
+          <li>12 complimentary tickets</li>
+        </ul>
+        <a href="#contact" class="pkg-btn">Become the Title Sponsor →</a>
+      </div>
+    </div>
+    <p style="font-size:.78rem;color:var(--muted);text-align:center;margin-top:1.75rem;">Custom packages available. <a href="#contact" style="color:var(--blue);font-weight:600;">Let's talk →</a></p>
+  </div>
+</section>
+
+<!-- COMPARISON -->
+<section class="comparison">
+  <div class="section-inner">
+    <div style="margin-bottom:1.5rem;">
+      <div class="label">Package Comparison</div>
+      <h2 class="st">Side by side.</h2>
+    </div>
+    <table class="cmp-table">
+      <thead>
+        <tr>
+          <th>Benefit</th>
+          <th>Community<br><span style="font-weight:500;font-size:.85em;">$1,000</span></th>
+          <th class="feat">Ecosystem<br><span style="font-weight:500;font-size:.85em;">$2,500</span></th>
+          <th>Title<br><span style="font-weight:500;font-size:.85em;">$5,000</span></th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr><td>Logo on website & materials</td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td></tr>
+        <tr><td>Brand in social media posts</td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td></tr>
+        <tr><td>Physical banners at venue</td><td><span class="cmp-val">1</span></td><td><span class="cmp-val">2</span></td><td><span class="cmp-val">2+ large</span></td></tr>
+        <tr><td>Stage recognition</td><td>Opening only</td><td>Opening & closing</td><td>Throughout the day</td></tr>
+        <tr><td>Sponsor a challenge</td><td><span class="cmp-no">–</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td></tr>
+        <tr><td>Prize draw activation</td><td><span class="cmp-no">–</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td></tr>
+        <tr><td>Logo on swag</td><td><span class="cmp-no">–</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td></tr>
+        <tr><td>Post-event video + interview</td><td><span class="cmp-no">–</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td></tr>
+        <tr><td>Opt-in attendee list</td><td><span class="cmp-no">–</span></td><td><span class="cmp-yes">✓</span></td><td><span class="cmp-yes">✓</span></td></tr>
+        <tr><td>10-min speaking slot</td><td><span class="cmp-no">–</span></td><td><span class="cmp-no">–</span></td><td><span class="cmp-yes">✓</span></td></tr>
+        <tr><td>Judge nomination</td><td><span class="cmp-no">–</span></td><td><span class="cmp-no">–</span></td><td><span class="cmp-val">1</span></td></tr>
+        <tr><td>Logo in official event photos</td><td><span class="cmp-no">–</span></td><td><span class="cmp-no">–</span></td><td><span class="cmp-yes">✓</span></td></tr>
+        <tr><td>"Networking drinks powered by"</td><td><span class="cmp-no">–</span></td><td><span class="cmp-no">–</span></td><td><span class="cmp-yes">✓</span></td></tr>
+        <tr><td>Event naming rights</td><td><span class="cmp-no">–</span></td><td><span class="cmp-no">–</span></td><td><span class="cmp-yes">✓</span></td></tr>
+        <tr><td>Complimentary tickets</td><td><span class="cmp-val">3</span></td><td><span class="cmp-val">6</span></td><td><span class="cmp-val">12</span></td></tr>
+      </tbody>
+    </table>
+  </div>
+</section>
+
+<!-- CTA -->
+<section class="cta-section" id="contact">
+  <div class="cta-inner">
+    <div class="cta-label">Get Involved</div>
+    <h2>Ready to be part<br>of BuildDay?</h2>
+    <p>Spots are limited and we prioritize fit. Book a call and let's figure out the right way to work together.</p>
+    <div class="cta-btns">
+      <a href="https://meetings.hubspot.com/otavio-chaves/brian-and-otavio-booking" target="_blank" class="btn-cta-p">Book a Sponsorship Call →</a>
+      <a href="mailto:communitymanager@archipelagoaec.com?subject=BuildDay%20Sponsorship%20Inquiry" class="btn-cta-g">✉️ Email Us</a>
+    </div>
+    <p class="cta-deck">Not ready to talk yet? <a href="http://bit.ly/buildday-deck" target="_blank">Download the sponsorship deck →</a></p>
+  </div>
+</section>
+
+<footer>
+  <p style="font-size:.9rem;font-weight:700;color:#fff;margin-bottom:.75rem;">BuildDay · June 6, 2026 · SFU Vancouver</p>
+  <div style="display:flex;align-items:center;justify-content:center;gap:2rem;flex-wrap:wrap;margin-bottom:1rem;">
+    <img src="https://raw.githubusercontent.com/otachaves/buildday/main/images/logo-archipelago.png" alt="Archipelago" style="height:28px;object-fit:contain;"/>
+    <span style="color:rgba(255,255,255,.3);">×</span>
+    <img src="https://raw.githubusercontent.com/otachaves/buildday/main/images/logo-sfu.png" alt="SFU" style="height:32px;object-fit:contain;"/>
+  </div>
+  <p style="color:rgba(255,255,255,.35);font-size:.78rem;">A collaboration between Archipelago and Simon Fraser University</p>
+  <p style="margin-top:1.25rem;padding-top:1.25rem;border-top:1px solid rgba(255,255,255,.07);font-size:.78rem;">
+    Participants: <a href="../index.html">View the attendee page →</a>
+  </p>
+</footer>
+
+<script>
+let momCur=0;
+const momTotal=document.getElementById('momTrack').children.length;
+function momRender(){
+  document.getElementById('momTrack').style.transform=`translateX(-${momCur*100}%)`;
+  const dots=document.getElementById('momDots');
+  dots.innerHTML=Array.from({length:momTotal},(_,i)=>`<div class="mom-dot${i===momCur?' active':''}" onclick="momGo(${i})"></div>`).join('');
+}
+function momNext(){momCur=(momCur+1)%momTotal;momRender();}
+function momPrev(){momCur=(momCur-1+momTotal)%momTotal;momRender();}
+function momGo(i){momCur=i;momRender();}
+momRender();
+setInterval(momNext,5000);
+</script>
+</body>
+</html>
