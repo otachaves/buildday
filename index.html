@@ -58,9 +58,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .hero-cta-note{font-size:.8rem;color:var(--muted);}
 
 /* WHAT */
-.what{padding:5rem 1.5rem;background:#fff;}
-.what-inner{max-width:900px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;}
-.what-top{max-width:900px;margin:0 auto 2.5rem;text-align:center;}
+.what{padding:5rem 2rem;background:#fff;}
+.what-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;}
+.what-top{max-width:1100px;margin:0 auto 2.5rem;text-align:center;}
 .label{text-transform:uppercase;letter-spacing:2px;font-size:.72rem;font-weight:700;color:var(--accent);margin-bottom:.6rem;}
 .what-block{background:var(--bg);border:1px solid var(--border);border-radius:14px;padding:1.75rem;transition:.2s;}
 .what-block:hover{box-shadow:0 8px 30px rgba(0,102,255,.08);border-color:#c0cef8;transform:translateY(-2px);}
@@ -69,8 +69,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .what-block p{color:var(--muted);font-size:.88rem;line-height:1.5;}
 
 /* SCHEDULE */
-.schedule{padding:5rem 1.5rem;background:var(--bg);}
-.sch-inner{max-width:900px;margin:0 auto;}
+.schedule{padding:5rem 2rem;background:var(--bg);}
+.sch-inner{max-width:1100px;margin:0 auto;}
 .sch-top{margin-bottom:2.5rem;}
 .sch-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:1rem;}
 .sch-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem;position:relative;overflow:hidden;transition:.2s;}
@@ -81,8 +81,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .sch-card p{color:var(--muted);font-size:.82rem;line-height:1.45;}
 
 /* CASES */
-.cases{padding:5rem 1.5rem;background:#fff;}
-.cases-inner{max-width:900px;margin:0 auto;}
+.cases{padding:5rem 2rem;background:#fff;}
+.cases-inner{max-width:1100px;margin:0 auto;}
 .cases-top{margin-bottom:2.5rem;}
 .case-card{background:var(--bg);border:1px solid var(--border);border-radius:14px;overflow:hidden;transition:.25s;}
 .case-card:hover{border-color:#c0cef8;transform:translateY(-4px);box-shadow:0 12px 36px rgba(0,102,255,.1);}
@@ -92,17 +92,16 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .case-tag{display:inline-block;background:rgba(0,102,255,.08);color:var(--accent);font-size:.7rem;font-weight:700;text-transform:uppercase;letter-spacing:.5px;padding:.2rem .65rem;border-radius:999px;margin-bottom:.6rem;}
 .case-body h4{font-weight:800;font-size:.95rem;margin-bottom:.3rem;}
 .case-body p{color:var(--muted);font-size:.82rem;line-height:1.45;}
-
-/* Carousel desktop */
 .carousel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
 
-/* Carousel mobile snap */
+/* Mobile snap carousel */
+#mobileSnap{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px;}
 #mobileSnap::-webkit-scrollbar{display:none;}
 #mobileSnap .case-card{scroll-snap-align:start;flex:0 0 100%;min-width:0;}
 
 /* TEAM */
-.team{padding:5rem 1.5rem;}
-.team-inner{max-width:900px;margin:0 auto;}
+.team{padding:5rem 2rem;}
+.team-inner{max-width:1100px;margin:0 auto;}
 .team-top{margin-bottom:2.5rem;}
 .team-grid{display:grid;grid-template-columns:1fr 1fr;gap:1.5rem;}
 .team-card{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2rem;display:flex;gap:1.5rem;align-items:flex-start;box-shadow:0 2px 16px rgba(0,0,0,.04);}
@@ -111,8 +110,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .team-info p{color:var(--muted);font-size:.85rem;line-height:1.5;}
 
 /* VENUE */
-.venue{padding:5rem 1.5rem;background:#fff;}
-.venue-inner{max-width:900px;margin:0 auto;}
+.venue{padding:5rem 2rem;background:#fff;}
+.venue-inner{max-width:1100px;margin:0 auto;}
 .venue-top{margin-bottom:2rem;}
 .venue-img-wrap{position:relative;border-radius:20px;overflow:hidden;border:1px solid var(--border);box-shadow:0 12px 48px rgba(0,102,255,.1);}
 .venue-overlay{position:absolute;inset:0;background:linear-gradient(to top,rgba(10,14,26,.75) 0%,transparent 50%);pointer-events:none;}
@@ -121,8 +120,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .venue-caption p{font-size:.88rem;opacity:.8;}
 
 /* PRICING */
-.pw{padding:5rem 1.5rem;}
-.pw-inner{max-width:900px;margin:0 auto;}
+.pw{padding:5rem 2rem;}
+.pw-inner{max-width:1100px;margin:0 auto;}
 .pw-top{margin-bottom:2.5rem;}
 .pw-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
 .price-cards{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
@@ -146,8 +145,8 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .wl-success p{color:var(--muted);font-size:.88rem;}
 
 /* FAQ */
-.faq{padding:4rem 1.5rem;background:var(--bg);}
-.faq-inner{max-width:700px;margin:0 auto;}
+.faq{padding:4rem 2rem;background:var(--bg);}
+.faq-inner{max-width:860px;margin:0 auto;}
 .faq-top{margin-bottom:2rem;}
 .faq-list{display:flex;flex-direction:column;gap:.75rem;}
 .faq-item{background:#fff;border:1px solid var(--border);border-radius:12px;overflow:hidden;}
@@ -165,27 +164,25 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
 
 /* ── MOBILE ── */
 @media(max-width:768px){
+  .what{padding:4rem 1.25rem;}
   .what-inner{grid-template-columns:1fr;}
-  .team-grid{grid-template-columns:1fr;}
-  .team-card{flex-direction:column;gap:1rem;}
-  .pw-grid{grid-template-columns:1fr;}
-  .wl-row{grid-template-columns:1fr;}
-
-  /* Schedule: vertical list on mobile */
+  .schedule{padding:4rem 1.25rem;}
   .sch-grid{display:flex;flex-direction:column;gap:.85rem;}
   .sch-card{padding:1.25rem 1.25rem 1rem;}
-  .sch-card[style*="grid-column"]{grid-column:unset !important;}
-
-  /* Cases carousel: single card */
-  .carousel-grid{display:none;}
-  .carousel-mobile{display:block;}
-}
-@media(max-width:768px){
+  .cases{padding:4rem 1.25rem;}
+  .team{padding:4rem 1.25rem;}
+  .team-grid{grid-template-columns:1fr;}
+  .team-card{flex-direction:column;gap:1rem;}
+  .venue{padding:4rem 1.25rem;}
+  .pw{padding:4rem 1.25rem;}
+  .pw-grid{grid-template-columns:1fr;}
+  .wl-row{grid-template-columns:1fr;}
+  .faq{padding:3rem 1.25rem;}
   .carousel-desktop-wrap{display:none !important;}
+  .carousel-mobile{display:block;}
 }
 @media(min-width:769px){
   .carousel-mobile{display:none !important;}
-  .carousel-grid{display:grid;}
 }
 @media(max-width:480px){
   .price-cards{grid-template-columns:1fr;}
@@ -200,9 +197,7 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
 </nav>
 
 <section class="hero">
-  <div class="hero-bg-img">
-    <img src="./images/hero.jpg" alt="Team collaborating"/>
-  </div>
+  <div class="hero-bg-img"><img src="./images/hero.jpg" alt="Team collaborating"/></div>
   <div class="hero-badge">🏗️ AEC Innovation Sprint · Vancouver · June 6</div>
   <h1>You have a problem<br>that wastes hours.<br><em>Let's turn it into an app.</em></h1>
   <p class="hero-sub">A hands-on sprint for <strong>architects, engineers & construction professionals.</strong></p>
@@ -227,7 +222,7 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
     <div class="what-block"><div class="icon">🤝</div><h3>Build with a team</h3><p>Arrive solo and form a team on the day, or bring your crew. Groups of 6–8 work together with mentor support throughout.</p></div>
     <div class="what-block"><div class="icon">🚀</div><h3>Leave with something real</h3><p>Not a mockup. Not slides. A working application you can use on Monday, and keep developing beyond the event.</p></div>
   </div>
-  <div style="max-width:900px;margin:2.5rem auto 0;padding-top:2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;">
+  <div style="max-width:1100px;margin:2.5rem auto 0;padding-top:2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;">
     <span style="font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-weight:600;">A collaboration between</span>
     <img src="./images/logo-archipelago-light.png" alt="Archipelago" style="height:32px;object-fit:contain;"/>
     <span style="color:var(--accent);font-weight:900;font-size:1.2rem;">×</span>
@@ -235,7 +230,6 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
   </div>
 </section>
 
-<!-- SCHEDULE -->
 <section class="schedule blueprint-bg">
   <div class="sch-inner">
     <div class="sch-top">
@@ -243,36 +237,15 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
       <h2 class="st">A Full Day Sprint. From Problem to App.</h2>
     </div>
     <div class="sch-grid">
-      <div class="sch-card" data-n="1">
-        <div class="sch-time">8:00 – 9:45 AM</div>
-        <h4>☕ Pitch & Team Up</h4>
-        <p>Arrive, pitch your problem in 60 seconds, vote on the strongest ideas, and form your team.</p>
-      </div>
-      <div class="sch-card" data-n="2">
-        <div class="sch-time">10:00 AM – 1:00 PM</div>
-        <h4>🛠️ Build Sprint</h4>
-        <p>Heads down with mentor support. Define the workflow, pick the tools, and start building your app.</p>
-      </div>
-      <div class="sch-card" data-n="3">
-        <div class="sch-time">1:00 – 4:30 PM</div>
-        <h4>⚡ Lunch + Final Push</h4>
-        <p>Refuel, regroup with mentors, sharpen scope, and finish strong. Test your app before the final hour.</p>
-      </div>
-      <div class="sch-card" data-n="4">
-        <div class="sch-time">4:30 – 6:00 PM</div>
-        <h4>🏆 Final Pitches</h4>
-        <p>Selected teams present on stage. Show what you built, the problem it solves, and how far you got in one day.</p>
-      </div>
-      <div class="sch-card" style="grid-column:span 4;background:linear-gradient(135deg,#EEF4FF,#fff);" data-n="🎉">
-        <div class="sch-time">6:00 – 8:00 PM</div>
-        <h4>🎉 Celebration & Networking</h4>
-        <p>Awards, drinks, and conversations. Many teams leave ready to keep building, and with new collaborators to do it with.</p>
-      </div>
+      <div class="sch-card" data-n="1"><div class="sch-time">8:00 – 9:45 AM</div><h4>☕ Pitch & Team Up</h4><p>Arrive, pitch your problem in 60 seconds, vote on the strongest ideas, and form your team.</p></div>
+      <div class="sch-card" data-n="2"><div class="sch-time">10:00 AM – 1:00 PM</div><h4>🛠️ Build Sprint</h4><p>Heads down with mentor support. Define the workflow, pick the tools, and start building your app.</p></div>
+      <div class="sch-card" data-n="3"><div class="sch-time">1:00 – 4:30 PM</div><h4>⚡ Lunch + Final Push</h4><p>Refuel, regroup with mentors, sharpen scope, and finish strong. Test your app before the final hour.</p></div>
+      <div class="sch-card" data-n="4"><div class="sch-time">4:30 – 6:00 PM</div><h4>🏆 Final Pitches</h4><p>Selected teams present on stage. Show what you built, the problem it solves, and how far you got in one day.</p></div>
+      <div class="sch-card" style="grid-column:span 4;background:linear-gradient(135deg,#EEF4FF,#fff);" data-n="🎉"><div class="sch-time">6:00 – 8:00 PM</div><h4>🎉 Celebration & Networking</h4><p>Awards, drinks, and conversations. Many teams leave ready to keep building, and with new collaborators to do it with.</p></div>
     </div>
   </div>
 </section>
 
-<!-- CASES -->
 <section class="cases aec-bg">
   <div class="cases-inner">
     <div class="cases-top">
@@ -281,7 +254,7 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
       <p style="color:var(--muted);font-size:.95rem;">Tools AEC professionals have built in similar sprints, solving problems from their own practice.</p>
     </div>
 
-    <!-- DESKTOP: 3-col grid paginated -->
+    <!-- DESKTOP -->
     <div class="carousel-desktop-wrap" style="position:relative;">
       <div id="carouselDesktop" class="carousel-grid"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;">
@@ -293,10 +266,9 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
       </div>
     </div>
 
-    <!-- MOBILE: single card swipe -->
+    <!-- MOBILE -->
     <div class="carousel-mobile">
-      <div id="mobileSnap" style="display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;gap:1.25rem;scrollbar-width:none;padding-bottom:4px;">
-      </div>
+      <div id="mobileSnap"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.25rem;">
         <div style="display:flex;gap:.5rem;" id="dotsMobile"></div>
         <div style="display:flex;gap:.75rem;">
@@ -308,7 +280,6 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
   </div>
 </section>
 
-<!-- TEAM -->
 <section class="team grid-bg">
   <div class="team-inner">
     <div class="team-top">
@@ -318,25 +289,16 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
     <div class="team-grid">
       <div class="team-card">
         <div style="width:100px;height:100px;border-radius:14px;background:var(--border);flex-shrink:0;overflow:hidden;border:2px solid var(--accent);"><img src="./images/brian.jpg" alt="Brian Liu" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;"/></div>
-        <div class="team-info">
-          <h4>Brian Liu, P.Eng</h4>
-          <div class="role">Civil Engineer · Fractional CTO · Archipelago</div>
-          <p>Civil engineer and fractional CTO specializing in technology implementation within AEC companies. As a serial creator of vibecoded internal applications, he builds workflow-specific tools rapidly to solve real operational problems.</p>
-        </div>
+        <div class="team-info"><h4>Brian Liu, P.Eng</h4><div class="role">Civil Engineer · Fractional CTO · Archipelago</div><p>Civil engineer and fractional CTO specializing in technology implementation within AEC companies. As a serial creator of vibecoded internal applications, he builds workflow-specific tools rapidly to solve real operational problems.</p></div>
       </div>
       <div class="team-card">
         <div style="width:100px;height:100px;border-radius:14px;background:var(--border);flex-shrink:0;overflow:hidden;border:2px solid var(--accent);"><img src="./images/otavio.jpg" alt="Otavio Chaves" style="width:100%;height:100%;object-fit:cover;object-position:center 20%;"/></div>
-        <div class="team-info">
-          <h4>Otavio Chaves</h4>
-          <div class="role">Architect · Community Builder · Archipelago</div>
-          <p>Organized, facilitated, and mentored at 10+ startup weekends and hackathon-style events. With a background in architecture and deep community experience, he designs structured, high-impact experiences that help professionals move from ideas to execution.</p>
-        </div>
+        <div class="team-info"><h4>Otavio Chaves</h4><div class="role">Architect · Community Builder · Archipelago</div><p>Organized, facilitated, and mentored at 10+ startup weekends and hackathon-style events. With a background in architecture and deep community experience, he designs structured, high-impact experiences that help professionals move from ideas to execution.</p></div>
       </div>
     </div>
   </div>
 </section>
 
-<!-- VENUE -->
 <section class="venue">
   <div class="venue-inner">
     <div class="venue-top">
@@ -351,15 +313,11 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
       <button onclick="vNext()" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1rem;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.15);">→</button>
       <div id="venueDots" style="position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:10;"></div>
       <div class="venue-overlay"></div>
-      <div class="venue-caption">
-        <h3>Morris J. Wosk Centre for Dialogue</h3>
-        <p>Simon Fraser University · 515 W Hastings St, Vancouver, BC</p>
-      </div>
+      <div class="venue-caption"><h3>Morris J. Wosk Centre for Dialogue</h3><p>Simon Fraser University · 515 W Hastings St, Vancouver, BC</p></div>
     </div>
   </div>
 </section>
 
-<!-- PRICING -->
 <section class="pw blueprint-bg" id="register">
   <div class="pw-inner">
     <div class="pw-top">
@@ -370,28 +328,10 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
     <div class="pw-grid">
       <div>
         <div class="price-cards">
-          <div class="p-card hot">
-            <div class="p-hot-badge">⚡ EARLY BIRD</div>
-            <div class="p-card-label" style="margin-top:.6rem;">General</div>
-            <div class="p-amount"><sup>$</sup>49</div>
-            <div class="p-note">Limited spots</div>
-          </div>
-          <div class="p-card">
-            <div class="p-card-label">Standard</div>
-            <div class="p-amount"><sup>$</sup>79</div>
-            <div class="p-note">General admission</div>
-          </div>
-          <div class="p-card hot">
-            <div class="p-hot-badge">⚡ EARLY BIRD</div>
-            <div class="p-card-label" style="margin-top:.6rem;">Student</div>
-            <div class="p-amount"><sup>$</sup>29</div>
-            <div class="p-note">Valid ID required</div>
-          </div>
-          <div class="p-card">
-            <div class="p-card-label">Student Standard</div>
-            <div class="p-amount"><sup>$</sup>39</div>
-            <div class="p-note">Valid ID required</div>
-          </div>
+          <div class="p-card hot"><div class="p-hot-badge">⚡ EARLY BIRD</div><div class="p-card-label" style="margin-top:.6rem;">General</div><div class="p-amount"><sup>$</sup>49</div><div class="p-note">Limited spots</div></div>
+          <div class="p-card"><div class="p-card-label">Standard</div><div class="p-amount"><sup>$</sup>79</div><div class="p-note">General admission</div></div>
+          <div class="p-card hot"><div class="p-hot-badge">⚡ EARLY BIRD</div><div class="p-card-label" style="margin-top:.6rem;">Student</div><div class="p-amount"><sup>$</sup>29</div><div class="p-note">Valid ID required</div></div>
+          <div class="p-card"><div class="p-card-label">Student Standard</div><div class="p-amount"><sup>$</sup>39</div><div class="p-note">Valid ID required</div></div>
         </div>
         <p style="font-size:.78rem;color:var(--muted);margin-top:1rem;">🔒 Secure checkout via Stripe — coming soon.</p>
       </div>
@@ -421,13 +361,9 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
   </div>
 </section>
 
-<!-- FAQ -->
 <section class="faq">
   <div class="faq-inner">
-    <div class="faq-top">
-      <div class="label">FAQ</div>
-      <h2 class="st">Quick answers.</h2>
-    </div>
+    <div class="faq-top"><div class="label">FAQ</div><h2 class="st">Quick answers.</h2></div>
     <div class="faq-list">
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I come alone? <span class="faq-arrow">▼</span></div><div class="faq-a">Absolutely. Most participants arrive solo. We create dedicated opportunities during the morning for you to meet other participants, join a team, and find a challenge that excites you. You won't be building alone.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I need to know how to code? <span class="faq-arrow">▼</span></div><div class="faq-a">No. The tools we use are designed for non-developers. Your AEC expertise, knowing the problem deeply, is worth more than coding skills. Technical participants are welcome too, but they're not required.</div></div>
@@ -493,8 +429,7 @@ const totalPages=Math.ceil(cases.length/perPage);
 function renderDesktop(){
   const c=document.getElementById('carouselDesktop');
   const d=document.getElementById('dotsDesktop');
-  const slice=cases.slice(cur*perPage,cur*perPage+perPage);
-  c.innerHTML=slice.map(cardHTML).join('');
+  c.innerHTML=cases.slice(cur*perPage,cur*perPage+perPage).map(cardHTML).join('');
   c.style.cssText='display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;';
   d.innerHTML=Array.from({length:totalPages},(_,i)=>`<div onclick="goSlide(${i})" style="width:8px;height:8px;border-radius:50%;background:${i===cur?'var(--accent)':'var(--border)'};cursor:pointer;transition:.2s;"></div>`).join('');
 }
@@ -503,32 +438,31 @@ function prevSlide(){cur=(cur-1+totalPages)%totalPages;renderDesktop();}
 function goSlide(i){cur=i;renderDesktop();}
 renderDesktop();
 
-/* ── MOBILE carousel (1 per page) ── */
+/* ── MOBILE carousel (snap, no scrollIntoView on init) ── */
 let mCur=0;
 function renderMobile(){
   const snap=document.getElementById('mobileSnap');
   const dots=document.getElementById('dotsMobile');
   snap.innerHTML=cases.map(cardHTML).join('');
-  dots.innerHTML=cases.map((_,i)=>`<div onclick="mGo(${i})" style="width:8px;height:8px;border-radius:50%;background:${i===mCur?'var(--accent)':'var(--border)'};cursor:pointer;transition:.2s;"></div>`).join('');
-  scrollToMobile();
+  // position without scrollIntoView (avoids page jump on load)
+  snap.scrollLeft=0;
+  mCur=0;
+  updateMobileDots(dots);
 }
-function scrollToMobile(){
+function updateMobileDots(dots){
+  dots=dots||document.getElementById('dotsMobile');
+  dots.innerHTML=cases.map((_,i)=>`<div onclick="mGo(${i})" style="width:8px;height:8px;border-radius:50%;background:${i===mCur?'var(--accent)':'var(--border)'};cursor:pointer;transition:.2s;"></div>`).join('');
+}
+function scrollToCard(){
   const snap=document.getElementById('mobileSnap');
   const card=snap.children[mCur];
   if(card) card.scrollIntoView({behavior:'smooth',block:'nearest',inline:'start'});
-  // update dots
-  const dots=document.getElementById('dotsMobile');
-  [...dots.children].forEach((d,i)=>d.style.background=i===mCur?'var(--accent)':'var(--border)');
+  updateMobileDots();
 }
-function nextMobile(){mCur=(mCur+1)%cases.length;scrollToMobile();}
-function prevMobile(){mCur=(mCur-1+cases.length)%cases.length;scrollToMobile();}
-function mGo(i){mCur=i;scrollToMobile();}
+function nextMobile(){mCur=(mCur+1)%cases.length;scrollToCard();}
+function prevMobile(){mCur=(mCur-1+cases.length)%cases.length;scrollToCard();}
+function mGo(i){mCur=i;scrollToCard();}
 renderMobile();
-
-/* ── SWIPE support handled natively by scroll-snap ── */
-(function(){
-  window.addEventListener('resize',()=>renderMobile());
-})();
 
 /* ── FAQ ── */
 function toggleFaq(el){
@@ -552,11 +486,11 @@ async function submitWaitlist(){
     if(res.ok){
       document.getElementById('wlForm').style.display='none';
       document.getElementById('wlSuccess').style.display='block';
-    } else {
+    }else{
       alert('Something went wrong. Please try again.');
       btn.textContent='Notify Me When Tickets Drop →';btn.disabled=false;
     }
-  } catch(e){
+  }catch(e){
     alert('Connection error. Please try again.');
     btn.textContent='Notify Me When Tickets Drop →';btn.disabled=false;
   }
