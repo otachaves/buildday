@@ -290,7 +290,7 @@
 
 <script>
   const RESEND_KEY = 're_EWA2s6UL_FVGXsnP4N2pjEiCb58oPhBN7';
-  const TO_EMAIL = 'noreply@build.archipelagoaec.com';
+  const TO_EMAIL = 'otavio@archipelagoaec.com';
 
   let submissions = [];
   let photoBase64 = '';
@@ -449,16 +449,48 @@
       </div>`;
 
     try {
-      await fetch('https://api.resend.com/emails', {
-        method: 'POST',
-        headers: { 'Authorization': `Bearer ${RESEND_KEY}`, 'Content-Type': 'application/json' },
-        body: JSON.stringify({
-          from: 'BuildDay Mentors <noreply@build.archipelagoaec.com>',
-          to: [TO_EMAIL],
-          subject: `New Mentor: ${data.firstname} ${data.lastname} — ${data.company}`,
-          html
+      const confirmHtml = `
+        <div style="font-family:Inter,sans-serif;max-width:600px;margin:0 auto;background:#f8fafc;padding:0 0 32px">
+          <div style="background:#0f1f3d;padding:24px;text-align:center">
+            <div style="display:inline-block;background:#3ecfb2;color:#0f1f3d;font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:10px">BuildDay Vancouver</div>
+            <h1 style="color:white;font-size:22px;margin:0">You're in! 🙌</h1>
+          </div>
+          <div style="padding:28px 24px;background:white;margin:16px;border-radius:12px;border:1px solid #e2e8f0">
+            <p style="font-size:16px;font-weight:600;color:#0f1f3d;margin-bottom:12px">Hey ${data.firstname}, thank you for applying to be a BuildDay mentor!</p>
+            <p style="font-size:14px;color:#475569;line-height:1.7;margin-bottom:16px">We've received your application and we're excited to have someone with your background on board. The BuildDay team will be in touch with details and logistics closer to the event.</p>
+            <div style="background:#f1f5f9;border-radius:8px;padding:16px;margin-bottom:20px">
+              <div style="font-size:12px;font-weight:600;color:#94a3b8;text-transform:uppercase;letter-spacing:0.5px;margin-bottom:8px">Your event</div>
+              <div style="font-size:14px;color:#0f1f3d;font-weight:500">${data.event}</div>
+            </div>
+            <p style="font-size:13px;color:#94a3b8;line-height:1.6">Questions? Reply to this email or reach us at <a href="mailto:otavio@archipelagoaec.com" style="color:#3ecfb2">otavio@archipelagoaec.com</a></p>
+          </div>
+          <div style="text-align:center;padding:0 16px">
+            <p style="font-size:11px;color:#cbd5e1">Archipelago AEC · Vancouver, BC</p>
+          </div>
+        </div>`;
+
+      await Promise.all([
+        fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${RESEND_KEY}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            from: 'BuildDay <noreply@build.archipelagoaec.com>',
+            to: [TO_EMAIL],
+            subject: `New Mentor: ${data.firstname} ${data.lastname} — ${data.company}`,
+            html
+          })
+        }),
+        fetch('https://api.resend.com/emails', {
+          method: 'POST',
+          headers: { 'Authorization': `Bearer ${RESEND_KEY}`, 'Content-Type': 'application/json' },
+          body: JSON.stringify({
+            from: 'BuildDay <noreply@build.archipelagoaec.com>',
+            to: [data.email],
+            subject: `Got it! Your BuildDay mentor application is confirmed`,
+            html: confirmHtml
+          })
         })
-      });
+      ]);
     } catch(e) { console.warn('Email failed:', e); }
 
     showView('view-success');
