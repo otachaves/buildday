@@ -1,4 +1,5 @@
 export default async function handler(req, res) {
+  console.log('send-mentor called', req.method, JSON.stringify(req.body));
   if (req.method !== 'POST') return res.status(405).end();
 
   const data = req.body;
