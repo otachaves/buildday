@@ -1,0 +1,536 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>BuildDay Mentor Application</title>
+<link href="https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+  :root {
+    --navy: #0f1f3d; --blue: #1a3a6b; --mint: #3ecfb2; --mint-light: #d0f5ee;
+    --white: #ffffff; --gray-50: #f8fafc; --gray-100: #f1f5f9; --gray-200: #e2e8f0;
+    --gray-400: #94a3b8; --gray-600: #475569; --gray-800: #1e293b;
+    --error: #ef4444;
+  }
+  body { font-family: 'Inter', sans-serif; background: var(--gray-50); color: var(--gray-800); min-height: 100vh; }
+  .view { display: none; }
+  .view.active { display: block; }
+
+  .header { background: var(--navy); padding: 24px 20px; text-align: center; }
+  .header-badge { display: inline-block; background: var(--mint); color: var(--navy); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 11px; letter-spacing: 1.5px; text-transform: uppercase; padding: 4px 12px; border-radius: 20px; margin-bottom: 12px; }
+  .header h1 { font-family: 'Space Grotesk', sans-serif; font-size: 26px; font-weight: 700; color: var(--white); margin-bottom: 6px; }
+  .header p { color: var(--gray-400); font-size: 14px; }
+
+  .progress-bar { background: var(--navy); padding: 0 20px 20px; }
+  .progress-track { background: rgba(255,255,255,0.15); border-radius: 4px; height: 4px; overflow: hidden; }
+  .progress-fill { background: var(--mint); height: 100%; border-radius: 4px; transition: width 0.4s ease; }
+  .progress-label { display: flex; justify-content: space-between; margin-top: 8px; font-size: 12px; color: var(--gray-400); font-family: 'Space Grotesk', sans-serif; }
+
+  .form-container { max-width: 640px; margin: 0 auto; padding: 24px 20px 40px; }
+  .section-title { font-family: 'Space Grotesk', sans-serif; font-size: 18px; font-weight: 600; color: var(--navy); margin-bottom: 4px; }
+  .section-desc { font-size: 13px; color: var(--gray-600); margin-bottom: 24px; }
+
+  .field { margin-bottom: 20px; }
+  .field label { display: block; font-size: 13px; font-weight: 500; color: var(--gray-800); margin-bottom: 6px; }
+  .field label span.req { color: var(--mint); margin-left: 2px; }
+  .field input, .field textarea, .field select {
+    width: 100%; padding: 11px 14px; border: 1.5px solid var(--gray-200); border-radius: 8px;
+    font-family: 'Inter', sans-serif; font-size: 14px; color: var(--gray-800); background: var(--white);
+    transition: border-color 0.2s; outline: none;
+  }
+  .field input:focus, .field textarea:focus, .field select:focus { border-color: var(--mint); }
+  .field textarea { resize: vertical; min-height: 100px; }
+  .field.error input, .field.error textarea, .field.error select { border-color: var(--error); }
+  .field .error-msg { font-size: 12px; color: var(--error); margin-top: 4px; display: none; }
+  .field.error .error-msg { display: block; }
+  .field-row { display: grid; grid-template-columns: 1fr 1fr; gap: 16px; }
+  @media (max-width: 480px) { .field-row { grid-template-columns: 1fr; } }
+
+  .check-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .check-tag { position: relative; }
+  .check-tag input[type="checkbox"] { position: absolute; opacity: 0; width: 0; height: 0; }
+  .check-tag label {
+    display: inline-block; padding: 7px 14px; border: 1.5px solid var(--gray-200); border-radius: 20px;
+    font-size: 13px; font-weight: 400; color: var(--gray-600); cursor: pointer; transition: all 0.15s; margin: 0; user-select: none;
+  }
+  .check-tag input:checked + label { background: var(--mint-light); border-color: var(--mint); color: var(--navy); font-weight: 500; }
+
+  .radio-grid { display: flex; flex-wrap: wrap; gap: 8px; margin-top: 4px; }
+  .radio-tag { position: relative; }
+  .radio-tag input[type="radio"] { position: absolute; opacity: 0; width: 0; height: 0; }
+  .radio-tag label {
+    display: inline-block; padding: 7px 14px; border: 1.5px solid var(--gray-200); border-radius: 20px;
+    font-size: 13px; font-weight: 400; color: var(--gray-600); cursor: pointer; transition: all 0.15s; margin: 0; user-select: none;
+  }
+  .radio-tag input:checked + label { background: var(--mint-light); border-color: var(--mint); color: var(--navy); font-weight: 500; }
+
+  .photo-upload { border: 2px dashed var(--gray-200); border-radius: 12px; padding: 24px; text-align: center; cursor: pointer; transition: border-color 0.2s; background: var(--white); }
+  .photo-upload:hover { border-color: var(--mint); }
+  .photo-upload input { display: none; }
+  .photo-preview { width: 80px; height: 80px; border-radius: 50%; object-fit: cover; margin: 0 auto 8px; display: none; border: 3px solid var(--mint); }
+  .photo-icon { font-size: 32px; margin-bottom: 8px; }
+  .photo-upload p { font-size: 13px; color: var(--gray-600); }
+  .photo-upload small { font-size: 11px; color: var(--gray-400); }
+
+  .btn-row { display: flex; justify-content: space-between; align-items: center; margin-top: 32px; gap: 12px; }
+  .btn { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 14px; padding: 12px 28px; border-radius: 8px; border: none; cursor: pointer; transition: all 0.2s; }
+  .btn-primary { background: var(--mint); color: var(--navy); flex: 1; }
+  .btn-primary:hover { background: #2fb99e; }
+  .btn-primary:disabled { opacity: 0.6; cursor: not-allowed; }
+  .btn-secondary { background: transparent; color: var(--gray-600); border: 1.5px solid var(--gray-200); padding: 11px 24px; }
+  .btn-secondary:hover { border-color: var(--gray-400); color: var(--gray-800); }
+
+  .success-view { max-width: 480px; margin: 60px auto; text-align: center; padding: 0 24px; }
+  .success-icon { width: 72px; height: 72px; background: var(--mint-light); border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 20px; font-size: 32px; }
+  .success-view h2 { font-family: 'Space Grotesk', sans-serif; font-size: 22px; font-weight: 700; color: var(--navy); margin-bottom: 10px; }
+  .success-view p { color: var(--gray-600); font-size: 14px; line-height: 1.6; }
+
+  .admin-header { background: var(--navy); padding: 20px 24px; display: flex; justify-content: space-between; align-items: center; }
+  .admin-header h2 { font-family: 'Space Grotesk', sans-serif; color: var(--white); font-size: 18px; font-weight: 600; }
+  .admin-header span { background: var(--mint); color: var(--navy); font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 12px; padding: 4px 12px; border-radius: 20px; }
+  .admin-container { max-width: 860px; margin: 0 auto; padding: 24px 20px; }
+  .admin-empty { text-align: center; padding: 60px 20px; color: var(--gray-400); font-size: 14px; }
+  .mentor-card { background: var(--white); border: 1px solid var(--gray-200); border-radius: 12px; padding: 20px; margin-bottom: 16px; }
+  .mentor-card-header { display: flex; align-items: center; gap: 14px; margin-bottom: 14px; }
+  .mentor-avatar { width: 52px; height: 52px; border-radius: 50%; object-fit: cover; border: 2px solid var(--mint); background: var(--gray-100); flex-shrink: 0; }
+  .mentor-avatar-placeholder { width: 52px; height: 52px; border-radius: 50%; background: var(--mint-light); display: flex; align-items: center; justify-content: center; font-family: 'Space Grotesk', sans-serif; font-weight: 700; font-size: 18px; color: var(--navy); flex-shrink: 0; }
+  .mentor-name { font-family: 'Space Grotesk', sans-serif; font-weight: 600; font-size: 16px; color: var(--navy); }
+  .mentor-meta { font-size: 12px; color: var(--gray-400); margin-top: 2px; }
+  .mentor-tags { display: flex; flex-wrap: wrap; gap: 6px; margin-bottom: 12px; }
+  .mentor-tag { background: var(--mint-light); color: var(--navy); font-size: 11px; font-weight: 500; padding: 3px 10px; border-radius: 12px; font-family: 'Space Grotesk', sans-serif; }
+  .mentor-field { margin-bottom: 8px; }
+  .mentor-field-label { font-size: 11px; font-weight: 500; color: var(--gray-400); text-transform: uppercase; letter-spacing: 0.5px; margin-bottom: 2px; }
+  .mentor-field-value { font-size: 13px; color: var(--gray-800); line-height: 1.5; }
+  .admin-back { display: inline-block; margin: 16px 20px 0; font-size: 13px; color: var(--gray-400); cursor: pointer; font-family: 'Space Grotesk', sans-serif; }
+  .admin-back:hover { color: var(--mint); }
+  .admin-link { display: block; text-align: center; margin-top: 20px; font-size: 12px; color: var(--gray-400); cursor: pointer; font-family: 'Space Grotesk', sans-serif; }
+  .admin-link:hover { color: var(--mint); }
+</style>
+</head>
+<body>
+
+<!-- FORM VIEW -->
+<div id="view-form" class="view active">
+  <div class="header">
+    <div class="header-badge">BuildDay Vancouver</div>
+    <h1>Become a Mentor</h1>
+    <p>Help AEC teams build something bold in one day</p>
+  </div>
+  <div class="progress-bar">
+    <div class="progress-track"><div class="progress-fill" id="progress-fill" style="width:33%"></div></div>
+    <div class="progress-label"><span id="step-label">Step 1 of 3</span><span id="step-name">Personal Info</span></div>
+  </div>
+
+  <div class="form-container">
+
+    <!-- STEP 1 -->
+    <div id="step-1">
+      <div class="section-title">Personal Info</div>
+      <div class="section-desc">How participants and the organizing team will know you.</div>
+
+      <div class="field-row">
+        <div class="field" id="f-firstname"><label>First Name <span class="req">*</span></label><input type="text" id="firstname" placeholder="Jane"><div class="error-msg">Required</div></div>
+        <div class="field" id="f-lastname"><label>Last Name <span class="req">*</span></label><input type="text" id="lastname" placeholder="Smith"><div class="error-msg">Required</div></div>
+      </div>
+      <div class="field" id="f-email"><label>Email <span class="req">*</span></label><input type="email" id="email" placeholder="jane@studio.com"><div class="error-msg">Valid email required</div></div>
+      <div class="field"><label>Phone / WhatsApp</label><input type="tel" id="phone" placeholder="+1 604 000 0000"></div>
+      <div class="field"><label>LinkedIn URL</label><input type="url" id="linkedin" placeholder="https://linkedin.com/in/janesmith"></div>
+      <div class="field">
+        <label>Profile Photo</label>
+        <div class="photo-upload" onclick="document.getElementById('photo-input').click()">
+          <input type="file" id="photo-input" accept="image/*" onchange="handlePhoto(event)">
+          <img id="photo-preview" class="photo-preview" src="" alt="Preview">
+          <div id="photo-placeholder">
+            <div class="photo-icon">📷</div>
+            <p>Tap to upload your photo</p>
+            <small>JPG, PNG — max 2MB</small>
+          </div>
+        </div>
+      </div>
+      <div class="btn-row"><button class="btn btn-primary" onclick="goStep(2)">Continue →</button></div>
+    </div>
+
+    <!-- STEP 2 -->
+    <div id="step-2" style="display:none">
+      <div class="section-title">Expertise & Availability</div>
+      <div class="section-desc">Help us match you with the right teams.</div>
+
+      <div class="field" id="f-expertise">
+        <label>Area of Expertise <span class="req">*</span> <span style="color:var(--gray-400);font-weight:400">(select all that apply)</span></label>
+        <div class="check-grid" id="expertise-grid">
+          <div class="check-tag"><input type="checkbox" id="ex-arch" value="Architecture"><label for="ex-arch">Architecture</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-str" value="Structural Engineering"><label for="ex-str">Structural Eng.</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-mep" value="MEP Engineering"><label for="ex-mep">MEP Engineering</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-ci" value="Civil & Infrastructure"><label for="ex-ci">Civil & Infrastructure</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-const" value="Construction / GC"><label for="ex-const">Construction / GC</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-pm" value="Project Management"><label for="ex-pm">Project Management</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-bim" value="BIM / Digital Delivery"><label for="ex-bim">BIM / Digital</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-ai" value="AI & Technology"><label for="ex-ai">AI & Technology</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-dev" value="Software Development"><label for="ex-dev">Software Dev</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-ux" value="UX / Product Design"><label for="ex-ux">UX / Product Design</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-biz" value="Business & Strategy"><label for="ex-biz">Business & Strategy</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-sust" value="Sustainability"><label for="ex-sust">Sustainability</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-mkt" value="Marketing & Brand"><label for="ex-mkt">Marketing & Brand</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-sales" value="Sales"><label for="ex-sales">Sales</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-fin" value="Finance & Investment"><label for="ex-fin">Finance & Investment</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-law" value="Legal & Contracts"><label for="ex-law">Legal & Contracts</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-re" value="Real Estate Development"><label for="ex-re">Real Estate Dev.</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-ops" value="Operations & Logistics"><label for="ex-ops">Operations</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-hr" value="People & Culture"><label for="ex-hr">People & Culture</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-data" value="Data & Analytics"><label for="ex-data">Data & Analytics</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-startup" value="Startups & Entrepreneurship"><label for="ex-startup">Startups & Entrepreneurship</label></div>
+          <div class="check-tag"><input type="checkbox" id="ex-vc" value="Venture Capital"><label for="ex-vc">Venture Capital</label></div>
+        </div>
+        <div class="error-msg" id="expertise-error" style="display:none;margin-top:8px">Select at least one area</div>
+      </div>
+
+      <div class="field"><label>Other expertise not listed above</label><input type="text" id="expertise-other" placeholder="e.g. Acoustics, Urban planning..."></div>
+
+      <div class="field" id="f-company"><label>Company / Organization <span class="req">*</span></label><input type="text" id="company" placeholder="Acme Studio"><div class="error-msg">Required</div></div>
+      <div class="field"><label>Job Title</label><input type="text" id="jobtitle" placeholder="Principal Architect"></div>
+
+      <div class="field" id="f-event">
+        <label>Which event are you applying for? <span class="req">*</span></label>
+        <div class="radio-grid">
+          <div class="radio-tag"><input type="radio" name="event" id="ev-apr" value="April 27 — 8:30am to 12:30pm"><label for="ev-apr">April 27 · 8:30am–12:30pm</label></div>
+          <div class="radio-tag"><input type="radio" name="event" id="ev-jun" value="June 6 — Full day at SFU"><label for="ev-jun">June 6 · Full day at SFU</label></div>
+          <div class="radio-tag"><input type="radio" name="event" id="ev-both" value="Both events"><label for="ev-both">Both events</label></div>
+        </div>
+        <div class="error-msg" id="event-error" style="display:none;margin-top:8px">Please select an event</div>
+      </div>
+
+      <div class="field" id="f-availability">
+        <label>Availability on June 6 <span class="req">*</span> <span style="color:var(--gray-400);font-weight:400">(select all that apply)</span></label>
+        <div class="check-grid">
+          <div class="check-tag"><input type="checkbox" id="av-am" value="Morning (9am–12pm)"><label for="av-am">Morning (9–12)</label></div>
+          <div class="check-tag"><input type="checkbox" id="av-pm" value="Afternoon (12pm–5pm)"><label for="av-pm">Afternoon (12–5)</label></div>
+          <div class="check-tag"><input type="checkbox" id="av-all" value="Full day"><label for="av-all">Full day</label></div>
+        </div>
+        <div class="error-msg" id="availability-error" style="display:none;margin-top:8px">Select at least one slot</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-secondary" onclick="goStep(1)">← Back</button>
+        <button class="btn btn-primary" onclick="goStep(3)">Continue →</button>
+      </div>
+    </div>
+
+    <!-- STEP 3 -->
+    <div id="step-3" style="display:none">
+      <div class="section-title">How You'll Help</div>
+      <div class="section-desc">Tell us how you'd like to support teams during the event.</div>
+
+      <div class="field" id="f-support">
+        <label>Ways you can support teams <span class="req">*</span></label>
+        <div class="check-grid">
+          <div class="check-tag"><input type="checkbox" id="sup-rev" value="Design review & feedback"><label for="sup-rev">Design review</label></div>
+          <div class="check-tag"><input type="checkbox" id="sup-ind" value="Industry knowledge & context"><label for="sup-ind">Industry knowledge</label></div>
+          <div class="check-tag"><input type="checkbox" id="sup-pitch" value="Pitch coaching"><label for="sup-pitch">Pitch coaching</label></div>
+          <div class="check-tag"><input type="checkbox" id="sup-biz2" value="Business model & viability"><label for="sup-biz2">Business model</label></div>
+          <div class="check-tag"><input type="checkbox" id="sup-ux2" value="UX / User testing"><label for="sup-ux2">UX / User testing</label></div>
+          <div class="check-tag"><input type="checkbox" id="sup-mkt" value="Marketing"><label for="sup-mkt">Marketing</label></div>
+          <div class="check-tag"><input type="checkbox" id="sup-sales" value="Sales"><label for="sup-sales">Sales</label></div>
+          <div class="check-tag"><input type="checkbox" id="sup-cd" value="Customer discovery"><label for="sup-cd">Customer discovery</label></div>
+          <div class="check-tag"><input type="checkbox" id="sup-aitech" value="AI & Tech"><label for="sup-aitech">AI & Tech</label></div>
+          <div class="check-tag"><input type="checkbox" id="sup-pv" value="Problem validation"><label for="sup-pv">Problem validation</label></div>
+        </div>
+        <div class="error-msg" id="support-error" style="display:none;margin-top:8px">Select at least one</div>
+      </div>
+
+      <div class="field" id="f-onearea">
+        <label>If you could help teams in just one area, what would it be? <span class="req">*</span></label>
+        <textarea id="onearea" placeholder="e.g. I'd focus on validating whether the problem they're solving is real — helping them talk to potential users and reframe their solution fast." rows="3"></textarea>
+        <div class="error-msg">Please share your answer</div>
+      </div>
+
+      <div class="field" id="f-hackathon">
+        <label>Have you ever mentored at a Hackathon or Startup Weekend style event? <span class="req">*</span></label>
+        <div class="radio-grid">
+          <div class="radio-tag"><input type="radio" name="hackathon" id="hack-yes" value="Yes"><label for="hack-yes">Yes</label></div>
+          <div class="radio-tag"><input type="radio" name="hackathon" id="hack-no" value="No"><label for="hack-no">No</label></div>
+          <div class="radio-tag"><input type="radio" name="hackathon" id="hack-similar" value="Not exactly, but similar experience"><label for="hack-similar">Not exactly, but similar</label></div>
+        </div>
+        <div class="error-msg" id="hackathon-error" style="display:none;margin-top:8px">Please select one</div>
+      </div>
+
+      <div class="btn-row">
+        <button class="btn btn-secondary" onclick="goStep(2)">← Back</button>
+        <button class="btn btn-primary" id="submit-btn" onclick="submitForm()">Submit Application ✓</button>
+      </div>
+    </div>
+
+  </div>
+  <div class="admin-link" onclick="showAdmin()">Admin view →</div>
+</div>
+
+<!-- SUCCESS VIEW -->
+<div id="view-success" class="view">
+  <div class="header">
+    <div class="header-badge">BuildDay Vancouver</div>
+    <h1>BuildDay Mentor</h1>
+  </div>
+  <div class="success-view">
+    <div class="success-icon">✅</div>
+    <h2>Application received!</h2>
+    <p>Thanks for stepping up as a BuildDay mentor. We'll be in touch with details closer to the event.<br><br>See you there! 🚀</p>
+    <div style="margin-top:28px"><button class="btn btn-primary" onclick="resetForm()" style="width:100%">Submit another response</button></div>
+  </div>
+</div>
+
+<!-- ADMIN VIEW -->
+<div id="view-admin" class="view">
+  <div class="admin-header">
+    <h2>Mentor Applications</h2>
+    <span id="admin-count">0 mentors</span>
+  </div>
+  <span class="admin-back" onclick="showForm()">← Back to form</span>
+  <div class="admin-container" id="admin-list"></div>
+</div>
+
+<script>
+  const RESEND_KEY = 're_EWA2s6UL_FVGXsnP4N2pjEiCb58oPhBN7';
+  const TO_EMAIL = 'noreply@build.archipelagoaec.com';
+
+  let submissions = [];
+  let photoBase64 = '';
+  let currentStep = 1;
+
+  function goStep(n) {
+    if (n > currentStep && !validateStep(currentStep)) return;
+    document.getElementById('step-' + currentStep).style.display = 'none';
+    currentStep = n;
+    document.getElementById('step-' + n).style.display = 'block';
+    const pct = n === 1 ? 33 : n === 2 ? 66 : 100;
+    document.getElementById('progress-fill').style.width = pct + '%';
+    document.getElementById('step-label').textContent = 'Step ' + n + ' of 3';
+    const names = ['Personal Info', 'Expertise & Availability', 'How You\'ll Help'];
+    document.getElementById('step-name').textContent = names[n-1];
+    window.scrollTo(0, 0);
+  }
+
+  function validateStep(s) {
+    let ok = true;
+    if (s === 1) {
+      ok = req('firstname') & req('lastname') & reqEmail('email') & ok;
+    } else if (s === 2) {
+      const expChecked = document.querySelectorAll('#expertise-grid input:checked').length > 0;
+      if (!expChecked) { document.getElementById('expertise-error').style.display = 'block'; ok = false; }
+      else { document.getElementById('expertise-error').style.display = 'none'; }
+
+      const eventChecked = document.querySelector('input[name="event"]:checked');
+      if (!eventChecked) { document.getElementById('event-error').style.display = 'block'; ok = false; }
+      else { document.getElementById('event-error').style.display = 'none'; }
+
+      // Only validate June 6 availability if June 6 or Both is selected
+      const evVal = eventChecked ? eventChecked.value : '';
+      if (evVal.includes('June') || evVal.includes('Both')) {
+        const avAny = ['av-am','av-pm','av-all'].some(id => document.getElementById(id).checked);
+        if (!avAny) { document.getElementById('availability-error').style.display = 'block'; ok = false; }
+        else { document.getElementById('availability-error').style.display = 'none'; }
+      } else {
+        document.getElementById('availability-error').style.display = 'none';
+      }
+
+      ok = req('company') & ok;
+    } else if (s === 3) {
+      const supAny = ['sup-rev','sup-ind','sup-pitch','sup-biz2','sup-ux2','sup-mkt','sup-sales','sup-cd','sup-aitech','sup-pv'].some(id => document.getElementById(id).checked);
+      if (!supAny) { document.getElementById('support-error').style.display = 'block'; ok = false; }
+      else { document.getElementById('support-error').style.display = 'none'; }
+
+      ok = req('onearea') & ok;
+
+      const hackChecked = document.querySelector('input[name="hackathon"]:checked');
+      if (!hackChecked) { document.getElementById('hackathon-error').style.display = 'block'; ok = false; }
+      else { document.getElementById('hackathon-error').style.display = 'none'; }
+    }
+    return !!ok;
+  }
+
+  function req(id) {
+    const el = document.getElementById(id);
+    const field = document.getElementById('f-' + id);
+    if (!el.value.trim()) { if(field) field.classList.add('error'); return false; }
+    if(field) field.classList.remove('error');
+    return true;
+  }
+
+  function reqEmail(id) {
+    const el = document.getElementById(id);
+    const field = document.getElementById('f-' + id);
+    const valid = /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(el.value);
+    if (!valid) { if(field) field.classList.add('error'); return false; }
+    if(field) field.classList.remove('error');
+    return true;
+  }
+
+  function handlePhoto(e) {
+    const file = e.target.files[0];
+    if (!file) return;
+    const reader = new FileReader();
+    reader.onload = ev => {
+      photoBase64 = ev.target.result;
+      const preview = document.getElementById('photo-preview');
+      preview.src = photoBase64;
+      preview.style.display = 'block';
+      document.getElementById('photo-placeholder').style.display = 'none';
+    };
+    reader.readAsDataURL(file);
+  }
+
+  function getChecked(ids) {
+    return ids.filter(id => document.getElementById(id).checked).map(id => document.getElementById(id).value);
+  }
+
+  function getCheckedBySelector(sel) {
+    return Array.from(document.querySelectorAll(sel + ':checked')).map(el => el.value);
+  }
+
+  async function submitForm() {
+    if (!validateStep(3)) return;
+    const btn = document.getElementById('submit-btn');
+    btn.disabled = true;
+    btn.textContent = 'Submitting...';
+
+    const data = {
+      firstname: document.getElementById('firstname').value.trim(),
+      lastname: document.getElementById('lastname').value.trim(),
+      email: document.getElementById('email').value.trim(),
+      phone: document.getElementById('phone').value.trim(),
+      linkedin: document.getElementById('linkedin').value.trim(),
+      company: document.getElementById('company').value.trim(),
+      jobtitle: document.getElementById('jobtitle').value.trim(),
+      expertise: getCheckedBySelector('#expertise-grid input'),
+      expertiseOther: document.getElementById('expertise-other').value.trim(),
+      event: document.querySelector('input[name="event"]:checked')?.value || '',
+      availability: getChecked(['av-am','av-pm','av-all']),
+      support: getChecked(['sup-rev','sup-ind','sup-pitch','sup-biz2','sup-ux2','sup-mkt','sup-sales','sup-cd','sup-aitech','sup-pv']),
+      onearea: document.getElementById('onearea').value.trim(),
+      hackathon: document.querySelector('input[name="hackathon"]:checked')?.value || '',
+      photo: photoBase64,
+      submittedAt: new Date().toLocaleString('en-CA', {timeZone: 'America/Vancouver'})
+    };
+
+    submissions.push(data);
+
+    const photoHtml = data.photo
+      ? `<img src="${data.photo}" style="width:80px;height:80px;border-radius:50%;object-fit:cover;border:3px solid #3ecfb2;">`
+      : `<div style="width:80px;height:80px;border-radius:50%;background:#d0f5ee;display:inline-flex;align-items:center;justify-content:center;font-size:28px;font-weight:700;color:#0f1f3d;">${data.firstname[0]}${data.lastname[0]}</div>`;
+
+    const allExpertise = [...data.expertise, data.expertiseOther].filter(Boolean);
+
+    const html = `
+      <div style="font-family:Inter,sans-serif;max-width:600px;margin:0 auto;background:#f8fafc;padding:0 0 32px">
+        <div style="background:#0f1f3d;padding:24px;text-align:center">
+          <div style="display:inline-block;background:#3ecfb2;color:#0f1f3d;font-weight:700;font-size:11px;letter-spacing:1.5px;text-transform:uppercase;padding:4px 12px;border-radius:20px;margin-bottom:10px">BuildDay Vancouver</div>
+          <h1 style="color:white;font-size:22px;margin:0">New Mentor Application</h1>
+        </div>
+        <div style="padding:28px 24px;background:white;margin:16px;border-radius:12px;border:1px solid #e2e8f0">
+          <div style="display:flex;align-items:center;gap:16px;margin-bottom:20px">
+            ${photoHtml}
+            <div>
+              <div style="font-size:20px;font-weight:700;color:#0f1f3d">${data.firstname} ${data.lastname}</div>
+              <div style="color:#64748b;font-size:13px">${data.jobtitle ? data.jobtitle + ' · ' : ''}${data.company}</div>
+            </div>
+          </div>
+          <table style="width:100%;border-collapse:collapse;font-size:13px">
+            <tr><td style="padding:8px 0;color:#94a3b8;width:130px;vertical-align:top">Email</td><td style="padding:8px 0;color:#1e293b">${data.email}</td></tr>
+            ${data.phone ? `<tr><td style="padding:8px 0;color:#94a3b8;vertical-align:top">Phone</td><td style="padding:8px 0;color:#1e293b">${data.phone}</td></tr>` : ''}
+            ${data.linkedin ? `<tr><td style="padding:8px 0;color:#94a3b8;vertical-align:top">LinkedIn</td><td style="padding:8px 0"><a href="${data.linkedin}" style="color:#3ecfb2">${data.linkedin}</a></td></tr>` : ''}
+            <tr><td style="padding:8px 0;color:#94a3b8;vertical-align:top">Event</td><td style="padding:8px 0;color:#1e293b">${data.event}</td></tr>
+            <tr><td style="padding:8px 0;color:#94a3b8;vertical-align:top">Expertise</td><td style="padding:8px 0;color:#1e293b">${allExpertise.join(', ')}</td></tr>
+            ${data.availability.length ? `<tr><td style="padding:8px 0;color:#94a3b8;vertical-align:top">June 6 availability</td><td style="padding:8px 0;color:#1e293b">${data.availability.join(', ')}</td></tr>` : ''}
+            <tr><td style="padding:8px 0;color:#94a3b8;vertical-align:top">Can help with</td><td style="padding:8px 0;color:#1e293b">${data.support.join(', ')}</td></tr>
+            <tr><td style="padding:8px 0;color:#94a3b8;vertical-align:top">One area focus</td><td style="padding:8px 0;color:#1e293b">${data.onearea}</td></tr>
+            <tr><td style="padding:8px 0;color:#94a3b8;vertical-align:top">Hackathon exp.</td><td style="padding:8px 0;color:#1e293b">${data.hackathon}</td></tr>
+          </table>
+          <div style="font-size:11px;color:#cbd5e1;margin-top:16px;padding-top:16px;border-top:1px solid #f1f5f9">Submitted ${data.submittedAt} PT</div>
+        </div>
+      </div>`;
+
+    try {
+      await fetch('https://api.resend.com/emails', {
+        method: 'POST',
+        headers: { 'Authorization': `Bearer ${RESEND_KEY}`, 'Content-Type': 'application/json' },
+        body: JSON.stringify({
+          from: 'BuildDay Mentors <noreply@build.archipelagoaec.com>',
+          to: [TO_EMAIL],
+          subject: `New Mentor: ${data.firstname} ${data.lastname} — ${data.company}`,
+          html
+        })
+      });
+    } catch(e) { console.warn('Email failed:', e); }
+
+    showView('view-success');
+  }
+
+  function showAdmin() { renderAdmin(); showView('view-admin'); }
+  function showForm() { showView('view-form'); }
+
+  function showView(id) {
+    document.querySelectorAll('.view').forEach(v => v.classList.remove('active'));
+    document.getElementById(id).classList.add('active');
+    window.scrollTo(0, 0);
+  }
+
+  function renderAdmin() {
+    const list = document.getElementById('admin-list');
+    document.getElementById('admin-count').textContent = submissions.length + ' mentor' + (submissions.length !== 1 ? 's' : '');
+    if (!submissions.length) {
+      list.innerHTML = '<div class="admin-empty">No applications yet. Share the form to get started!</div>';
+      return;
+    }
+    list.innerHTML = submissions.map(d => {
+      const initials = (d.firstname[0] || '') + (d.lastname[0] || '');
+      const avatar = d.photo
+        ? `<img class="mentor-avatar" src="${d.photo}" alt="${d.firstname}">`
+        : `<div class="mentor-avatar-placeholder">${initials}</div>`;
+      const allExpertise = [...d.expertise, d.expertiseOther].filter(Boolean);
+      return `<div class="mentor-card">
+        <div class="mentor-card-header">
+          ${avatar}
+          <div>
+            <div class="mentor-name">${d.firstname} ${d.lastname}</div>
+            <div class="mentor-meta">${d.jobtitle ? d.jobtitle + ' · ' : ''}${d.company}</div>
+            <div class="mentor-meta">${d.email}${d.phone ? ' · ' + d.phone : ''}</div>
+          </div>
+        </div>
+        ${allExpertise.length ? `<div class="mentor-tags">${allExpertise.map(e => `<span class="mentor-tag">${e}</span>`).join('')}</div>` : ''}
+        <div class="mentor-field"><div class="mentor-field-label">Event</div><div class="mentor-field-value">${d.event}</div></div>
+        ${d.availability.length ? `<div class="mentor-field"><div class="mentor-field-label">June 6 availability</div><div class="mentor-field-value">${d.availability.join(' · ')}</div></div>` : ''}
+        <div class="mentor-field"><div class="mentor-field-label">Can help with</div><div class="mentor-field-value">${d.support.join(' · ')}</div></div>
+        <div class="mentor-field"><div class="mentor-field-label">One area focus</div><div class="mentor-field-value">${d.onearea}</div></div>
+        <div class="mentor-field"><div class="mentor-field-label">Hackathon experience</div><div class="mentor-field-value">${d.hackathon}</div></div>
+        <div style="font-size:11px;color:var(--gray-400);margin-top:8px">Submitted ${d.submittedAt}</div>
+      </div>`;
+    }).join('');
+  }
+
+  function resetForm() {
+    document.querySelectorAll('input[type=text], input[type=email], input[type=tel], input[type=url], textarea').forEach(el => el.value = '');
+    document.querySelectorAll('input[type=checkbox], input[type=radio]').forEach(el => el.checked = false);
+    photoBase64 = '';
+    document.getElementById('photo-preview').style.display = 'none';
+    document.getElementById('photo-placeholder').style.display = 'block';
+    document.getElementById('submit-btn').disabled = false;
+    document.getElementById('submit-btn').textContent = 'Submit Application ✓';
+    currentStep = 1;
+    ['step-1','step-2','step-3'].forEach((id,i) => document.getElementById(id).style.display = i === 0 ? 'block' : 'none');
+    document.getElementById('progress-fill').style.width = '33%';
+    document.getElementById('step-label').textContent = 'Step 1 of 3';
+    document.getElementById('step-name').textContent = 'Personal Info';
+    showView('view-form');
+  }
+
+  // Show/hide June 6 availability based on event selection
+  document.addEventListener('change', e => {
+    if (e.target.name === 'event') {
+      const val = e.target.value;
+      const avField = document.getElementById('f-availability');
+      avField.style.display = (val.includes('June') || val.includes('Both')) ? 'block' : 'none';
+    }
+  });
+  document.getElementById('f-availability').style.display = 'none';
+</script>
+</body>
+</html>
