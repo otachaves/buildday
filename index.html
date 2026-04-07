@@ -319,7 +319,6 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
       <p style="color:var(--muted);font-size:.95rem;">All tickets include meals, mentorship, workspace, and the full day's program.</p>
     </div>
     <div class="pw-grid">
-      <!-- LEFT: ticket options -->
       <div>
         <div class="ticket-cards">
           <div class="t-card hot">
@@ -365,66 +364,98 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
         </div>
         <div class="stripe-note">🔒 Secure checkout powered by Stripe</div>
       </div>
-      <!-- RIGHT: empty / clean -->
-      <div></div>
+      <!-- RIGHT: venue image -->
+      <div style="position:relative;border-radius:16px;overflow:hidden;height:520px;box-shadow:0 12px 40px rgba(0,102,255,.1);border:1px solid var(--border);">
+        <img src="https://raw.githubusercontent.com/otachaves/buildday/main/images/vertical-ticket.jpg" style="width:100%;height:100%;object-fit:cover;object-position:center 60%;display:block;" alt="BuildDay"/>
+        <div style="position:absolute;inset:0;background:linear-gradient(to top,rgba(10,14,26,.85) 0%,transparent 50%);"></div>
+        <div style="position:absolute;bottom:0;left:0;right:0;padding:1.75rem;">
+          <p style="font-size:1.15rem;font-weight:900;color:#fff;line-height:1.3;letter-spacing:-.3px;">Come with a problem.<br>Leave with an app.</p>
+        </div>
+      </div>
     </div>
   </div>
 </section>
 
 <!-- TICKET MODAL -->
-<div class="modal-overlay" id="ticketModal" onclick="closeModalOutside(event)">
-  <div class="modal">
-    <button class="modal-close" onclick="closeModal()">✕</button>
-    <h3>Complete your registration</h3>
-    <div class="modal-ticket-label" id="modalTicketLabel"></div>
-    <div class="modal-form">
-      <div class="m-row">
-        <div class="m-field">
-          <label class="m-label">First name *</label>
-          <input class="m-input" type="text" id="mFirst" placeholder="Jane"/>
+<div id="ticketModal" onclick="closeModalOutside(event)" style="display:none;position:fixed;inset:0;background:rgba(10,14,26,.6);z-index:200;align-items:center;justify-content:center;padding:1.25rem;">
+  <div style="background:#fff;border-radius:20px;padding:2rem 2rem 1.75rem;width:100%;max-width:540px;max-height:92vh;overflow-y:auto;box-shadow:0 32px 80px rgba(0,0,0,.22);position:relative;">
+
+    <!-- Close -->
+    <button onclick="closeModal()" style="position:absolute;top:1rem;right:1rem;background:var(--bg);border:1px solid var(--border);border-radius:50%;width:34px;height:34px;cursor:pointer;font-size:.9rem;color:var(--muted);display:flex;align-items:center;justify-content:center;line-height:1;">✕</button>
+
+    <!-- Header -->
+    <div style="margin-bottom:1.5rem;">
+      <p style="font-size:.72rem;font-weight:700;text-transform:uppercase;letter-spacing:1.5px;color:var(--accent);margin-bottom:.35rem;">Registration</p>
+      <h3 style="font-weight:900;font-size:1.2rem;letter-spacing:-.5px;margin-bottom:.2rem;">Complete your spot</h3>
+      <div id="modalTicketLabel" style="display:inline-block;background:rgba(0,102,255,.08);color:var(--accent);font-size:.75rem;font-weight:700;padding:.2rem .75rem;border-radius:999px;"></div>
+    </div>
+
+    <!-- Form fields -->
+    <div style="display:flex;flex-direction:column;gap:1rem;">
+
+      <!-- Name row -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;">
+        <div>
+          <label style="display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.35rem;">First name <span style="color:var(--accent);">*</span></label>
+          <input id="mFirst" type="text" placeholder="Jane" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;transition:.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
         </div>
-        <div class="m-field">
-          <label class="m-label">Last name *</label>
-          <input class="m-input" type="text" id="mLast" placeholder="Smith"/>
-        </div>
-      </div>
-      <div class="m-field">
-        <label class="m-label">Email *</label>
-        <input class="m-input" type="email" id="mEmail" placeholder="jane@firm.com"/>
-      </div>
-      <div class="m-row">
-        <div class="m-field">
-          <label class="m-label">Company</label>
-          <input class="m-input" type="text" id="mCompany" placeholder="Your firm"/>
-        </div>
-        <div class="m-field">
-          <label class="m-label">Role</label>
-          <input class="m-input" type="text" id="mRole" placeholder="e.g. Architect, PM"/>
+        <div>
+          <label style="display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.35rem;">Last name <span style="color:var(--accent);">*</span></label>
+          <input id="mLast" type="text" placeholder="Smith" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;transition:.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
         </div>
       </div>
-      <div class="m-field">
-        <label class="m-label">Dietary restrictions</label>
-        <input class="m-input" type="text" id="mDiet" placeholder="e.g. vegetarian, gluten-free, none"/>
+
+      <!-- Email -->
+      <div>
+        <label style="display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.35rem;">Email <span style="color:var(--accent);">*</span></label>
+        <input id="mEmail" type="email" placeholder="jane@firm.com" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;transition:.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
       </div>
-      <div class="m-field">
-        <label class="m-label">WhatsApp number <span style="font-weight:400;">(optional — for day-of updates)</span></label>
-        <input class="m-input" type="tel" id="mPhone" placeholder="+1 604 000 0000"/>
+
+      <!-- Company + Role -->
+      <div style="display:grid;grid-template-columns:1fr 1fr;gap:.75rem;">
+        <div>
+          <label style="display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.35rem;">Company</label>
+          <input id="mCompany" type="text" placeholder="Your firm" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;transition:.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
+        </div>
+        <div>
+          <label style="display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.35rem;">Role</label>
+          <input id="mRole" type="text" placeholder="e.g. Architect, PM" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;transition:.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
+        </div>
       </div>
-      <div class="m-field">
-        <label class="m-label">Joining as *</label>
-        <select class="m-input" id="mJoining" onchange="toggleTeamName()">
+
+      <!-- Dietary -->
+      <div>
+        <label style="display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.35rem;">Dietary restrictions</label>
+        <input id="mDiet" type="text" placeholder="e.g. vegetarian, gluten-free, none" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;transition:.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
+      </div>
+
+      <!-- WhatsApp -->
+      <div>
+        <label style="display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.35rem;">WhatsApp <span style="font-weight:400;">(optional — day-of updates)</span></label>
+        <input id="mPhone" type="tel" placeholder="+1 604 000 0000" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;transition:.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
+      </div>
+
+      <!-- Joining as -->
+      <div>
+        <label style="display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.35rem;">Joining as <span style="color:var(--accent);">*</span></label>
+        <select id="mJoining" onchange="toggleTeamName()" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;appearance:none;transition:.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
           <option value="" disabled selected>Select...</option>
           <option value="solo_noteam">Solo — I'll find a team on the day</option>
           <option value="solo_idea">Solo — I have an idea to pitch</option>
           <option value="team">With my own team</option>
         </select>
       </div>
-      <div class="m-field team-name-wrap" id="teamNameWrap">
-        <label class="m-label">Team name</label>
-        <input class="m-input" type="text" id="mTeamName" placeholder="e.g. The Load Bearers"/>
+
+      <!-- Team name (hidden) -->
+      <div id="teamNameWrap" style="display:none;">
+        <label style="display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.35rem;">Team name</label>
+        <input id="mTeamName" type="text" placeholder="e.g. The Load Bearers" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;transition:.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
       </div>
-      <button class="btn-checkout" onclick="proceedToCheckout()">Proceed to Checkout →</button>
-      <p class="modal-stripe-note">🔒 Secure payment via Stripe · Discount codes applied at checkout</p>
+
+      <!-- Submit -->
+      <button onclick="proceedToCheckout()" style="background:var(--accent);color:#fff;font-weight:900;padding:.95rem;border:none;border-radius:10px;font-size:1rem;cursor:pointer;width:100%;box-shadow:0 4px 16px rgba(0,102,255,.2);font-family:inherit;margin-top:.25rem;transition:.2s;" onmouseover="this.style.background='#0052cc'" onmouseout="this.style.background='var(--accent)'">Proceed to Checkout →</button>
+      <p style="font-size:.72rem;color:var(--muted);text-align:center;margin-top:-.25rem;">🔒 Secure payment via Stripe · Discount codes applied at checkout</p>
+
     </div>
   </div>
 </div>
@@ -492,11 +523,12 @@ let selectedTicket = null;
 function buyTicket(type){
   selectedTicket = type;
   document.getElementById('modalTicketLabel').textContent = TICKET_LABELS[type];
-  document.getElementById('ticketModal').classList.add('open');
+  const modal = document.getElementById('ticketModal');
+  modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
 }
 function closeModal(){
-  document.getElementById('ticketModal').classList.remove('open');
+  document.getElementById('ticketModal').style.display = 'none';
   document.body.style.overflow = '';
 }
 function closeModalOutside(e){
@@ -504,7 +536,7 @@ function closeModalOutside(e){
 }
 function toggleTeamName(){
   const val = document.getElementById('mJoining').value;
-  document.getElementById('teamNameWrap').classList.toggle('visible', val === 'team');
+  document.getElementById('teamNameWrap').style.display = val === 'team' ? 'flex' : 'none';
 }
 async function proceedToCheckout(){
   const first  = document.getElementById('mFirst').value.trim();
