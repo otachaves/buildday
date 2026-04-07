@@ -22,6 +22,7 @@ module.exports = async function handler(req, res) {
     line_items: [{ price: priceId, quantity: 1 }],
     customer_email: email,
     metadata: { ticket, first, last, email, company: company||'', role: role||'', diet: diet||'', phone: phone||'' },
+    allow_promotion_codes: true,
     success_url: `${process.env.SITE_URL}/success?session_id={CHECKOUT_SESSION_ID}`,
     cancel_url:  `${process.env.SITE_URL}/#register`,
   });
