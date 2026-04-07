@@ -1,6 +1,6 @@
-import Stripe from 'stripe';
+const Stripe = require('stripe');
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 
 const PRICE_IDS = {
   general_early:    'price_1TJbuuIVE3YXiSehEGl5xQCd',
@@ -9,7 +9,7 @@ const PRICE_IDS = {
   student_standard: 'price_1TJd9ZIVE3YXiSehjDlE6kwq',
 };
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
   const { ticket, first, last, email, company, role, diet, phone } = req.body;
@@ -27,4 +27,4 @@ export default async function handler(req, res) {
   });
 
   return res.status(200).json({ url: session.url });
-}
+};
