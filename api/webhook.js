@@ -1,11 +1,11 @@
-import Stripe from 'stripe';
-import { Resend } from 'resend';
-import { google } from 'googleapis';
+const Stripe = require('stripe');
+const { Resend } = require('resend');
+const { google } = require('googleapis');
 
-const stripe = new Stripe(process.env.STRIPE_SECRET_KEY);
+const stripe = Stripe(process.env.STRIPE_SECRET_KEY);
 const resend = new Resend(process.env.RESEND_API_KEY);
 
-const SHEET_ID   = '1wvRwIxLSP-Vuxx68EUhtjYcQPVoCldF_Qjikahr_-y8';
+const SHEET_ID    = '1wvRwIxLSP-Vuxx68EUhtjYcQPVoCldF_Qjikahr_-y8';
 const ADMIN_EMAIL = 'communitymanager@archipelagoaec.com';
 const FROM_EMAIL  = 'noreply@build.archipelagoaec.com';
 
@@ -16,7 +16,7 @@ const TICKET_NAMES = {
   student_standard: 'Student ($39)',
 };
 
-export const config = { api: { bodyParser: false } };
+module.exports.config = { api: { bodyParser: false } };
 
 async function getRawBody(req) {
   return new Promise((resolve, reject) => {
@@ -27,7 +27,7 @@ async function getRawBody(req) {
   });
 }
 
-export default async function handler(req, res) {
+module.exports = async function handler(req, res) {
   if (req.method !== 'POST') return res.status(405).end();
 
   const rawBody = await getRawBody(req);
@@ -43,11 +43,11 @@ export default async function handler(req, res) {
 
   if (event.type !== 'checkout.session.completed') return res.status(200).end();
 
-  const session  = event.data.object;
-  const meta     = session.metadata || {};
+  const session = event.data.object;
+  const meta    = session.metadata || {};
   const { ticket, first, last, email, company, role, diet, phone } = meta;
 
-  // ── 1. Save to Google Sheets ──────────────────────────────
+  // 1. Google Sheets
   try {
     const auth = new google.auth.GoogleAuth({
       credentials: JSON.parse(process.env.GOOGLE_SERVICE_ACCOUNT_JSON),
@@ -74,7 +74,7 @@ export default async function handler(req, res) {
     console.error('Sheets error:', err);
   }
 
-  // ── 2. Confirmation email to attendee ─────────────────────
+  // 2. Email to attendee
   try {
     await resend.emails.send({
       from:    `BuildDay <${FROM_EMAIL}>`,
@@ -86,7 +86,7 @@ export default async function handler(req, res) {
     console.error('Resend attendee error:', err);
   }
 
-  // ── 3. Notification to admin ──────────────────────────────
+  // 3. Email to admin
   try {
     await resend.emails.send({
       from:    `BuildDay <${FROM_EMAIL}>`,
@@ -99,9 +99,7 @@ export default async function handler(req, res) {
   }
 
   return res.status(200).json({ received: true });
-}
-
-// ── Email templates ───────────────────────────────────────────
+};
 
 function attendeeEmail({ first, ticket }) {
   return `<!DOCTYPE html>
