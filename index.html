@@ -32,14 +32,12 @@ a{color:inherit;text-decoration:none;}
 .blueprint-bg{position:relative;}
 .blueprint-bg::before{content:'';position:absolute;inset:0;pointer-events:none;background-image:url("data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' width='120' height='120'%3E%3Crect width='120' height='120' fill='none'/%3E%3Cpath d='M20 20 L60 5 L100 20 L100 80 L60 95 L20 80 Z' stroke='%230066FF' stroke-width='.5' fill='none' opacity='.06'/%3E%3Cline x1='60' y1='5' x2='60' y2='95' stroke='%230066FF' stroke-width='.4' stroke-dasharray='3,3' opacity='.05'/%3E%3Crect x='40' y='40' width='40' height='30' stroke='%230066FF' stroke-width='.4' fill='none' opacity='.06'/%3E%3Cline x1='0' y1='60' x2='120' y2='60' stroke='%230066FF' stroke-width='.3' opacity='.04'/%3E%3Cline x1='60' y1='0' x2='60' y2='120' stroke='%230066FF' stroke-width='.3' opacity='.04'/%3E%3C/svg%3E");background-size:120px 120px;}
 
-/* NAV */
 nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:center;justify-content:space-between;padding:.9rem 2rem;background:rgba(247,248,252,0.92);backdrop-filter:blur(16px);border-bottom:1px solid var(--border);}
 .nav-logo{font-weight:900;font-size:1.15rem;letter-spacing:-0.5px;color:var(--text);}
 .nav-logo span{color:var(--accent);}
 .nav-cta{background:var(--accent);color:#fff;font-weight:800;padding:.5rem 1.3rem;border-radius:6px;font-size:.88rem;transition:.2s;}
 .nav-cta:hover{background:#0052cc;}
 
-/* HERO */
 .hero{min-height:100vh;display:flex;flex-direction:column;align-items:center;justify-content:center;text-align:center;padding:7rem 1.5rem 5rem;position:relative;overflow:hidden;}
 .hero-bg-img{position:absolute;inset:0;z-index:0;}
 .hero-bg-img img{width:100%;height:100%;object-fit:cover;object-position:center center;}
@@ -57,7 +55,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .btn-hero:hover{transform:translateY(-2px);box-shadow:0 14px 40px rgba(0,102,255,.35);background:#0052cc;}
 .hero-cta-note{font-size:.8rem;color:var(--muted);}
 
-/* WHAT */
 .what{padding:5rem 2rem;background:#fff;}
 .what-inner{max-width:1100px;margin:0 auto;display:grid;grid-template-columns:1fr 1fr 1fr;gap:1.5rem;}
 .what-top{max-width:1100px;margin:0 auto 2.5rem;text-align:center;}
@@ -68,7 +65,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .what-block h3{font-weight:800;font-size:1rem;margin-bottom:.5rem;}
 .what-block p{color:var(--muted);font-size:.88rem;line-height:1.5;}
 
-/* SCHEDULE */
 .schedule{padding:5rem 2rem;background:var(--bg);}
 .sch-inner{max-width:1100px;margin:0 auto;}
 .sch-top{margin-bottom:2.5rem;}
@@ -80,7 +76,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .sch-card h4{font-weight:800;font-size:.95rem;margin-bottom:.4rem;}
 .sch-card p{color:var(--muted);font-size:.82rem;line-height:1.45;}
 
-/* CASES */
 .cases{padding:5rem 2rem;background:#fff;}
 .cases-inner{max-width:1100px;margin:0 auto;}
 .cases-top{margin-bottom:2.5rem;}
@@ -93,13 +88,10 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .case-body h4{font-weight:800;font-size:.95rem;margin-bottom:.3rem;}
 .case-body p{color:var(--muted);font-size:.82rem;line-height:1.45;}
 .carousel-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:1.25rem;}
-
-/* Mobile snap carousel */
 #mobileSnap{display:flex;overflow-x:auto;scroll-snap-type:x mandatory;-webkit-overflow-scrolling:touch;scrollbar-width:none;padding-bottom:4px;}
 #mobileSnap::-webkit-scrollbar{display:none;}
 #mobileSnap .case-card{scroll-snap-align:start;flex:0 0 100%;min-width:0;}
 
-/* TEAM */
 .team{padding:5rem 2rem;}
 .team-inner{max-width:1100px;margin:0 auto;}
 .team-top{margin-bottom:2.5rem;}
@@ -109,7 +101,6 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .team-info .role{font-size:.8rem;color:var(--accent);font-weight:600;margin-bottom:.6rem;}
 .team-info p{color:var(--muted);font-size:.85rem;line-height:1.5;}
 
-/* VENUE */
 .venue{padding:5rem 2rem;background:#fff;}
 .venue-inner{max-width:1100px;margin:0 auto;}
 .venue-top{margin-bottom:2rem;}
@@ -119,32 +110,34 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .venue-caption h3{font-weight:900;font-size:1.3rem;margin-bottom:.25rem;}
 .venue-caption p{font-size:.88rem;opacity:.8;}
 
-/* PRICING */
+/* PRICING / STRIPE */
 .pw{padding:5rem 2rem;}
 .pw-inner{max-width:1100px;margin:0 auto;}
 .pw-top{margin-bottom:2.5rem;}
-.pw-grid{display:grid;grid-template-columns:1fr 1fr;gap:2rem;align-items:start;}
-.price-cards{display:grid;grid-template-columns:1fr 1fr;gap:.9rem;}
-.p-card{background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;position:relative;transition:.2s;box-shadow:0 2px 12px rgba(0,0,0,.04);}
-.p-card.hot{border-color:var(--accent);box-shadow:0 4px 20px rgba(0,102,255,.12);}
-.p-hot-badge{position:absolute;top:-10px;left:50%;transform:translateX(-50%);background:var(--accent);color:#fff;font-size:.65rem;font-weight:800;padding:.2rem .75rem;border-radius:999px;letter-spacing:.5px;white-space:nowrap;}
-.p-card-label{font-size:.72rem;text-transform:uppercase;letter-spacing:.5px;color:var(--muted);font-weight:600;margin-bottom:.35rem;}
-.p-amount{font-size:2.2rem;font-weight:900;line-height:1;margin-bottom:.2rem;color:var(--text);}
-.p-amount sup{font-size:.9rem;vertical-align:top;margin-top:.4rem;font-weight:700;}
-.p-note{font-size:.75rem;color:var(--muted);}
-.wl-form{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2rem;display:flex;flex-direction:column;gap:.85rem;box-shadow:0 4px 24px rgba(0,102,255,.07);}
-.wl-form h3{font-weight:800;font-size:1.1rem;margin-bottom:.25rem;}
-.wl-row{display:grid;grid-template-columns:1fr 1fr;gap:.75rem;}
-.wl-input{width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.75rem 1rem;color:var(--text);font-size:.9rem;outline:none;transition:.2s;}
-.wl-input:focus{border-color:var(--accent);box-shadow:0 0 0 3px rgba(0,102,255,.08);}
-.wl-input::placeholder{color:var(--muted);}
-.wl-btn{background:var(--accent);color:#fff;font-weight:900;padding:.9rem;border:none;border-radius:8px;font-size:1rem;cursor:pointer;transition:.2s;width:100%;box-shadow:0 4px 16px rgba(0,102,255,.2);}
-.wl-btn:hover{background:#0052cc;transform:translateY(-1px);}
-.wl-success{display:none;background:rgba(0,102,255,.05);border:1px solid rgba(0,102,255,.2);border-radius:12px;padding:1.75rem;text-align:center;}
-.wl-success h4{font-weight:800;margin-bottom:.4rem;}
-.wl-success p{color:var(--muted);font-size:.88rem;}
+.pw-grid{display:grid;grid-template-columns:1fr 1fr;gap:3rem;align-items:start;}
+.ticket-cards{display:flex;flex-direction:column;gap:1rem;}
+.t-card{background:#fff;border:1px solid var(--border);border-radius:14px;padding:1.5rem 1.75rem;display:flex;align-items:center;justify-content:space-between;gap:1rem;box-shadow:0 2px 12px rgba(0,0,0,.04);transition:.2s;}
+.t-card:hover{border-color:#c0cef8;box-shadow:0 6px 24px rgba(0,102,255,.1);}
+.t-card.hot{border-color:var(--accent);box-shadow:0 4px 20px rgba(0,102,255,.12);}
+.t-card-left{}
+.t-card-label{font-weight:800;font-size:.95rem;margin-bottom:.15rem;display:flex;align-items:center;gap:.5rem;}
+.t-badge{background:var(--accent);color:#fff;font-size:.6rem;font-weight:800;padding:.15rem .55rem;border-radius:999px;letter-spacing:.5px;}
+.t-card-note{font-size:.78rem;color:var(--muted);}
+.t-card-right{display:flex;align-items:center;gap:1rem;flex-shrink:0;}
+.t-price{font-size:1.9rem;font-weight:900;line-height:1;color:var(--text);}
+.t-price sup{font-size:.85rem;vertical-align:top;margin-top:.3rem;}
+.t-price s{font-size:1rem;color:var(--muted);font-weight:400;margin-right:.25rem;}
+.btn-buy{background:var(--accent);color:#fff;font-weight:800;padding:.55rem 1.25rem;border-radius:8px;font-size:.85rem;border:none;cursor:pointer;transition:.2s;white-space:nowrap;}
+.btn-buy:hover{background:#0052cc;transform:translateY(-1px);}
+.stripe-note{font-size:.75rem;color:var(--muted);margin-top:.75rem;display:flex;align-items:center;gap:.4rem;}
 
-/* FAQ */
+/* Right side info box */
+.ticket-info{background:#fff;border:1px solid var(--border);border-radius:16px;padding:2rem;box-shadow:0 4px 24px rgba(0,102,255,.07);}
+.ticket-info h3{font-weight:800;font-size:1.05rem;margin-bottom:1.25rem;}
+.ticket-info-list{display:flex;flex-direction:column;gap:.75rem;}
+.ti-item{display:flex;align-items:flex-start;gap:.75rem;font-size:.88rem;color:var(--muted);}
+.ti-icon{font-size:1.1rem;flex-shrink:0;margin-top:.05rem;}
+
 .faq{padding:4rem 2rem;background:var(--bg);}
 .faq-inner{max-width:860px;margin:0 auto;}
 .faq-top{margin-bottom:2rem;}
@@ -162,7 +155,6 @@ footer strong{color:#fff;}
 footer a{color:var(--accent2);}
 h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;margin-bottom:.5rem;}
 
-/* ── MOBILE ── */
 @media(max-width:768px){
   .what{padding:4rem 1.25rem;}
   .what-inner{grid-template-columns:1fr;}
@@ -176,7 +168,8 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
   .venue{padding:4rem 1.25rem;}
   .pw{padding:4rem 1.25rem;}
   .pw-grid{grid-template-columns:1fr;}
-  .wl-row{grid-template-columns:1fr;}
+  .t-card{flex-direction:column;align-items:flex-start;gap:.75rem;}
+  .t-card-right{width:100%;justify-content:space-between;}
   .faq{padding:3rem 1.25rem;}
   .carousel-desktop-wrap{display:none !important;}
   .carousel-mobile{display:block;}
@@ -185,7 +178,7 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
   .carousel-mobile{display:none !important;}
 }
 @media(max-width:480px){
-  .price-cards{grid-template-columns:1fr;}
+  .pw-grid{grid-template-columns:1fr;}
 }
 </style>
 </head>
@@ -206,8 +199,8 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
     <div class="hero-meta-item"><span>📍</span><strong>SFU Vancouver</strong></div>
   </div>
   <div class="hero-cta">
-    <a href="#register" class="btn-hero">Reserve My Spot →</a>
-    <div class="hero-cta-note">Early bird from $49 · Tickets on sale soon</div>
+    <a href="#register" class="btn-hero">Get Your Spot →</a>
+    <div class="hero-cta-note">Early bird from $49 · Secure checkout via Stripe</div>
   </div>
 </section>
 
@@ -253,8 +246,6 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
       <h2 class="st">Real AEC apps. Built in a day.</h2>
       <p style="color:var(--muted);font-size:.95rem;">Tools AEC professionals have built in similar sprints, solving problems from their own practice.</p>
     </div>
-
-    <!-- DESKTOP -->
     <div class="carousel-desktop-wrap" style="position:relative;">
       <div id="carouselDesktop" class="carousel-grid"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.5rem;">
@@ -265,8 +256,6 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
         </div>
       </div>
     </div>
-
-    <!-- MOBILE -->
     <div class="carousel-mobile">
       <div id="mobileSnap"></div>
       <div style="display:flex;align-items:center;justify-content:space-between;margin-top:1.25rem;">
@@ -313,53 +302,132 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
       <button onclick="vNext()" style="position:absolute;right:1rem;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.9);border:none;border-radius:50%;width:40px;height:40px;cursor:pointer;font-size:1rem;z-index:10;box-shadow:0 2px 8px rgba(0,0,0,.15);">→</button>
       <div id="venueDots" style="position:absolute;bottom:1rem;left:50%;transform:translateX(-50%);display:flex;gap:.5rem;z-index:10;"></div>
       <div class="venue-overlay"></div>
-      <div class="venue-caption"><h3>Morris J. Wosk Centre for Dialogue</h3><p>Simon Fraser University · 515 W Hastings St, Vancouver, BC</p></div>
+      <div class="venue-caption">
+        <h3>Segal Building — SFU Vancouver</h3>
+        <p>500 Granville St, Vancouver, BC V6C 1W6</p>
+      </div>
     </div>
   </div>
 </section>
 
+<!-- TICKETS / STRIPE -->
 <section class="pw blueprint-bg" id="register">
   <div class="pw-inner">
     <div class="pw-top">
       <div class="label">Tickets · June 6, 2026</div>
-      <h2 class="st">Reserve your spot.</h2>
+      <h2 class="st">Get your spot.</h2>
       <p style="color:var(--muted);font-size:.95rem;">All tickets include meals, mentorship, workspace, and the full day's program.</p>
     </div>
     <div class="pw-grid">
+      <!-- LEFT: ticket options -->
       <div>
-        <div class="price-cards">
-          <div class="p-card hot"><div class="p-hot-badge">⚡ EARLY BIRD</div><div class="p-card-label" style="margin-top:.6rem;">General</div><div class="p-amount"><sup>$</sup>49</div><div class="p-note">Limited spots</div></div>
-          <div class="p-card"><div class="p-card-label">Standard</div><div class="p-amount"><sup>$</sup>79</div><div class="p-note">General admission</div></div>
-          <div class="p-card hot"><div class="p-hot-badge">⚡ EARLY BIRD</div><div class="p-card-label" style="margin-top:.6rem;">Student</div><div class="p-amount"><sup>$</sup>29</div><div class="p-note">Valid ID required</div></div>
-          <div class="p-card"><div class="p-card-label">Student Standard</div><div class="p-amount"><sup>$</sup>39</div><div class="p-note">Valid ID required</div></div>
-        </div>
-        <p style="font-size:.78rem;color:var(--muted);margin-top:1rem;">🔒 Secure checkout via Stripe — coming soon.</p>
-      </div>
-      <div>
-        <div class="wl-form" id="wlForm">
-          <h3>Join the Waitlist →</h3>
-          <div class="wl-row">
-            <input class="wl-input" type="text" id="wlFirst" placeholder="First name"/>
-            <input class="wl-input" type="text" id="wlLast" placeholder="Last name"/>
+        <div class="ticket-cards">
+          <div class="t-card hot">
+            <div class="t-card-left">
+              <div class="t-card-label">General Admission <span class="t-badge">⚡ EARLY BIRD</span></div>
+              <div class="t-card-note">Open to all AEC professionals · Limited spots</div>
+            </div>
+            <div class="t-card-right">
+              <div class="t-price"><sup>$</sup>49</div>
+              <button class="btn-buy" onclick="buyTicket('general_early')">Buy Now →</button>
+            </div>
           </div>
-          <input class="wl-input" type="email" id="wlEmail" placeholder="Work email"/>
-          <input class="wl-input" type="text" id="wlRole" placeholder="Your role (e.g. Architect, PM, Engineer)"/>
-          <select class="wl-input" id="wlType">
-            <option value="" disabled selected>I'm joining as...</option>
-            <option>Solo — I'll find a team</option>
-            <option>Solo — I have an idea to pitch</option>
-            <option>With my own team</option>
-          </select>
-          <button class="wl-btn" onclick="submitWaitlist()">Notify Me When Tickets Drop →</button>
+          <div class="t-card">
+            <div class="t-card-left">
+              <div class="t-card-label">General Admission</div>
+              <div class="t-card-note">Standard price · Open to all</div>
+            </div>
+            <div class="t-card-right">
+              <div class="t-price"><s>$49</s> <sup>$</sup>79</div>
+              <button class="btn-buy" onclick="buyTicket('general_standard')">Buy Now →</button>
+            </div>
+          </div>
+          <div class="t-card hot">
+            <div class="t-card-left">
+              <div class="t-card-label">Student <span class="t-badge">⚡ EARLY BIRD</span></div>
+              <div class="t-card-note">Valid student ID required at check-in</div>
+            </div>
+            <div class="t-card-right">
+              <div class="t-price"><sup>$</sup>29</div>
+              <button class="btn-buy" onclick="buyTicket('student_early')">Buy Now →</button>
+            </div>
+          </div>
+          <div class="t-card">
+            <div class="t-card-left">
+              <div class="t-card-label">Student</div>
+              <div class="t-card-note">Standard price · Valid student ID required</div>
+            </div>
+            <div class="t-card-right">
+              <div class="t-price"><s>$29</s> <sup>$</sup>39</div>
+              <button class="btn-buy" onclick="buyTicket('student_standard')">Buy Now →</button>
+            </div>
+          </div>
         </div>
-        <div class="wl-success" id="wlSuccess">
-          <h4>🎉 You're on the list!</h4>
-          <p>We'll reach out as soon as tickets go live. Early bird spots are very limited, you'll be first to know.</p>
-        </div>
+        <div class="stripe-note">🔒 Secure checkout powered by Stripe</div>
       </div>
+      <!-- RIGHT: empty / clean -->
+      <div></div>
     </div>
   </div>
 </section>
+
+<!-- TICKET MODAL -->
+<div class="modal-overlay" id="ticketModal" onclick="closeModalOutside(event)">
+  <div class="modal">
+    <button class="modal-close" onclick="closeModal()">✕</button>
+    <h3>Complete your registration</h3>
+    <div class="modal-ticket-label" id="modalTicketLabel"></div>
+    <div class="modal-form">
+      <div class="m-row">
+        <div class="m-field">
+          <label class="m-label">First name *</label>
+          <input class="m-input" type="text" id="mFirst" placeholder="Jane"/>
+        </div>
+        <div class="m-field">
+          <label class="m-label">Last name *</label>
+          <input class="m-input" type="text" id="mLast" placeholder="Smith"/>
+        </div>
+      </div>
+      <div class="m-field">
+        <label class="m-label">Email *</label>
+        <input class="m-input" type="email" id="mEmail" placeholder="jane@firm.com"/>
+      </div>
+      <div class="m-row">
+        <div class="m-field">
+          <label class="m-label">Company</label>
+          <input class="m-input" type="text" id="mCompany" placeholder="Your firm"/>
+        </div>
+        <div class="m-field">
+          <label class="m-label">Role</label>
+          <input class="m-input" type="text" id="mRole" placeholder="e.g. Architect, PM"/>
+        </div>
+      </div>
+      <div class="m-field">
+        <label class="m-label">Dietary restrictions</label>
+        <input class="m-input" type="text" id="mDiet" placeholder="e.g. vegetarian, gluten-free, none"/>
+      </div>
+      <div class="m-field">
+        <label class="m-label">WhatsApp number <span style="font-weight:400;">(optional — for day-of updates)</span></label>
+        <input class="m-input" type="tel" id="mPhone" placeholder="+1 604 000 0000"/>
+      </div>
+      <div class="m-field">
+        <label class="m-label">Joining as *</label>
+        <select class="m-input" id="mJoining" onchange="toggleTeamName()">
+          <option value="" disabled selected>Select...</option>
+          <option value="solo_noteam">Solo — I'll find a team on the day</option>
+          <option value="solo_idea">Solo — I have an idea to pitch</option>
+          <option value="team">With my own team</option>
+        </select>
+      </div>
+      <div class="m-field team-name-wrap" id="teamNameWrap">
+        <label class="m-label">Team name</label>
+        <input class="m-input" type="text" id="mTeamName" placeholder="e.g. The Load Bearers"/>
+      </div>
+      <button class="btn-checkout" onclick="proceedToCheckout()">Proceed to Checkout →</button>
+      <p class="modal-stripe-note">🔒 Secure payment via Stripe · Discount codes applied at checkout</p>
+    </div>
+  </div>
+</div>
 
 <section class="faq">
   <div class="faq-inner">
@@ -369,6 +437,7 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Do I need to know how to code? <span class="faq-arrow">▼</span></div><div class="faq-a">No. The tools we use are designed for non-developers. Your AEC expertise, knowing the problem deeply, is worth more than coding skills. Technical participants are welcome too, but they're not required.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What if I don't have a team or idea? <span class="faq-arrow">▼</span></div><div class="faq-a">Most people arrive solo. Teams form in the morning based on which problems resonate. If you have an idea, people will rally around it. If you don't, you'll find a challenge that clicks.</div></div>
       <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">Can I come with my own team? <span class="faq-arrow">▼</span></div><div class="faq-a">Absolutely. Arrive with a pre-formed group of up to 8 people and work on a shared challenge. Register individually and note your team at sign-up.</div></div>
+      <div class="faq-item"><div class="faq-q" onclick="toggleFaq(this)">What is the refund policy? <span class="faq-arrow">▼</span></div><div class="faq-a">Full refunds are available up to 14 days before the event. After that, tickets are transferable but non-refundable. Contact us at hello@archipelagoaec.com if you have any questions.</div></div>
     </div>
   </div>
 </section>
@@ -386,12 +455,16 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
 
 <script>
 /* ── VENUE CAROUSEL ── */
-const venueImgs=["./images/venue1.jpg","./images/venue2.jpg","./images/venue3.jpg"];
+const venueImgs=[
+  "https://www.sfu.ca/content/sfu/mecs/venues/vancouver/segal-building/_jcr_content.img.png/1711487950.jpg",
+  "./images/venue2.jpg",
+  "https://www.sfu.ca/content/sfu/vancouver/campus-services/facilities-services/campus-upgrades/segal-graduate-school-of-business/_jcr_content/main_content/image_237005450.img.original.low.jpg",
+];
 let vCur=0;
 function renderVenue(){
   const slides=document.getElementById('venueSlides');
   const dots=document.getElementById('venueDots');
-  slides.innerHTML=venueImgs.map(src=>`<div style="min-width:100%;height:100%;flex-shrink:0;"><img src="${src}" style="width:100%;height:100%;object-fit:cover;display:block;"/></div>`).join('');
+  slides.innerHTML=venueImgs.map(src=>`<div style="min-width:100%;height:100%;flex-shrink:0;"><img src="${src}" style="width:100%;height:100%;object-fit:cover;display:block;" onerror="this.style.background='var(--bg3)'"/></div>`).join('');
   slides.style.transform=`translateX(-${vCur*100}%)`;
   dots.innerHTML=venueImgs.map((_,i)=>`<div onclick="vGo(${i})" style="width:8px;height:8px;border-radius:50%;background:${i===vCur?'#fff':'rgba(255,255,255,.4)'};cursor:pointer;transition:.2s;"></div>`).join('');
 }
@@ -400,6 +473,70 @@ function vPrev(){vCur=(vCur-1+venueImgs.length)%venueImgs.length;renderVenue();}
 function vGo(i){vCur=i;renderVenue();}
 renderVenue();
 setInterval(vNext,4000);
+
+/* ── STRIPE + MODAL ── */
+const TICKET_LABELS = {
+  general_early:    '⚡ Early Bird — General · $49',
+  general_standard: 'General Admission · $79',
+  student_early:    '⚡ Early Bird — Student · $29',
+  student_standard: 'Student · $39',
+};
+const STRIPE_PRICE_IDS = {
+  general_early:    'price_REPLACE_GENERAL_EARLY',
+  general_standard: 'price_REPLACE_GENERAL_STANDARD',
+  student_early:    'price_REPLACE_STUDENT_EARLY',
+  student_standard: 'price_REPLACE_STUDENT_STANDARD',
+};
+let selectedTicket = null;
+
+function buyTicket(type){
+  selectedTicket = type;
+  document.getElementById('modalTicketLabel').textContent = TICKET_LABELS[type];
+  document.getElementById('ticketModal').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+function closeModal(){
+  document.getElementById('ticketModal').classList.remove('open');
+  document.body.style.overflow = '';
+}
+function closeModalOutside(e){
+  if(e.target === document.getElementById('ticketModal')) closeModal();
+}
+function toggleTeamName(){
+  const val = document.getElementById('mJoining').value;
+  document.getElementById('teamNameWrap').classList.toggle('visible', val === 'team');
+}
+async function proceedToCheckout(){
+  const first  = document.getElementById('mFirst').value.trim();
+  const last   = document.getElementById('mLast').value.trim();
+  const email  = document.getElementById('mEmail').value.trim();
+  const joining= document.getElementById('mJoining').value;
+  if(!first || !email || !joining){ alert('Please fill in the required fields.'); return; }
+
+  const payload = {
+    priceId:  STRIPE_PRICE_IDS[selectedTicket],
+    first, last, email,
+    company:  document.getElementById('mCompany').value.trim(),
+    role:     document.getElementById('mRole').value.trim(),
+    diet:     document.getElementById('mDiet').value.trim(),
+    phone:    document.getElementById('mPhone').value.trim(),
+    joining,
+    teamName: document.getElementById('mTeamName').value.trim(),
+  };
+
+  const btn = document.querySelector('.btn-checkout');
+  btn.textContent = 'Redirecting...'; btn.disabled = true;
+
+  try {
+    const res  = await fetch('/api/checkout', { method:'POST', headers:{'Content-Type':'application/json'}, body: JSON.stringify(payload) });
+    const data = await res.json();
+    if(data.url) window.location.href = data.url;
+    else { alert('Something went wrong. Please try again.'); btn.textContent='Proceed to Checkout →'; btn.disabled=false; }
+  } catch(e) {
+    alert('Connection error. Please try again.');
+    btn.textContent='Proceed to Checkout →'; btn.disabled=false;
+  }
+}
 
 /* ── CASES DATA ── */
 const cases=[
@@ -410,19 +547,10 @@ const cases=[
   {tag:"Visualization",title:"AI Render Tool",desc:"Turn sketches or basic models into photorealistic renders in seconds, helping teams communicate design intent to clients without waiting days.",img:"./images/render.jpg"},
   {tag:"Project Management",title:"Project Information Hub",desc:"A single source of truth that pulls data from drawings, emails, RFIs, and documents, so the whole team works from the same up-to-date information.",img:"./images/hub.jpg"},
 ];
-
 function cardHTML(x){
-  return`<div class="case-card">
-    <div class="case-img"><img src="${x.img}" alt="${x.title}" loading="lazy"/></div>
-    <div class="case-body">
-      <div class="case-tag">${x.tag}</div>
-      <h4>${x.title}</h4>
-      <p>${x.desc}</p>
-    </div>
-  </div>`;
+  return`<div class="case-card"><div class="case-img"><img src="${x.img}" alt="${x.title}" loading="lazy"/></div><div class="case-body"><div class="case-tag">${x.tag}</div><h4>${x.title}</h4><p>${x.desc}</p></div></div>`;
 }
 
-/* ── DESKTOP carousel (3 per page) ── */
 let cur=0;
 const perPage=3;
 const totalPages=Math.ceil(cases.length/perPage);
@@ -438,19 +566,16 @@ function prevSlide(){cur=(cur-1+totalPages)%totalPages;renderDesktop();}
 function goSlide(i){cur=i;renderDesktop();}
 renderDesktop();
 
-/* ── MOBILE carousel (snap, no scrollIntoView on init) ── */
 let mCur=0;
 function renderMobile(){
   const snap=document.getElementById('mobileSnap');
-  const dots=document.getElementById('dotsMobile');
   snap.innerHTML=cases.map(cardHTML).join('');
-  // position without scrollIntoView (avoids page jump on load)
   snap.scrollLeft=0;
   mCur=0;
-  updateMobileDots(dots);
+  updateMobileDots();
 }
-function updateMobileDots(dots){
-  dots=dots||document.getElementById('dotsMobile');
+function updateMobileDots(){
+  const dots=document.getElementById('dotsMobile');
   dots.innerHTML=cases.map((_,i)=>`<div onclick="mGo(${i})" style="width:8px;height:8px;border-radius:50%;background:${i===mCur?'var(--accent)':'var(--border)'};cursor:pointer;transition:.2s;"></div>`).join('');
 }
 function scrollToCard(){
@@ -464,36 +589,10 @@ function prevMobile(){mCur=(mCur-1+cases.length)%cases.length;scrollToCard();}
 function mGo(i){mCur=i;scrollToCard();}
 renderMobile();
 
-/* ── FAQ ── */
 function toggleFaq(el){
   const a=el.nextElementSibling,arrow=el.querySelector('.faq-arrow');
   const open=a.classList.toggle('open');
   arrow.style.transform=open?'rotate(180deg)':'';
-}
-
-/* ── WAITLIST ── */
-async function submitWaitlist(){
-  const first=document.getElementById('wlFirst').value.trim();
-  const email=document.getElementById('wlEmail').value.trim();
-  const last=document.getElementById('wlLast').value.trim();
-  const role=document.getElementById('wlRole').value.trim();
-  const type=document.getElementById('wlType').value;
-  const btn=document.querySelector('.wl-btn');
-  if(!first||!email){alert('Please enter your name and email.');return;}
-  btn.textContent='Sending...';btn.disabled=true;
-  try{
-    const res=await fetch('/api/waitlist',{method:'POST',headers:{'Content-Type':'application/json'},body:JSON.stringify({first,last,email,role,type})});
-    if(res.ok){
-      document.getElementById('wlForm').style.display='none';
-      document.getElementById('wlSuccess').style.display='block';
-    }else{
-      alert('Something went wrong. Please try again.');
-      btn.textContent='Notify Me When Tickets Drop →';btn.disabled=false;
-    }
-  }catch(e){
-    alert('Connection error. Please try again.');
-    btn.textContent='Notify Me When Tickets Drop →';btn.disabled=false;
-  }
 }
 </script>
 </body>
