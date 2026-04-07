@@ -322,40 +322,28 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
       <div>
         <div class="ticket-cards">
           <div class="t-card hot">
-            <div class="t-card-left">
-              <div class="t-card-label">General Admission <span class="t-badge">⚡ EARLY BIRD</span></div>
-              <div class="t-card-note">Open to all AEC professionals · Limited spots</div>
-            </div>
+            <div class="t-card-left"><div class="t-card-label">General Admission <span class="t-badge">⚡ EARLY BIRD</span></div></div>
             <div class="t-card-right">
               <div class="t-price"><sup>$</sup>49</div>
               <button class="btn-buy" onclick="buyTicket('general_early')">Buy Now →</button>
             </div>
           </div>
-          <div class="t-card">
-            <div class="t-card-left">
-              <div class="t-card-label">General Admission</div>
-              <div class="t-card-note">Standard price · Open to all</div>
-            </div>
-            <div class="t-card-right">
-              <div class="t-price"><s>$49</s> <sup>$</sup>79</div>
-              <button class="btn-buy" onclick="buyTicket('general_standard')">Buy Now →</button>
-            </div>
-          </div>
           <div class="t-card hot">
-            <div class="t-card-left">
-              <div class="t-card-label">Student <span class="t-badge">⚡ EARLY BIRD</span></div>
-              <div class="t-card-note">Valid student ID required at check-in</div>
-            </div>
+            <div class="t-card-left"><div class="t-card-label">Student <span class="t-badge">⚡ EARLY BIRD</span></div></div>
             <div class="t-card-right">
               <div class="t-price"><sup>$</sup>29</div>
               <button class="btn-buy" onclick="buyTicket('student_early')">Buy Now →</button>
             </div>
           </div>
           <div class="t-card">
-            <div class="t-card-left">
-              <div class="t-card-label">Student</div>
-              <div class="t-card-note">Standard price · Valid student ID required</div>
+            <div class="t-card-left"><div class="t-card-label">General Admission</div></div>
+            <div class="t-card-right">
+              <div class="t-price"><s>$49</s> <sup>$</sup>79</div>
+              <button class="btn-buy" onclick="buyTicket('general_standard')">Buy Now →</button>
             </div>
+          </div>
+          <div class="t-card">
+            <div class="t-card-left"><div class="t-card-label">Student</div></div>
             <div class="t-card-right">
               <div class="t-price"><s>$29</s> <sup>$</sup>39</div>
               <button class="btn-buy" onclick="buyTicket('student_standard')">Buy Now →</button>
@@ -435,25 +423,13 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
         <input id="mPhone" type="tel" placeholder="+1 604 000 0000" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;transition:.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
       </div>
 
-      <!-- Joining as -->
-      <div>
-        <label style="display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.35rem;">Joining as <span style="color:var(--accent);">*</span></label>
-        <select id="mJoining" onchange="toggleTeamName()" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;appearance:none;transition:.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'">
-          <option value="" disabled selected>Select...</option>
-          <option value="solo_noteam">Solo — I'll find a team on the day</option>
-          <option value="solo_idea">Solo — I have an idea to pitch</option>
-          <option value="team">With my own team</option>
-        </select>
-      </div>
-
-      <!-- Team name (hidden) -->
-      <div id="teamNameWrap" style="display:none;">
-        <label style="display:block;font-size:.75rem;font-weight:600;color:var(--muted);margin-bottom:.35rem;">Team name</label>
-        <input id="mTeamName" type="text" placeholder="e.g. The Load Bearers" style="width:100%;background:var(--bg);border:1px solid var(--border);border-radius:8px;padding:.7rem 1rem;color:var(--text);font-size:.9rem;outline:none;font-family:inherit;transition:.2s;" onfocus="this.style.borderColor='var(--accent)'" onblur="this.style.borderColor='var(--border)'"/>
+      <!-- Student ID note (shown for student tickets) -->
+      <div id="studentIdNote" style="display:none;background:rgba(0,102,255,.06);border:1px solid rgba(0,102,255,.15);border-radius:8px;padding:.75rem 1rem;font-size:.82rem;color:var(--accent);">
+        🪪 Valid student ID will be required at check-in.
       </div>
 
       <!-- Submit -->
-      <button onclick="proceedToCheckout()" style="background:var(--accent);color:#fff;font-weight:900;padding:.95rem;border:none;border-radius:10px;font-size:1rem;cursor:pointer;width:100%;box-shadow:0 4px 16px rgba(0,102,255,.2);font-family:inherit;margin-top:.25rem;transition:.2s;" onmouseover="this.style.background='#0052cc'" onmouseout="this.style.background='var(--accent)'">Proceed to Checkout →</button>
+      <button class="btn-checkout" onclick="proceedToCheckout()" style="background:var(--accent);color:#fff;font-weight:900;padding:.95rem;border:none;border-radius:10px;font-size:1rem;cursor:pointer;width:100%;box-shadow:0 4px 16px rgba(0,102,255,.2);font-family:inherit;margin-top:.25rem;transition:.2s;" onmouseover="this.style.background='#0052cc'" onmouseout="this.style.background='var(--accent)'">Proceed to Checkout →</button>
       <p style="font-size:.72rem;color:var(--muted);text-align:center;margin-top:-.25rem;">🔒 Secure payment via Stripe · Discount codes applied at checkout</p>
 
     </div>
@@ -505,24 +481,25 @@ function vGo(i){vCur=i;renderVenue();}
 renderVenue();
 setInterval(vNext,4000);
 
-/* ── STRIPE + MODAL ── */
+/* ── STRIPE PAYMENT LINKS ── */
+const STRIPE_LINKS = {
+  general_early:    'https://buy.stripe.com/28EfZicSBgTg0lsfmFbwk01',
+  student_early:    'https://buy.stripe.com/aFabJ24m55ay1pw6Q9bwk02',
+  general_standard: 'https://buy.stripe.com/5kQfZi4m532q8RY7Udbwk03',
+  student_standard: 'https://buy.stripe.com/6oU28s6ud0Ui4BI4I1bwk04',
+};
 const TICKET_LABELS = {
   general_early:    '⚡ Early Bird — General · $49',
-  general_standard: 'General Admission · $79',
   student_early:    '⚡ Early Bird — Student · $29',
+  general_standard: 'General Admission · $79',
   student_standard: 'Student · $39',
 };
-const STRIPE_PRICE_IDS = {
-  general_early:    'price_REPLACE_GENERAL_EARLY',
-  general_standard: 'price_REPLACE_GENERAL_STANDARD',
-  student_early:    'price_REPLACE_STUDENT_EARLY',
-  student_standard: 'price_REPLACE_STUDENT_STANDARD',
-};
-let selectedTicket = null;
 
 function buyTicket(type){
   selectedTicket = type;
   document.getElementById('modalTicketLabel').textContent = TICKET_LABELS[type];
+  // show student ID note for student tickets
+  document.getElementById('studentIdNote').style.display = type.startsWith('student') ? 'block' : 'none';
   const modal = document.getElementById('ticketModal');
   modal.style.display = 'flex';
   document.body.style.overflow = 'hidden';
@@ -534,10 +511,7 @@ function closeModal(){
 function closeModalOutside(e){
   if(e.target === document.getElementById('ticketModal')) closeModal();
 }
-function toggleTeamName(){
-  const val = document.getElementById('mJoining').value;
-  document.getElementById('teamNameWrap').style.display = val === 'team' ? 'flex' : 'none';
-}
+function toggleTeamName(){}
 async function proceedToCheckout(){
   const first  = document.getElementById('mFirst').value.trim();
   const last   = document.getElementById('mLast').value.trim();
@@ -552,8 +526,6 @@ async function proceedToCheckout(){
     role:     document.getElementById('mRole').value.trim(),
     diet:     document.getElementById('mDiet').value.trim(),
     phone:    document.getElementById('mPhone').value.trim(),
-    joining,
-    teamName: document.getElementById('mTeamName').value.trim(),
   };
 
   const btn = document.querySelector('.btn-checkout');
