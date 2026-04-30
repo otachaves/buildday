@@ -171,6 +171,8 @@ footer a{color:rgba(0,194,255,.7);}
   .what-stat{flex-direction:column;align-items:center;text-align:center;padding:.75rem .5rem;flex:1;min-width:120px;}
   .what-stat .what-pct{font-size:1.4rem;margin-bottom:.15rem;}
   .what-slbl span{display:none;}
+  .perk-grid{grid-template-columns:1fr 1fr!important;}
+  .perk-grid > div:last-child{grid-column:1/-1;}
 }
 @media(max-width:480px){
   .cred-stats{grid-template-columns:1fr 1fr;}
@@ -265,18 +267,6 @@ footer a{color:rgba(0,194,255,.7);}
       <div class="cred-stat"><div class="cred-num" style="font-size:1.6rem;padding-top:.3rem;">SFU</div><div class="cred-lbl">University collaboration & venue</div></div>
       <div class="cred-stat"><div class="cred-num">1<em style="font-size:1.3rem;">st</em></div><div class="cred-lbl">AEC innovation sprint in Vancouver</div></div>
     </div>
-    <div class="cred-logos">
-      <div class="cred-logos-lbl">Past & current partners and sponsors</div>
-      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner1.jpg" style="height:45px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
-      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner2.jpg" style="height:45px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
-      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner3.jpg" style="height:45px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
-      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner4.jpg" style="height:45px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
-      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner5.jpg" style="height:45px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
-      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner6.jpg" style="height:45px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
-      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner7.jpg" style="height:45px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
-      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner8.jpg" style="height:45px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
-      <img src="https://raw.githubusercontent.com/otachaves/Buildday-sponsor/main/image/Partner9.jpg" style="height:45px;object-fit:contain;opacity:.7;transition:.2s;" onmouseover="this.style.opacity=1" onmouseout="this.style.opacity=.7"/>
-    </div>
   </div>
 </section>
 
@@ -369,7 +359,7 @@ footer a{color:rgba(0,194,255,.7);}
         <h3 style="font-family:'Space Grotesk',sans-serif;font-size:1.15rem;font-weight:700;color:var(--text);margin-bottom:.4rem;letter-spacing:-.3px;">App Development Hours with Archipelago</h3>
         <p style="font-size:.85rem;color:var(--muted);max-width:520px;margin:0 auto;line-height:1.6;">Every sponsor receives dedicated app development hours with the Archipelago team.</p>
       </div>
-      <div style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
+      <div class="perk-grid" style="display:grid;grid-template-columns:1fr 1fr 1fr;gap:1rem;">
         <div style="background:#fff;border:1px solid var(--border);border-radius:12px;padding:1.25rem;text-align:center;">
           <div style="font-size:.68rem;text-transform:uppercase;letter-spacing:1px;font-weight:700;color:var(--muted);margin-bottom:.5rem;">Community</div>
           <div style="font-family:'Space Grotesk',sans-serif;font-size:1.6rem;font-weight:700;color:var(--blue);line-height:1;margin-bottom:.3rem;">4h</div>
