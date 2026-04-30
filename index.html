@@ -151,7 +151,9 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
 .what-mobile{display:none;}
 @media(max-width:768px){
   .what{padding:3rem 1.25rem;}
-  .what-inner{display:none;}
+  .what-inner{flex-direction:column;height:auto;}
+  .what-video{width:100%;aspect-ratio:9/16;max-width:320px;margin:0 auto;}
+  .what-cards{display:none;}
   .what-mobile{display:flex;flex-direction:column;gap:.75rem;margin-top:1.5rem;}
   .what-mobile-item{display:flex;align-items:center;gap:.75rem;font-size:1rem;font-weight:700;color:var(--text);}
   .what-mobile-item span{font-size:1.3rem;}
