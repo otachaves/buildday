@@ -56,7 +56,9 @@ nav{position:fixed;top:0;left:0;right:0;z-index:100;display:flex;align-items:cen
 .label{font-size:.7rem;text-transform:uppercase;letter-spacing:2px;font-weight:700;color:var(--blue);margin-bottom:.6rem;}
 h2.st{font-family:'Space Grotesk',sans-serif;font-size:clamp(1.7rem,3.5vw,2.5rem);font-weight:700;letter-spacing:-1px;line-height:1.15;margin-bottom:.6rem;color:var(--text);}
 .section-intro{color:var(--muted);font-size:.95rem;max-width:520px;line-height:1.7;}
-.tl-wrap{padding:1.5rem 0 0;overflow-x:auto;}
+.tl-wrap{padding:1rem 0 0;overflow-x:auto;}
+.tl-buildrow{display:flex;min-width:600px;margin-bottom:.35rem;}
+.tl-buildband{border:1.5px dashed #CBD5E1;border-radius:6px;text-align:center;font-size:.63rem;font-weight:600;color:#94A3B8;padding:.18rem .5rem;letter-spacing:.5px;text-transform:uppercase;}
 .tl-track{display:flex;align-items:flex-start;position:relative;min-width:600px;}
 .tl-track::before{content:'';position:absolute;top:7px;left:8px;right:8px;height:2px;background:var(--border);}
 .tl-item{display:flex;flex-direction:column;align-items:center;flex:1;position:relative;}
@@ -276,6 +278,11 @@ footer a{color:rgba(0,194,255,.7);}
   <div style="max-width:940px;margin:0 auto;">
     <div class="label">Program Schedule</div>
     <div class="tl-wrap">
+      <div class="tl-buildrow">
+        <div style="flex:2"></div>
+        <div class="tl-buildband" style="flex:4">Build Time</div>
+        <div style="flex:1"></div>
+      </div>
       <div class="tl-track">
         <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">8:00 AM</div><div class="tl-label">Check-in</div></div>
         <div class="tl-item"><div class="tl-dot"></div><div class="tl-time">9:00 AM</div><div class="tl-label">Workshop</div></div>
