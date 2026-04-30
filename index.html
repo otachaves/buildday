@@ -148,9 +148,13 @@ footer p{color:rgba(255,255,255,.5);font-size:.82rem;}
 footer a{color:var(--accent2);}
 h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;margin-bottom:.5rem;}
 
+.what-mobile{display:none;}
 @media(max-width:768px){
-  .what{padding:4rem 1.25rem;}
-  .what-inner{grid-template-columns:1fr;}
+  .what{padding:3rem 1.25rem;}
+  .what-inner{display:none;}
+  .what-mobile{display:flex;flex-direction:column;gap:.75rem;margin-top:1.5rem;}
+  .what-mobile-item{display:flex;align-items:center;gap:.75rem;font-size:1rem;font-weight:700;color:var(--text);}
+  .what-mobile-item span{font-size:1.3rem;}
   .schedule{padding:4rem 1.25rem;}
   .sch-grid{display:flex;flex-direction:column;gap:.85rem;}
   .sch-card{padding:1.25rem 1.25rem 1rem;}
@@ -212,6 +216,11 @@ h2.st{font-size:clamp(1.6rem,3.5vw,2.4rem);font-weight:900;letter-spacing:-1px;m
       <div class="what-block"><div class="icon">🤝</div><h3>Build with a team</h3><p>Arrive solo and form a team on the day, or bring your crew. Groups of 6–8 work together with mentor support throughout.</p></div>
       <div class="what-block"><div class="icon">🚀</div><h3>Leave with something real</h3><p>Not a mockup. Not slides. A working application you can use on Monday, and keep developing beyond the event.</p></div>
     </div>
+  </div>
+  <div class="what-mobile">
+    <div class="what-mobile-item"><span>🎯</span> Bring any problem</div>
+    <div class="what-mobile-item"><span>🤝</span> Build with a team</div>
+    <div class="what-mobile-item"><span>🚀</span> Leave with something real</div>
   </div>
   <div style="max-width:1100px;margin:2.5rem auto 0;padding-top:2.5rem;border-top:1px solid var(--border);display:flex;align-items:center;justify-content:center;gap:2.5rem;flex-wrap:wrap;">
     <span style="font-size:.75rem;text-transform:uppercase;letter-spacing:1.5px;color:var(--muted);font-weight:600;">A collaboration between</span>
