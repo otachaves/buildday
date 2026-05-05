@@ -44,5 +44,20 @@ h1{font-size:1.6rem;font-weight:900;letter-spacing:-.5px;margin-bottom:.5rem;col
   <a href="/" class="btn">Back to BuildDay →</a>
   <p class="note">Questions? Email us at <a href="mailto:communitymanager@archipelagoaec.com" style="color:#0066FF;">communitymanager@archipelagoaec.com</a></p>
 </div>
+<script>
+  (function() {
+    if (typeof gtag !== 'function') return;
+    var params = new URLSearchParams(window.location.search);
+    var sessionId = params.get('session_id');
+    if (!sessionId) return;
+    var amount = parseFloat(params.get('amount')) || 49.0;
+    gtag('event', 'conversion', {
+      'send_to': 'AW-18135275846/REPLACE_WITH_CONVERSION_LABEL',
+      'transaction_id': sessionId,
+      'value': amount,
+      'currency': 'CAD'
+    });
+  })();
+</script>
 </body>
 </html>
