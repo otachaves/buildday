@@ -1,1 +1,413 @@
 
+<style>
+@import url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&family=Inter:wght@300;400;500;600&display=swap');
+*{box-sizing:border-box;margin:0;padding:0}
+:root{
+  --navy:#1B2D50;--mint:#38F5A3;--blue:#2E68FF;--deep-navy:#103468;
+  --teal:#00BDA5;--subtle-blue:#5B8AFF;--slate:#64748B;--slate-med:#475569;
+  --border:#E2E8F0;--bg-warm:#FAF9F6;--bg-light:#F1F5F9;--danger:#F43F5E;
+  --danger-bg:#FFF0F3;--warn-bg:#FFFBEB;--warn-border:#FCD34D;--warn-text:#92400E;
+  --success-bg:#F0FDF9;--success-border:#6EE7B7;--success-text:#065F46;
+}
+.w{font-family:'Inter',sans-serif;background:#fff;color:var(--navy);min-height:500px}
+.header{background:var(--navy);padding:1.25rem 1.5rem;display:flex;align-items:center;gap:12px}
+.header-logo{font-family:'Space Grotesk',sans-serif;font-size:15px;font-weight:700;color:#fff;letter-spacing:-0.01em}
+.header-logo span{color:var(--mint)}
+.header-tag{font-size:11px;color:rgba(255,255,255,0.45);margin-left:auto;font-weight:400}
+.layout{display:grid;grid-template-columns:172px minmax(0,1fr)}
+.sidebar{background:var(--navy);min-height:600px;padding:1rem 0}
+.sn{display:flex;align-items:flex-start;gap:10px;padding:9px 16px;cursor:pointer;border-left:2px solid transparent;transition:all 0.12s}
+.sn:hover{background:rgba(255,255,255,0.05)}
+.sn.active{background:rgba(56,245,163,0.08);border-left-color:var(--mint)}
+.sn.done{background:rgba(56,245,163,0.05);border-left-color:var(--teal)}
+.sn-num{width:20px;height:20px;border-radius:50%;background:rgba(255,255,255,0.08);border:1px solid rgba(255,255,255,0.15);font-size:10px;font-weight:600;color:rgba(255,255,255,0.5);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-family:'Space Grotesk',sans-serif}
+.sn.active .sn-num{background:var(--mint);border-color:var(--mint);color:var(--navy)}
+.sn.done .sn-num{background:var(--teal);border-color:var(--teal);color:#fff}
+.sn-label{font-size:11.5px;color:rgba(255,255,255,0.5);line-height:1.35;font-weight:400}
+.sn.active .sn-label{color:#fff;font-weight:500}
+.sn.done .sn-label{color:rgba(255,255,255,0.7)}
+.content{padding:2rem 1.75rem;background:#fff}
+.phase{display:none}
+.phase.active{display:block}
+.ph-eyebrow{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.15em;color:var(--blue);margin-bottom:6px}
+.ph-title{font-family:'Space Grotesk',sans-serif;font-size:20px;font-weight:700;color:var(--navy);margin-bottom:4px;letter-spacing:-0.01em}
+.ph-sub{font-size:13px;color:var(--slate-med);margin-bottom:1.75rem;line-height:1.55}
+.slabel{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.12em;color:var(--slate);margin-top:1.5rem;margin-bottom:8px}
+.danger-box{background:var(--danger-bg);border:1px solid #FCA5A5;border-radius:8px;padding:10px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+.danger-box i{font-size:15px;color:var(--danger);flex-shrink:0;margin-top:1px}
+.danger-box p{font-size:12.5px;color:#7f1d1d;line-height:1.55}
+.warn-box{background:var(--warn-bg);border:1px solid var(--warn-border);border-radius:8px;padding:10px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+.warn-box i{font-size:15px;color:#D97706;flex-shrink:0;margin-top:1px}
+.warn-box p{font-size:12.5px;color:var(--warn-text);line-height:1.55}
+.success-box{background:var(--success-bg);border:1px solid var(--success-border);border-radius:8px;padding:10px 14px;margin-bottom:8px;display:flex;gap:10px;align-items:flex-start}
+.success-box i{font-size:15px;color:var(--teal);flex-shrink:0;margin-top:1px}
+.success-box p{font-size:12.5px;color:var(--success-text);line-height:1.55}
+.copy-row{display:flex;align-items:flex-start;gap:10px;background:var(--bg-light);border:1px solid var(--border);border-radius:8px;padding:11px 13px;margin-bottom:8px}
+.copy-text{font-size:12.5px;color:var(--navy);line-height:1.65;flex:1;white-space:pre-wrap}
+.copy-btn{display:flex;align-items:center;gap:4px;font-size:11px;font-weight:500;color:var(--blue);cursor:pointer;flex-shrink:0;padding:4px 8px;border:1px solid var(--border);border-radius:6px;background:#fff;transition:all 0.12s;white-space:nowrap}
+.copy-btn:hover{background:var(--bg-light)}
+.code-mono{font-family:'Inter',monospace;font-size:11.5px;background:var(--navy);color:#e2e8f0;border-radius:8px;padding:12px 14px;margin-bottom:8px;white-space:pre-wrap;line-height:1.7}
+.mockup{background:var(--bg-warm);border:1px solid var(--border);border-radius:10px;padding:1.25rem;margin-bottom:8px}
+.mockup-bar{display:flex;align-items:center;gap:5px;margin-bottom:10px;padding-bottom:10px;border-bottom:1px solid var(--border)}
+.m-dot{width:7px;height:7px;border-radius:50%;background:var(--border)}
+.m-url{font-size:10.5px;color:var(--slate);background:#fff;border:1px solid var(--border);border-radius:4px;padding:2px 8px;margin-left:4px;font-family:'Inter',monospace}
+.chat-who{font-size:10px;color:var(--slate);margin-bottom:3px;font-weight:500;text-transform:uppercase;letter-spacing:0.05em}
+.chat-bubble{background:#fff;border:1px solid var(--border);border-radius:10px;border-bottom-left-radius:3px;padding:9px 13px;margin-bottom:8px;font-size:12.5px;color:var(--navy);line-height:1.6;max-width:95%}
+.chat-bubble.user{background:var(--navy);color:#fff;border-color:var(--navy);border-bottom-right-radius:3px;border-bottom-left-radius:10px;margin-left:auto}
+.steps-card{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:8px}
+.vstep{display:flex;gap:13px;padding:11px 15px;border-bottom:1px solid var(--border);align-items:flex-start}
+.vstep:last-child{border-bottom:none}
+.vs-num{width:22px;height:22px;border-radius:50%;background:var(--bg-light);border:1px solid var(--border);font-size:10px;font-weight:700;color:var(--slate-med);display:flex;align-items:center;justify-content:center;flex-shrink:0;margin-top:1px;font-family:'Space Grotesk',sans-serif}
+.vs-title{font-size:13px;font-weight:600;color:var(--navy);margin-bottom:2px;font-family:'Space Grotesk',sans-serif}
+.vs-desc{font-size:12px;color:var(--slate-med);line-height:1.55}
+.vs-desc code{font-family:monospace;font-size:11px;background:var(--bg-light);border:1px solid var(--border);border-radius:3px;padding:1px 5px;color:var(--navy)}
+.checklist{border:1px solid var(--border);border-radius:10px;overflow:hidden;margin-bottom:8px}
+.cl-head{background:var(--navy);padding:9px 14px;font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.1em;color:var(--mint);display:flex;align-items:center;gap:6px;font-family:'Space Grotesk',sans-serif}
+.cl-prog{margin-left:auto;color:rgba(255,255,255,0.5);font-size:10px}
+.cl-item{display:flex;align-items:flex-start;gap:11px;padding:10px 14px;border-top:1px solid var(--border);cursor:pointer;transition:background 0.1s}
+.cl-item:hover{background:var(--bg-warm)}
+.cl-box{width:16px;height:16px;border-radius:3px;border:1.5px solid var(--border);flex-shrink:0;margin-top:1px;transition:all 0.12s;background:#fff}
+.cl-box.ck{background:var(--navy);border-color:var(--navy);display:flex;align-items:center;justify-content:center}
+.cl-box.ck::after{content:'';width:8px;height:5px;border-left:2px solid var(--mint);border-bottom:2px solid var(--mint);transform:rotate(-45deg) translateY(-1px)}
+.cl-item.ck .cl-text{color:var(--slate);text-decoration:line-through}
+.cl-text{font-size:12.5px;color:var(--navy);line-height:1.5}
+.arch-flow{display:flex;flex-direction:column;gap:0;margin-bottom:8px}
+.arch-node{background:var(--bg-light);border:1px solid var(--border);border-radius:8px;padding:9px 13px;font-size:12.5px;color:var(--navy);font-weight:500}
+.arch-arrow{padding:3px 16px;font-size:11px;color:var(--slate);display:flex;align-items:center;gap:5px}
+.two-col{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+.info-card{background:var(--bg-warm);border:1px solid var(--border);border-radius:8px;padding:12px 14px}
+.info-card .ic-label{font-size:10px;font-weight:600;text-transform:uppercase;letter-spacing:0.08em;color:var(--slate);margin-bottom:5px}
+.info-card .ic-val{font-size:12.5px;color:var(--navy);line-height:1.5}
+.api-row{display:grid;grid-template-columns:1fr 1fr;gap:10px;margin-bottom:8px}
+.api-card{border:1px solid var(--border);border-radius:8px;padding:12px 14px}
+.api-card-name{font-size:12px;font-weight:700;color:var(--navy);margin-bottom:4px;display:flex;align-items:center;gap:6px;font-family:'Space Grotesk',sans-serif}
+.api-card-name i{color:var(--blue)}
+.api-card-desc{font-size:12px;color:var(--slate-med);line-height:1.5}
+.key-box{display:flex;align-items:center;gap:10px;padding:10px 14px;background:var(--navy);border-radius:8px;margin-bottom:8px}
+.key-text{font-family:monospace;font-size:11.5px;color:var(--mint);flex:1;letter-spacing:0.04em}
+.step-chips{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:8px}
+.step-chip{font-size:11px;padding:4px 10px;border-radius:999px;border:1px solid var(--border);color:var(--slate-med);background:var(--bg-light);font-weight:500}
+.nav-row{display:flex;justify-content:space-between;align-items:center;margin-top:2rem;padding-top:1.25rem;border-top:1px solid var(--border)}
+.nav-btn{font-size:12px;font-weight:600;padding:7px 14px;border-radius:7px;border:1.5px solid var(--border);background:#fff;color:var(--navy);cursor:pointer;display:flex;align-items:center;gap:5px;font-family:'Space Grotesk',sans-serif;transition:all 0.12s}
+.nav-btn:hover:not(:disabled){background:var(--navy);color:#fff;border-color:var(--navy)}
+.nav-btn:disabled{opacity:0.3;cursor:default}
+.nav-btn.primary{background:var(--navy);color:#fff;border-color:var(--navy)}
+.nav-btn.primary:hover:not(:disabled){background:var(--deep-navy)}
+.pdots{display:flex;gap:5px;align-items:center}
+.pdot{width:6px;height:6px;border-radius:50%;background:var(--border);cursor:pointer;transition:all 0.15s}
+.pdot.on{background:var(--navy);width:16px;border-radius:3px}
+.done-tag{font-size:11px;font-weight:500;padding:3px 10px;border-radius:999px;background:rgba(56,245,163,0.15);color:var(--success-text);border:1px solid var(--success-border);margin-left:auto}
+</style>
+
+<h2 class="sr-only">Archipelago AEC — How to build an AI construction cost estimator, step-by-step guide</h2>
+
+<div class="w">
+  <div class="header">
+    <div class="header-logo">archipelago<span>.</span>aec</div>
+    <span style="font-size:11px;color:rgba(255,255,255,0.3);margin-left:4px;font-weight:300">Build guide</span>
+    <span class="header-tag" id="done-tag">0 / 27 done</span>
+  </div>
+  <div class="layout">
+    <div class="sidebar" id="sb"></div>
+    <div id="ct"></div>
+  </div>
+</div>
+
+<script>
+const checks={};
+
+const phases=[
+{id:1,label:"Start your artifact",eyebrow:"Phase 1",sub:"Open Claude and describe what you want. You have never done this before — that is fine. No code, no installs.",
+sections:[
+  {t:"success",icon:"ti-info-circle",text:"An artifact is a live app that Claude builds and runs in the chat panel on the right. You describe what you want in plain English. Claude builds it. You give feedback to improve it."},
+  {t:"slabel",v:"What it looks like in Claude"},
+  {t:"mockup-chat",items:[
+    {who:"Claude",user:false,text:"Here is your Construction Estimate Quiz! It runs in this panel. Click through all 13 steps and tell me what to change."},
+    {who:"You",user:true,text:"Add a city field to the location step so the AI can reference it in its analysis."},
+    {who:"Claude",user:false,text:"Done! Location is now country → state → city. The AI prompt will use the city name in its market check."}
+  ]},
+  {t:"slabel",v:"Your opening prompt — tap to copy"},
+  {t:"copy",text:"I want to build a multi-step construction cost estimator for residential houses. Users answer questions about location, terrain, style, rooms, outdoor spaces, and finishes. At the end they get an estimated cost range with AI validation. Build this as a React artifact with a clean professional design."},
+  {t:"warn",icon:"ti-bulb",text:"Describe the end result, not the steps. Claude will suggest a structure — you refine it in the next message before it builds anything."},
+  {t:"slabel",v:"Then add your feature list before Claude builds"},
+  {t:"copy",text:"Yes. Also add these 13 steps: Location (country + state + city), Terrain & Access, Land & Soil, Style & Geometry (architecture style + roof type), Floors, Room Size, Living Areas with custom rooms, Other Areas (basement + garage), Outdoor (deck + pool), Sustainability features, Finishes, Contact form, Summary + AI report. Use image cards for all visual choices. Now build it."},
+  {t:"slabel",v:"The 13 steps in the final tool"},
+  {t:"chips",items:["1 · Location","2 · Terrain & access","3 · Land & soil","4 · Style & geometry","5 · Floors","6 · Room size","7 · Living areas","8 · Other areas","9 · Outdoor","10 · Sustainability","11 · Finishes","12 · Contact","13 · Summary + AI report"]},
+  {t:"checklist",id:"p1",items:[
+    "Open claude.ai — confirm the artifact panel appears on the right side",
+    "Send the opening prompt above",
+    "Add the feature list before Claude builds — not after",
+    "Walk through all 13 steps — confirm none are skipped or broken",
+    "Click back and forward — your selections should stay saved"
+  ]}
+]},
+
+{id:2,label:"Cost model",eyebrow:"Phase 2",sub:"Tell Claude how to calculate the estimate. This is the engine behind the numbers — paste it in one message.",
+sections:[
+  {t:"slabel",v:"The formula — paste this to Claude"},
+  {t:"copy",text:"Update the cost calculation engine to this formula:\n\nTOTAL COST = [(weighted room area × 1.20 circulation + basement area × basement weight + garage area × garage weight) × base rate per sqft × design multiplier × quality multiplier × site multiplier] + add-ons\n\nRoom weights: living ×1.0, bedroom ×1.0, kitchen ×1.25, bathroom ×1.40, laundry ×1.15, storage ×0.75\nBasement: none=0, unfinished=0.50, finished=0.80\nGarage: attached=0.50, uncovered=0.20\nFloors: add 80 sqft staircase per extra floor + 3% structural uplift per extra floor\nEstimate range: low ×0.90, mid ×1.00, high ×1.12\n\nKeep all other code unchanged."},
+  {t:"warn",icon:"ti-bulb",text:"Ask Claude to show you the current cost logic first. Paste it back here so you can verify it before changing anything."},
+  {t:"slabel",v:"Why room weights matter"},
+  {t:"two-col",items:[{label:"Without weights",val:"All rooms cost the same per sqft — inaccurate"},{label:"With weights",val:"Kitchens and bathrooms cost more — realistic"}]},
+  {t:"danger",icon:"ti-alert-triangle",text:"Important: the cost/sqft shown in the estimate box and the number sent to the AI must come from the same variable. If they differ, the AI will reference a number the user never saw. Tell Claude: 'Calculate costPerSqft once as est.mid divided by interiorSqft and reuse that variable in both the display box and the AI prompt.'"},
+  {t:"checklist",id:"p2",items:[
+    "Switch finish from Basic to Luxury — cost should roughly double",
+    "Add a bathroom vs a storage room — bathroom should cost noticeably more",
+    "Change floor count — confirm total area updates in the summary",
+    "Cost/sqft in estimate box matches the number AI references in its analysis"
+  ]}
+]},
+
+{id:3,label:"Add images",eyebrow:"Phase 3",sub:"Replace emoji placeholders with real photos. Generate in Gemini or any AI image tool, then paste Google Drive links.",
+sections:[
+  {t:"slabel",v:"How to convert Drive links to working image URLs"},
+  {t:"arch-flow",items:[
+    {label:"Generate image in Gemini, ChatGPT, or Midjourney"},
+    {arrow:"download to your computer"},
+    {label:"Google Drive → upload → Share → Anyone with the link"},
+    {arrow:"copy the file ID from the URL"},
+    {label:"Use this format in your prompt to Claude:"}
+  ]},
+  {t:"code",text:"Your Drive share link:\nhttps://drive.google.com/file/d/FILE_ID/view\n\nEmbed URL to give Claude:\nhttps://drive.google.com/thumbnail?id=FILE_ID&sz=w400"},
+  {t:"copy",text:"Add images to the style, terrain, land, roof, and finishing cards using these Google Drive links: [paste your list here]. Convert each to: drive.google.com/thumbnail?id=FILE_ID&sz=w400. If any image is missing, show a clean grey placeholder — no broken image icon."},
+  {t:"danger",icon:"ti-alert-triangle",text:"Gemini share links (gemini.google.com/share/...) do not work as image URLs. They are conversation pages. Always download the image first and upload it to Google Drive or Imgur."},
+  {t:"slabel",v:"Images you need — 23 total"},
+  {t:"chips",items:["6 styles","4 terrain types","2 land types","4 roof types","4 finish levels","3 room sizes"]},
+  {t:"copy",text:"Remove all visible base rates ($/sqft numbers) from the country selection cards, state/province cards, and any tags that appear after making a location selection. They should power the calculation silently but never appear on screen."},
+  {t:"checklist",id:"p3",items:[
+    "Open each image card — all images load, no broken links",
+    "Missing images show a clean placeholder, not an error icon",
+    "No $/sqft numbers appear anywhere on location or selection cards",
+    "Test on mobile — card images scale without breaking"
+  ]}
+]},
+
+{id:4,label:"AI validation",eyebrow:"Phase 4",sub:"Add the AI analysis that runs after the user confirms their selections. This is where bugs are most likely — read carefully.",
+sections:[
+  {t:"slabel",v:"Where the AI call goes"},
+  {t:"arch-flow",items:[
+    {label:"User reviews summary → clicks Confirm"},
+    {arrow:"loading screen: 'AI is reviewing your project...'"},
+    {label:"Claude API called with full project data"},
+    {arrow:"returns 4 validation checks as JSON"},
+    {label:"Final screen shows estimate range + AI checks"}
+  ]},
+  {t:"slabel",v:"Prompt to add the AI validation"},
+  {t:"copy",text:"After the user clicks Confirm on the summary screen, show a loading state ('AI is reviewing your project...'), then call the Anthropic API. Return exactly 4 checks as JSON: cityAnalysis (validate cost/sqft for the specific city — if city is unknown return null, never invent data), stateAnalysis (market context for the state/province — always fill this in), scopeCoherence (does the room mix, area, and floor count make sense?), addOnsImpact (do the extras represent a reasonable % of the total?). Show the 4 checks on the final results screen."},
+  {t:"danger",icon:"ti-alert-triangle",text:"Bug #1 — nested template literals. The #1 cause of infinite loading. If you build your AI prompt with backticks and nest another backtick expression inside it, JavaScript breaks silently. The fetch never fires. The spinner runs forever. You get no error message."},
+  {t:"code",text:"WRONG — breaks silently:\nconst prompt = `Garage: ${data.cars ? `${data.cars}-car` : '-'}`\n\nCORRECT — extract all values first:\nconst garageText = data.cars ? data.cars + '-car' : 'none';\nconst prompt = `Garage: ${garageText}`;"},
+  {t:"danger",icon:"ti-alert-triangle",text:"Bug #2 — missing finally block. If setSubmitted(true) is inside the try block, any API error leaves the spinner running forever. The user is stuck."},
+  {t:"code",text:"try {\n  const res = await fetch(...);\n  setAiAnalysis(await res.json());\n} catch (e) {\n  setAiAnalysis(null);\n} finally {\n  setAiLoading(false);  // always runs\n  setSubmitted(true);   // always runs\n}"},
+  {t:"warn",icon:"ti-bookmark",text:"Anchor rule: before changing anything in the AI call, copy the working code to a notes file. If something breaks, restore from that copy first — then reapply your changes on top. Never debug a broken API call incrementally."},
+  {t:"danger",icon:"ti-alert-triangle",text:"Bug #3 — AI inventing fake comparables. If you ask Claude to generate 'comparable projects', it invents realistic-sounding but fabricated numbers that often contradict your own estimate. Use 4 fixed named checks instead — never open-ended comparables."},
+  {t:"checklist",id:"p4",items:[
+    "Fill a real city (e.g. Los Angeles) — city check populates with real data",
+    "Fill a fake city ('Blargville') — city check shows 'No verified local data', nothing invented",
+    "Disconnect internet mid-flow — tool advances to results, no stuck spinner",
+    "Cost/sqft in estimate box matches the number AI references in its checks",
+    "Submit twice with different inputs — AI checks change each time"
+  ]}
+]},
+
+{id:5,label:"API key setup",eyebrow:"Phase 5",sub:"Before your deployed tool can call Claude, you need an Anthropic API account. Separate from Claude.ai — takes 5 minutes.",
+sections:[
+  {t:"slabel",v:"Claude.ai vs the API — not the same thing"},
+  {t:"two-col",items:[
+    {label:"Claude.ai (what you use now)",val:"Chat interface. Free or Pro plan. AI analysis works here automatically inside the artifact."},
+    {label:"Anthropic API (what deployed tool needs)",val:"Programmatic access. Pay per use. Required when your tool runs on Vercel for real users."}
+  ]},
+  {t:"warn",icon:"ti-bulb",text:"Your Claude.ai subscription does not include API access. They are separate products with separate billing. The API costs roughly $0.003 per estimate — about $3 per 1,000 users."},
+  {t:"slabel",v:"Step 1 — Create your API account"},
+  {t:"steps",items:[
+    {n:1,title:"Go to console.anthropic.com",desc:"Click Sign up. You can use the same Google account as Claude.ai — but it creates a separate account with separate billing."},
+    {n:2,title:"Verify your phone number",desc:"Anthropic requires phone verification to activate a new account. Enter your number and confirm the code."},
+    {n:3,title:"You land on the Console dashboard",desc:"This is where you manage API keys, usage, and billing. It looks different from claude.ai — that is expected."}
+  ]},
+  {t:"slabel",v:"Step 2 — Add credits (required)"},
+  {t:"steps",items:[
+    {n:1,title:"Go to Billing → Add credits",desc:"The API requires prepaid credits before it responds. Without credits, every call returns an error and your tool shows a spinner forever."},
+    {n:2,title:"Add $5 to start",desc:"Enough for roughly 1,500–2,000 estimates. You get an email when balance is low. Auto-recharge is available."},
+    {n:3,title:"Set a monthly spend limit",desc:"Under Billing → Usage limits, set a cap like $20. This prevents surprise charges if your tool goes viral."}
+  ]},
+  {t:"slabel",v:"Step 3 — Create and copy your API key"},
+  {t:"steps",items:[
+    {n:1,title:"Go to API Keys → Create Key",desc:"Give it a name like construction-estimator. Click Create."},
+    {n:2,title:"Copy the key immediately",desc:"The full key is shown only once. If you close the dialog without copying, you must delete it and create a new one."},
+    {n:3,title:"Save it privately",desc:"Paste it in a password manager or private notes app. You will paste it into Vercel in Phase 7. Never commit it to GitHub."}
+  ]},
+  {t:"slabel",v:"What your key looks like"},
+  {t:"keybox",text:"sk-ant-api03-••••••••••••••••••••••••••••••••••••••••••••••••"},
+  {t:"warn",icon:"ti-shield-lock",text:"Keys start with sk-ant-api03- and are about 90 characters long. If yours looks shorter, you copied only part of it — go back and copy again."},
+  {t:"checklist",id:"p5",items:[
+    "Created account at console.anthropic.com",
+    "Phone number verified — account is active",
+    "Added at least $5 in credits under Billing",
+    "Set a monthly spend limit under Usage limits",
+    "Created API key named construction-estimator",
+    "Copied the full key and saved it privately"
+  ]}
+]},
+
+{id:6,label:"Add email (Resend)",eyebrow:"Phase 6",sub:"Send the estimate report to the user by email after they submit. One function, no server setup, copy and paste.",
+sections:[
+  {t:"slabel",v:"What Resend does"},
+  {t:"arch-flow",items:[
+    {label:"User submits name + email on the contact step"},
+    {arrow:"your Vercel function receives the data"},
+    {label:"Function calls Resend API with estimate + AI checks"},
+    {arrow:"Resend delivers the HTML email"},
+    {label:"User receives their full report in inbox"}
+  ]},
+  {t:"slabel",v:"Step 1 — Create a free Resend account"},
+  {t:"steps",items:[
+    {n:1,title:"Go to resend.com",desc:"Create a free account. Free tier sends up to 3,000 emails per month."},
+    {n:2,title:"Create an API key",desc:"Go to API Keys → Create API Key. Copy it — you will need it in Phase 7."},
+    {n:3,title:"Sender address for testing",desc:"For testing you can send from onboarding@resend.dev. For production, add your own domain under Domains."}
+  ]},
+  {t:"slabel",v:"Step 2 — Tell Claude to add the email function"},
+  {t:"copy",text:"Add a Resend email function to this project. When the user submits their contact info, send them an HTML email with: their name, the estimate range (low / mid / high), the 4 AI validation check results, and a call to action to schedule a consultation. Also send a copy to [your@email.com]. Use the Resend API — I will add the API key as an environment variable called RESEND_API_KEY."},
+  {t:"warn",icon:"ti-bulb",text:"You do not write any code. Claude generates the full function. Your job is to copy it to GitHub and add the API key to Vercel in the next phase."},
+  {t:"checklist",id:"p6",items:[
+    "Created Resend account and copied API key",
+    "Asked Claude to add the email function — confirmed it generated the file",
+    "Submitted a test estimate — received the report email",
+    "Email looks correct on mobile"
+  ]}
+]},
+
+{id:7,label:"Deploy on Vercel",eyebrow:"Phase 7",sub:"Put your tool live online. No terminal, no command line — everything through the browser in about 15 minutes.",
+sections:[
+  {t:"danger",icon:"ti-alert-triangle",text:"Never publish directly from Claude.ai with your API key in the code. The artifact runs in the browser — anyone who inspects the source can steal your key and use your credits. Your key goes in Vercel's environment variables only."},
+  {t:"slabel",v:"The safe architecture"},
+  {t:"arch-flow",items:[
+    {label:"User's browser — no API key here, ever"},
+    {arrow:"sends project data only"},
+    {label:"Your Vercel function — holds both keys secretly"},
+    {arrow:"forwards requests to Anthropic API + Resend"},
+    {label:"Results returned to user's browser"}
+  ]},
+  {t:"slabel",v:"Step 1 — Get your files from Claude"},
+  {t:"copy",text:"I want to deploy this on Vercel via GitHub. Generate these files separately so I can copy each one: src/App.jsx (the React app), api/estimate.js (Vercel serverless function that proxies requests to Anthropic — key stored as ANTHROPIC_API_KEY environment variable), api/send-report.js (Resend email function — key stored as RESEND_API_KEY), package.json, and vercel.json. Show the full content of each file one by one."},
+  {t:"slabel",v:"Step 2 — Create your GitHub repo (browser only)"},
+  {t:"steps",items:[
+    {n:1,title:"Go to github.com → New repository",desc:"Name it construction-estimator. Set to Public. Click Create repository."},
+    {n:2,title:"Press the period key ( . ) on your keyboard",desc:"This opens github.dev — a full VS Code editor that runs in your browser. No installs needed."},
+    {n:3,title:"Create the files",desc:"In the file tree on the left, create: <code>src/App.jsx</code>, <code>api/estimate.js</code>, <code>api/send-report.js</code>, <code>package.json</code>, <code>vercel.json</code>. Paste the code from Claude into each file."},
+    {n:4,title:"Commit and push",desc:"Click the Source Control icon (branch icon) → type 'initial build' → click Commit & Push."}
+  ]},
+  {t:"slabel",v:"Step 3 — Deploy on Vercel (browser only)"},
+  {t:"steps",items:[
+    {n:1,title:"Go to vercel.com → Add New Project",desc:"Connect your GitHub account. Select your construction-estimator repository."},
+    {n:2,title:"Add your environment variables",desc:"Before clicking Deploy, go to Environment Variables and add: ANTHROPIC_API_KEY and RESEND_API_KEY. Paste the keys you saved in phases 5 and 6."},
+    {n:3,title:"Click Deploy",desc:"Vercel builds automatically. In about 60 seconds you get a live URL like your-project.vercel.app."},
+    {n:4,title:"Update the fetch URL in your app",desc:"In src/App.jsx, change the Anthropic URL to /api/estimate. Commit the change — Vercel redeploys automatically."}
+  ]},
+  {t:"warn",icon:"ti-bulb",text:"Every time you push a change to GitHub, Vercel redeploys automatically. Your live URL never changes."},
+  {t:"checklist",id:"p7",items:[
+    "Opened the Vercel URL in a fresh browser — tool loads correctly",
+    "Completed a full estimate — AI analysis works with no errors",
+    "Submitted with your own email — report email arrives in inbox",
+    "Opened DevTools → Network tab — no API key visible in any request",
+    "Shared the URL with one other person to test it",
+    "Tested on mobile — all 13 steps work on a small screen"
+  ]}
+]},
+];
+
+let cur=0;
+
+function countAll(){
+  let d=0,t=0;
+  document.querySelectorAll('.cl-item').forEach(el=>{t++;if(el.classList.contains('ck'))d++;});
+  document.getElementById('done-tag').textContent=d+' / '+t+' done';
+}
+
+function togCheck(el){
+  el.classList.toggle('ck');
+  el.querySelector('.cl-box').classList.toggle('ck');
+  const id=el.dataset.id,idx=parseInt(el.dataset.idx);
+  if(!checks[id])checks[id]={};
+  checks[id][idx]=el.classList.contains('ck');
+  const items=document.querySelectorAll(`.cl-item[data-id="${id}"]`);
+  const done=[...items].filter(x=>x.classList.contains('ck')).length;
+  const prog=document.getElementById('clprog-'+id);
+  if(prog)prog.textContent=done+'/'+items.length;
+  countAll();
+  updateSidebar();
+}
+
+function copyText(btn,encoded){
+  const text=decodeURIComponent(atob(encoded));
+  navigator.clipboard.writeText(text).then(()=>{
+    btn.innerHTML='<i class="ti ti-check" aria-hidden="true"></i> Copied';
+    btn.style.color='var(--teal)';
+    setTimeout(()=>{btn.innerHTML='<i class="ti ti-copy" aria-hidden="true"></i> Copy';btn.style.color='';},1800);
+  });
+}
+
+function R(s){
+  if(s.t==='slabel')return`<div class="slabel">${s.v}</div>`;
+  if(s.t==='success')return`<div class="success-box"><i class="ti ${s.icon}" aria-hidden="true"></i><p>${s.text}</p></div>`;
+  if(s.t==='warn')return`<div class="warn-box"><i class="ti ${s.icon}" aria-hidden="true"></i><p>${s.text}</p></div>`;
+  if(s.t==='danger')return`<div class="danger-box"><i class="ti ${s.icon}" aria-hidden="true"></i><p>${s.text}</p></div>`;
+  if(s.t==='copy'){
+    const enc=btoa(encodeURIComponent(s.text));
+    return`<div class="copy-row"><span class="copy-text">${s.text}</span><button class="copy-btn" onclick="copyText(this,'${enc}')"><i class="ti ti-copy" aria-hidden="true"></i> Copy</button></div>`;
+  }
+  if(s.t==='code')return`<div class="code-mono">${s.text}</div>`;
+  if(s.t==='mockup-chat'){
+    const bubbles=s.items.map(m=>`<div class="chat-who">${m.who}</div><div class="chat-bubble ${m.user?'user':''}">${m.text}</div>`).join('');
+    return`<div class="mockup"><div class="mockup-bar"><div class="m-dot"></div><div class="m-dot"></div><div class="m-dot"></div><span class="m-url">claude.ai</span></div>${bubbles}</div>`;
+  }
+  if(s.t==='arch-flow'){
+    return`<div class="arch-flow">${s.items.map(i=>i.arrow?`<div class="arch-arrow"><i class="ti ti-arrow-down" aria-hidden="true"></i>${i.arrow}</div>`:`<div class="arch-node">${i.label}</div>`).join('')}</div>`;
+  }
+  if(s.t==='steps'){
+    return`<div class="steps-card">${s.items.map(i=>`<div class="vstep"><div class="vs-num">${i.n}</div><div><div class="vs-title">${i.title}</div><div class="vs-desc">${i.desc}</div></div></div>`).join('')}</div>`;
+  }
+  if(s.t==='checklist'){
+    const saved=checks[s.id]||{};
+    const done=Object.values(saved).filter(Boolean).length;
+    const rows=s.items.map((txt,i)=>`<div class="cl-item ${saved[i]?'ck':''}" onclick="togCheck(this)" data-id="${s.id}" data-idx="${i}"><div class="cl-box ${saved[i]?'ck':''}"></div><span class="cl-text">${txt}</span></div>`).join('');
+    return`<div class="checklist"><div class="cl-head"><i class="ti ti-checklist" aria-hidden="true"></i>Before moving on<span class="cl-prog" id="clprog-${s.id}">${done}/${s.items.length}</span></div>${rows}</div>`;
+  }
+  if(s.t==='two-col')return`<div class="two-col">${s.items.map(a=>`<div class="info-card"><div class="ic-label">${a.label}</div><div class="ic-val">${a.val}</div></div>`).join('')}</div>`;
+  if(s.t==='chips')return`<div class="step-chips">${s.items.map(c=>`<span class="step-chip">${c}</span>`).join('')}</div>`;
+  if(s.t==='api-row')return`<div class="api-row">${s.items.map(a=>`<div class="api-card"><div class="api-card-name"><i class="ti ${a.icon}" aria-hidden="true"></i>${a.name}</div><div class="api-card-desc">${a.desc}</div></div>`).join('')}</div>`;
+  if(s.t==='keybox')return`<div class="key-box"><span class="key-text">${s.text}</span><i class="ti ti-eye-off" style="color:rgba(255,255,255,0.3);font-size:15px" aria-hidden="true"></i></div>`;
+  return'';
+}
+
+function goTo(i){
+  cur=i;
+  const p=phases[i];
+  document.getElementById('ct').innerHTML=`<div class="phase active content" style="padding:2rem 1.75rem">
+    <div class="ph-eyebrow">${p.eyebrow} of ${phases.length}</div>
+    <div class="ph-title">${p.label}</div>
+    <div class="ph-sub">${p.sub}</div>
+    ${p.sections.map(R).join('')}
+    <div class="nav-row">
+      <button class="nav-btn" onclick="goTo(${i-1})" ${i===0?'disabled':''}><i class="ti ti-arrow-left" aria-hidden="true"></i> Back</button>
+      <div class="pdots">${phases.map((_,j)=>`<div class="pdot ${j===i?'on':''}" onclick="goTo(${j})"></div>`).join('')}</div>
+      <button class="nav-btn primary" onclick="goTo(${i+1})" ${i===phases.length-1?'disabled':''}>Next <i class="ti ti-arrow-right" aria-hidden="true"></i></button>
+    </div>
+  </div>`;
+  updateSidebar();
+  countAll();
+}
+
+function updateSidebar(){
+  const sb=document.getElementById('sb');
+  sb.innerHTML=phases.map((p,i)=>{
+    const items=document.querySelectorAll(`.cl-item[data-id="p${p.id}"]`);
+    const done=[...items].filter(x=>x.classList.contains('ck')).length;
+    const allDone=items.length>0&&done===items.length;
+    return`<div class="sn ${i===cur?'active':''} ${allDone?'done':''}" onclick="goTo(${i})">
+      <div class="sn-num">${allDone?'<i class="ti ti-check" style="font-size:10px" aria-hidden="true"></i>':p.id}</div>
+      <div class="sn-label">${p.label}</div>
+    </div>`;
+  }).join('');
+}
+
+goTo(0);
+</script>
